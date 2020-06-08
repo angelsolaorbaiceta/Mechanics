@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2020px" height="680px" viewBox="0 0 2020 680" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>truss_structure</title>
+    <g id="truss_structure" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bars" transform="translate(88.000000, 216.000000)" stroke="#606060" stroke-linecap="square" stroke-width="8">
+            <line x1="0" y1="328" x2="1837" y2="328" id="lower"></line>
+            <line x1="460.5" y1="8" x2="919" y2="328" id="Line-2"></line>
+            <line x1="459" y1="8" x2="1376" y2="8" id="upper"></line>
+            <line x1="1376" y1="8" x2="1837" y2="328" id="right"></line>
+            <line x1="460" y1="8" x2="461" y2="328" id="Line"></line>
+            <line x1="918" y1="3" x2="919" y2="323" id="Line"></line>
+            <line x1="1376" y1="0" x2="1377" y2="320" id="Line"></line>
+            <line x1="0" y1="328" x2="459" y2="8" id="left"></line>
+            <line x1="919" y1="328" x2="1376" y2="8" id="Line-3"></line>
+        </g>
+        <g id="nodes" transform="translate(78.000000, 214.000000)" fill="#FFFFFF" stroke="#606060" stroke-width="7">
+            <circle id="node" cx="470" cy="10" r="10"></circle>
+            <circle id="node" cx="928" cy="10" r="10"></circle>
+            <circle id="node" cx="1386" cy="10" r="10"></circle>
+            <circle id="node" cx="471" cy="330" r="10"></circle>
+            <circle id="node" cx="10" cy="330" r="10"></circle>
+            <circle id="node" cx="929" cy="330" r="10"></circle>
+            <circle id="node" cx="1387" cy="330" r="10"></circle>
+            <circle id="node" cx="1847" cy="330" r="10"></circle>
+        </g>
+        <g id="left-support" transform="translate(33.000000, 563.000000)" stroke="#979797">
+            <polygon id="Triangle" stroke-width="7" fill="#FFFFFF" points="55 0 80 45 30 45"></polygon>
+            <g id="ground" transform="translate(0.000000, 44.000000)" stroke-linecap="square">
+                <line x1="0.5" y1="1" x2="112.675781" y2="1" id="Line-4" stroke-width="7"></line>
+                <line x1="7" y1="3.97363281" x2="7" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="26.5" y1="3.97363281" x2="26.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="46.5" y1="3.97363281" x2="46.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="66.5" y1="3.97363281" x2="66.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="86.5" y1="3.97363281" x2="86.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="106.5" y1="3.97363281" x2="106.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+            </g>
+        </g>
+        <g id="right-support" transform="translate(1869.000000, 563.000000)" stroke="#979797">
+            <polygon id="Triangle" stroke-width="7" fill="#FFFFFF" points="56 0 81 29 31 29"></polygon>
+            <circle id="Oval" stroke-width="6" fill="#FFFFFF" cx="43" cy="48" r="13"></circle>
+            <circle id="Oval" stroke-width="6" fill="#FFFFFF" cx="69" cy="48" r="13"></circle>
+            <g id="ground" transform="translate(0.000000, 65.000000)" stroke-linecap="square">
+                <line x1="0.5" y1="1" x2="112.675781" y2="1" id="Line-4" stroke-width="7"></line>
+                <line x1="7" y1="3.97363281" x2="7" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="26.5" y1="3.97363281" x2="26.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="46.5" y1="3.97363281" x2="46.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="66.5" y1="3.97363281" x2="66.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="86.5" y1="3.97363281" x2="86.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+                <line x1="106.5" y1="3.97363281" x2="106.5" y2="36.9208984" id="Line-5" stroke-width="5"></line>
+            </g>
+        </g>
+        <text id="N5" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="1925" y="519">N5</tspan>
+        </text>
+        <text id="N4" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="1452" y="620">N4</tspan>
+        </text>
+        <text id="N3" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="993" y="620">N3</tspan>
+        </text>
+        <text id="N2" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="534" y="620">N2</tspan>
+        </text>
+        <text id="N1" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="41" y="519">N1</tspan>
+        </text>
+        <text id="N8" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="1494" y="196">N8</tspan>
+        </text>
+        <text id="N7" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="1034" y="196">N7</tspan>
+        </text>
+        <text id="N6" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#606060">
+            <tspan x="570" y="196">N6</tspan>
+        </text>
+        <g id="load" transform="translate(434.000000, 46.000000)" stroke="#979797" stroke-linecap="round" stroke-width="5">
+            <line x1="0.5" y1="0.5" x2="99.5" y2="156.5" id="Line-6"></line>
+            <polyline id="Path" points="62 141.921875 102.572266 162 99.5 119.070312"></polyline>
+        </g>
+        <g id="load" transform="translate(1005.561483, 108.763356) rotate(-328.000000) translate(-1005.561483, -108.763356) translate(954.061483, 27.763356)" stroke="#979797" stroke-linecap="round" stroke-width="5">
+            <line x1="0.5" y1="0.5" x2="99.5" y2="156.5" id="Line-6"></line>
+            <polyline id="Path" points="62 141.921875 102.572266 162 99.5 119.070312"></polyline>
+        </g>
+        <g id="load" transform="translate(1462.507812, 108.570312) rotate(32.000000) translate(-1462.507812, -108.570312) translate(1411.007812, 27.570312)" stroke="#979797" stroke-linecap="round" stroke-width="5">
+            <line x1="0.5" y1="0.5" x2="99.5" y2="156.5" id="Line-6"></line>
+            <polyline id="Path" points="62 141.921875 102.572266 162 99.5 119.070312"></polyline>
+        </g>
+        <text id="F1" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#979797">
+            <tspan x="372" y="96">F1</tspan>
+        </text>
+        <text id="F2" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#979797">
+            <tspan x="936" y="62">F2</tspan>
+        </text>
+        <text id="F3" font-family="AvenirNext-Medium, Avenir Next" font-size="50" font-weight="400" letter-spacing="-3.44017083" fill="#979797">
+            <tspan x="1394" y="62">F3</tspan>
+        </text>
+    </g>
+</svg>
