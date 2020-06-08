@@ -1,0 +1,15 @@
+{
+  "frames": 200,
+  "axes": {
+    "length": 100,
+    "arrow-length": 20,
+    "arrow-height": 15,
+    "stroke-width": 2,
+    "x-color": "#D53636",
+    "y-color": "#33FF86"
+  },
+  "geometry": {
+    "stroke-color": "#3F4783",
+    "stroke-width": 3
+  }
+}

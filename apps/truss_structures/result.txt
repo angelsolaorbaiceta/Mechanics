@@ -1,0 +1,589 @@
+NODE 1
+	original position: (0.0, 0.0)
+	displacement: (0.0, 0.0) with norm 0.0
+	displaced position: (0.0, 0.0)
+	reaction: (-283.6981, 9906.9764) with norm 9911.0376
+
+NODE 2
+	original position: (200.0, 0.0)
+	displacement: (0.0063, -0.1828) with norm 0.1829
+	displaced position: (200.0063, -0.1828)
+
+NODE 3
+	original position: (400.0, 0.0)
+	displacement: (0.0127, -0.331) with norm 0.3313
+	displaced position: (400.0127, -0.331)
+
+NODE 4
+	original position: (600.0, 0.0)
+	displacement: (0.019, -0.4776) with norm 0.478
+	displaced position: (600.019, -0.4776)
+
+NODE 5
+	original position: (800.0, 0.0)
+	displacement: (0.0253, -0.6173) with norm 0.6179
+	displaced position: (800.0253, -0.6173)
+
+NODE 6
+	original position: (1000.0, 0.0)
+	displacement: (0.0363, -0.7421) with norm 0.743
+	displaced position: (1000.0363, -0.7421)
+
+NODE 7
+	original position: (1200.0, 0.0)
+	displacement: (0.0473, -0.8442) with norm 0.8455
+	displaced position: (1200.0473, -0.8442)
+
+NODE 8
+	original position: (1400.0, 0.0)
+	displacement: (0.0617, -0.9332) with norm 0.9352
+	displaced position: (1400.0617, -0.9332)
+
+NODE 9
+	original position: (1600.0, 0.0)
+	displacement: (0.076, -0.987) with norm 0.9899
+	displaced position: (1600.076, -0.987)
+
+NODE 10
+	original position: (1800.0, 0.0)
+	displacement: (0.0923, -1.0331) with norm 1.0372
+	displaced position: (1800.0923, -1.0331)
+
+NODE 11
+	original position: (2000.0, 0.0)
+	displacement: (0.1087, -1.0352) with norm 1.0409
+	displaced position: (2000.1087, -1.0352)
+
+NODE 12
+	original position: (2200.0, 0.0)
+	displacement: (0.125, -1.0331) with norm 1.0406
+	displaced position: (2200.125, -1.0331)
+
+NODE 13
+	original position: (2400.0, 0.0)
+	displacement: (0.1413, -0.987) with norm 0.9971
+	displaced position: (2400.1413, -0.987)
+
+NODE 14
+	original position: (2600.0, 0.0)
+	displacement: (0.1557, -0.9332) with norm 0.9461
+	displaced position: (2600.1557, -0.9332)
+
+NODE 15
+	original position: (2800.0, 0.0)
+	displacement: (0.17, -0.8442) with norm 0.8611
+	displaced position: (2800.17, -0.8442)
+
+NODE 16
+	original position: (3000.0, 0.0)
+	displacement: (0.181, -0.7421) with norm 0.7639
+	displaced position: (3000.181, -0.7421)
+
+NODE 17
+	original position: (3200.0, 0.0)
+	displacement: (0.192, -0.6173) with norm 0.6465
+	displaced position: (3200.192, -0.6173)
+
+NODE 18
+	original position: (3400.0, 0.0)
+	displacement: (0.1983, -0.4776) with norm 0.5171
+	displaced position: (3400.1983, -0.4776)
+
+NODE 19
+	original position: (3600.0, 0.0)
+	displacement: (0.2047, -0.331) with norm 0.3892
+	displaced position: (3600.2047, -0.331)
+
+NODE 20
+	original position: (3800.0, 0.0)
+	displacement: (0.211, -0.1828) with norm 0.2792
+	displaced position: (3800.211, -0.1828)
+
+NODE 21
+	original position: (4000.0, 0.0)
+	displacement: (0.2173, 0.0) with norm 0.2173
+	displaced position: (4000.2173, 0.0)
+	reaction: (283.6981, 9906.9764) with norm 9911.0376
+
+NODE 22
+	original position: (200.0, 150.0)
+	displacement: (0.1246, -0.1826) with norm 0.2211
+	displaced position: (200.1246, 149.8174)
+
+NODE 23
+	original position: (600.0, 150.0)
+	displacement: (0.1218, -0.4774) with norm 0.4927
+	displaced position: (600.1218, 149.5226)
+
+NODE 24
+	original position: (1000.0, 150.0)
+	displacement: (0.1181, -0.7419) with norm 0.7513
+	displaced position: (1000.1181, 149.2581)
+
+NODE 25
+	original position: (1400.0, 150.0)
+	displacement: (0.1133, -0.933) with norm 0.9398
+	displaced position: (1400.1133, 149.067)
+
+NODE 26
+	original position: (1800.0, 150.0)
+	displacement: (0.1097, -1.0329) with norm 1.0387
+	displaced position: (1800.1097, 148.9671)
+
+NODE 27
+	original position: (2200.0, 150.0)
+	displacement: (0.1076, -1.0329) with norm 1.0385
+	displaced position: (2200.1076, 148.9671)
+
+NODE 28
+	original position: (2600.0, 150.0)
+	displacement: (0.1041, -0.933) with norm 0.9388
+	displaced position: (2600.1041, 149.067)
+
+NODE 29
+	original position: (3000.0, 150.0)
+	displacement: (0.0992, -0.7419) with norm 0.7485
+	displaced position: (3000.0992, 149.2581)
+
+NODE 30
+	original position: (3400.0, 150.0)
+	displacement: (0.0955, -0.4774) with norm 0.4869
+	displaced position: (3400.0955, 149.5226)
+
+NODE 31
+	original position: (3800.0, 150.0)
+	displacement: (0.0927, -0.1826) with norm 0.2048
+	displaced position: (3800.0927, 149.8174)
+
+NODE 32
+	original position: (400.0, 300.0)
+	displacement: (0.2233, -0.3299) with norm 0.3984
+	displaced position: (400.2233, 299.6701)
+
+NODE 33
+	original position: (800.0, 300.0)
+	displacement: (0.202, -0.6215) with norm 0.6535
+	displaced position: (800.202, 299.3785)
+
+NODE 34
+	original position: (1200.0, 300.0)
+	displacement: (0.174, -0.8468) with norm 0.8645
+	displaced position: (1200.174, 299.1532)
+
+NODE 35
+	original position: (1600.0, 300.0)
+	displacement: (0.142, -0.9881) with norm 0.9983
+	displaced position: (1600.142, 299.0119)
+
+NODE 36
+	original position: (2000.0, 300.0)
+	displacement: (0.1087, -1.0356) with norm 1.0412
+	displaced position: (2000.1087, 298.9644)
+
+NODE 37
+	original position: (2400.0, 300.0)
+	displacement: (0.0753, -0.9881) with norm 0.991
+	displaced position: (2400.0753, 299.0119)
+
+NODE 38
+	original position: (2800.0, 300.0)
+	displacement: (0.0433, -0.8468) with norm 0.8479
+	displaced position: (2800.0433, 299.1532)
+
+NODE 39
+	original position: (3200.0, 300.0)
+	displacement: (0.0153, -0.6215) with norm 0.6216
+	displaced position: (3200.0153, 299.3785)
+
+NODE 40
+	original position: (3600.0, 300.0)
+	displacement: (-0.006, -0.3299) with norm 0.33
+	displaced position: (3599.994, 299.6701)
+
+------------------------------------------
+
+
+BAR 1 (1 ➜ 22) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0098
+	ϵ  (strain)     = -3.919e-05
+	σ  (stress)     = -783.8608
+
+BAR 2 (22 ➜ 3) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.807e-06
+	σ  (stress)     = -36.1389
+
+BAR 3 (3 ➜ 23) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.817e-06
+	σ  (stress)     = -36.3318
+
+BAR 4 (23 ➜ 5) : ⊕ TRACTION
+	Δl (elongation) = 0.0068
+	ϵ  (strain)     = 2.731e-05
+	σ  (stress)     = 546.2809
+
+BAR 5 (5 ➜ 24) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.890e-06
+	σ  (stress)     = -37.8039
+
+BAR 6 (24 ➜ 7) : ⊕ TRACTION
+	Δl (elongation) = 0.0047
+	ϵ  (strain)     = 1.887e-05
+	σ  (stress)     = 377.4707
+
+BAR 7 (7 ➜ 25) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.985e-06
+	σ  (stress)     = -39.7094
+
+BAR 8 (25 ➜ 9) : ⊕ TRACTION
+	Δl (elongation) = 0.0026
+	ϵ  (strain)     = 1.045e-05
+	σ  (stress)     = 209.0219
+
+BAR 9 (9 ➜ 26) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -2.057e-06
+	σ  (stress)     = -41.1479
+
+BAR 10 (26 ➜ 11) : ⊕ TRACTION
+	Δl (elongation) = 0.0005
+	ϵ  (strain)     = 2.083e-06
+	σ  (stress)     = 41.6677
+
+BAR 11 (11 ➜ 27) : ⊕ TRACTION
+	Δl (elongation) = 0.0005
+	ϵ  (strain)     = 2.083e-06
+	σ  (stress)     = 41.6677
+
+BAR 12 (27 ➜ 13) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -2.057e-06
+	σ  (stress)     = -41.1479
+
+BAR 13 (13 ➜ 28) : ⊕ TRACTION
+	Δl (elongation) = 0.0026
+	ϵ  (strain)     = 1.045e-05
+	σ  (stress)     = 209.0219
+
+BAR 14 (28 ➜ 15) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.985e-06
+	σ  (stress)     = -39.7094
+
+BAR 15 (15 ➜ 29) : ⊕ TRACTION
+	Δl (elongation) = 0.0047
+	ϵ  (strain)     = 1.887e-05
+	σ  (stress)     = 377.4707
+
+BAR 16 (29 ➜ 17) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.890e-06
+	σ  (stress)     = -37.8039
+
+BAR 17 (17 ➜ 30) : ⊕ TRACTION
+	Δl (elongation) = 0.0068
+	ϵ  (strain)     = 2.731e-05
+	σ  (stress)     = 546.2809
+
+BAR 18 (30 ➜ 19) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.817e-06
+	σ  (stress)     = -36.3318
+
+BAR 19 (19 ➜ 31) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0005
+	ϵ  (strain)     = -1.807e-06
+	σ  (stress)     = -36.1389
+
+BAR 20 (31 ➜ 21) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0098
+	ϵ  (strain)     = -3.919e-05
+	σ  (stress)     = -783.8608
+
+BAR 21 (32 ➜ 22) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0093
+	ϵ  (strain)     = -3.725e-05
+	σ  (stress)     = -744.9847
+
+BAR 22 (32 ➜ 23) : ⊕ TRACTION
+	Δl (elongation) = 0.0074
+	ϵ  (strain)     = 2.942e-05
+	σ  (stress)     = 588.4556
+
+BAR 23 (33 ➜ 24) : ⊕ TRACTION
+	Δl (elongation) = 0.0053
+	ϵ  (strain)     = 2.101e-05
+	σ  (stress)     = 420.1102
+
+BAR 24 (34 ➜ 25) : ⊕ TRACTION
+	Δl (elongation) = 0.0031
+	ϵ  (strain)     = 1.259e-05
+	σ  (stress)     = 251.7764
+
+BAR 25 (35 ➜ 26) : ⊕ TRACTION
+	Δl (elongation) = 0.001
+	ϵ  (strain)     = 4.191e-06
+	σ  (stress)     = 83.8199
+
+BAR 26 (37 ➜ 27) : ⊕ TRACTION
+	Δl (elongation) = 0.001
+	ϵ  (strain)     = 4.191e-06
+	σ  (stress)     = 83.8199
+
+BAR 27 (38 ➜ 28) : ⊕ TRACTION
+	Δl (elongation) = 0.0031
+	ϵ  (strain)     = 1.259e-05
+	σ  (stress)     = 251.7764
+
+BAR 28 (39 ➜ 29) : ⊕ TRACTION
+	Δl (elongation) = 0.0053
+	ϵ  (strain)     = 2.101e-05
+	σ  (stress)     = 420.1102
+
+BAR 29 (40 ➜ 30) : ⊕ TRACTION
+	Δl (elongation) = 0.0074
+	ϵ  (strain)     = 2.942e-05
+	σ  (stress)     = 588.4556
+
+BAR 30 (40 ➜ 31) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0093
+	ϵ  (strain)     = -3.725e-05
+	σ  (stress)     = -744.9847
+
+BAR 31 (2 ➜ 22) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.561e-06
+	σ  (stress)     = 31.2171
+
+BAR 32 (3 ➜ 32) : ⊕ TRACTION
+	Δl (elongation) = 0.0012
+	ϵ  (strain)     = 3.997e-06
+	σ  (stress)     = 79.9311
+
+BAR 33 (4 ➜ 23) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.485e-06
+	σ  (stress)     = 29.6977
+
+BAR 34 (5 ➜ 33) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0041
+	ϵ  (strain)     = -1.358e-05
+	σ  (stress)     = -271.5321
+
+BAR 35 (6 ➜ 24) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.399e-06
+	σ  (stress)     = 27.9746
+
+BAR 36 (7 ➜ 34) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0026
+	ϵ  (strain)     = -8.661e-06
+	σ  (stress)     = -173.2173
+
+BAR 37 (8 ➜ 25) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.309e-06
+	σ  (stress)     = 26.1839
+
+BAR 38 (9 ➜ 35) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0011
+	ϵ  (strain)     = -3.726e-06
+	σ  (stress)     = -74.516
+
+BAR 39 (10 ➜ 26) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.257e-06
+	σ  (stress)     = 25.1348
+
+BAR 40 (11 ➜ 36) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0004
+	ϵ  (strain)     = -1.250e-06
+	σ  (stress)     = -25.0
+
+BAR 41 (12 ➜ 27) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.257e-06
+	σ  (stress)     = 25.1348
+
+BAR 42 (13 ➜ 37) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0011
+	ϵ  (strain)     = -3.726e-06
+	σ  (stress)     = -74.516
+
+BAR 43 (14 ➜ 28) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.309e-06
+	σ  (stress)     = 26.1839
+
+BAR 44 (15 ➜ 38) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0026
+	ϵ  (strain)     = -8.661e-06
+	σ  (stress)     = -173.2173
+
+BAR 45 (16 ➜ 29) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.399e-06
+	σ  (stress)     = 27.9746
+
+BAR 46 (17 ➜ 39) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0041
+	ϵ  (strain)     = -1.358e-05
+	σ  (stress)     = -271.5321
+
+BAR 47 (18 ➜ 30) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.485e-06
+	σ  (stress)     = 29.6977
+
+BAR 48 (19 ➜ 40) : ⊕ TRACTION
+	Δl (elongation) = 0.0012
+	ϵ  (strain)     = 3.997e-06
+	σ  (stress)     = 79.9311
+
+BAR 49 (20 ➜ 31) : ⊕ TRACTION
+	Δl (elongation) = 0.0002
+	ϵ  (strain)     = 1.561e-06
+	σ  (stress)     = 31.2171
+
+BAR 50 (1 ➜ 2) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.208e-05
+	σ  (stress)     = 641.6891
+
+BAR 51 (2 ➜ 3) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.194e-05
+	σ  (stress)     = 638.8238
+
+BAR 52 (3 ➜ 4) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.194e-05
+	σ  (stress)     = 638.7046
+
+BAR 53 (4 ➜ 5) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.191e-05
+	σ  (stress)     = 638.2145
+
+BAR 54 (5 ➜ 6) : ⊕ TRACTION
+	Δl (elongation) = 0.011
+	ϵ  (strain)     = 5.519e-05
+	σ  (stress)     = 1103.8937
+
+BAR 55 (6 ➜ 7) : ⊕ TRACTION
+	Δl (elongation) = 0.011
+	ϵ  (strain)     = 5.513e-05
+	σ  (stress)     = 1102.6028
+
+BAR 56 (7 ➜ 8) : ⊕ TRACTION
+	Δl (elongation) = 0.0144
+	ϵ  (strain)     = 7.177e-05
+	σ  (stress)     = 1435.3127
+
+BAR 57 (8 ➜ 9) : ⊕ TRACTION
+	Δl (elongation) = 0.0143
+	ϵ  (strain)     = 7.170e-05
+	σ  (stress)     = 1434.0584
+
+BAR 58 (9 ➜ 10) : ⊕ TRACTION
+	Δl (elongation) = 0.0163
+	ϵ  (strain)     = 8.169e-05
+	σ  (stress)     = 1633.8635
+
+BAR 59 (10 ➜ 11) : ⊕ TRACTION
+	Δl (elongation) = 0.0163
+	ϵ  (strain)     = 8.167e-05
+	σ  (stress)     = 1633.3345
+
+BAR 60 (11 ➜ 12) : ⊕ TRACTION
+	Δl (elongation) = 0.0163
+	ϵ  (strain)     = 8.167e-05
+	σ  (stress)     = 1633.3345
+
+BAR 61 (12 ➜ 13) : ⊕ TRACTION
+	Δl (elongation) = 0.0163
+	ϵ  (strain)     = 8.169e-05
+	σ  (stress)     = 1633.8635
+
+BAR 62 (13 ➜ 14) : ⊕ TRACTION
+	Δl (elongation) = 0.0143
+	ϵ  (strain)     = 7.170e-05
+	σ  (stress)     = 1434.0584
+
+BAR 63 (14 ➜ 15) : ⊕ TRACTION
+	Δl (elongation) = 0.0144
+	ϵ  (strain)     = 7.177e-05
+	σ  (stress)     = 1435.3127
+
+BAR 64 (15 ➜ 16) : ⊕ TRACTION
+	Δl (elongation) = 0.011
+	ϵ  (strain)     = 5.513e-05
+	σ  (stress)     = 1102.6028
+
+BAR 65 (16 ➜ 17) : ⊕ TRACTION
+	Δl (elongation) = 0.011
+	ϵ  (strain)     = 5.519e-05
+	σ  (stress)     = 1103.8937
+
+BAR 66 (17 ➜ 18) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.191e-05
+	σ  (stress)     = 638.2145
+
+BAR 67 (18 ➜ 19) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.194e-05
+	σ  (stress)     = 638.7046
+
+BAR 68 (19 ➜ 20) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.194e-05
+	σ  (stress)     = 638.8238
+
+BAR 69 (20 ➜ 21) : ⊕ TRACTION
+	Δl (elongation) = 0.0064
+	ϵ  (strain)     = 3.208e-05
+	σ  (stress)     = 641.6891
+
+BAR 70 (32 ➜ 33) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0212
+	ϵ  (strain)     = -5.307e-05
+	σ  (stress)     = -1061.3533
+
+BAR 71 (33 ➜ 34) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0279
+	ϵ  (strain)     = -6.984e-05
+	σ  (stress)     = -1396.8261
+
+BAR 72 (34 ➜ 35) : ⊖ COMPRESSION
+	Δl (elongation) = -0.032
+	ϵ  (strain)     = -7.994e-05
+	σ  (stress)     = -1598.7513
+
+BAR 73 (35 ➜ 36) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0333
+	ϵ  (strain)     = -8.333e-05
+	σ  (stress)     = -1666.5261
+
+BAR 74 (36 ➜ 37) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0333
+	ϵ  (strain)     = -8.333e-05
+	σ  (stress)     = -1666.5261
+
+BAR 75 (37 ➜ 38) : ⊖ COMPRESSION
+	Δl (elongation) = -0.032
+	ϵ  (strain)     = -7.994e-05
+	σ  (stress)     = -1598.7513
+
+BAR 76 (38 ➜ 39) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0279
+	ϵ  (strain)     = -6.984e-05
+	σ  (stress)     = -1396.8261
+
+BAR 77 (39 ➜ 40) : ⊖ COMPRESSION
+	Δl (elongation) = -0.0212
+	ϵ  (strain)     = -5.307e-05
+	σ  (stress)     = -1061.3533
