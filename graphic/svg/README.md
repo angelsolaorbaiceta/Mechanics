@@ -44,7 +44,7 @@ Which saved into an `image.svg` would look like:
 
 ## Primitives
 
-The _svg_ package, defined in the _primitives.py_ module, currently contains the following primitives:
+The _svg_ package, defined in the [primitives.py](./primitives.py) module, currently contains the following primitives:
 
 - `segment`
 - `rectangle`
@@ -57,7 +57,7 @@ The _svg_ package, defined in the _primitives.py_ module, currently contains the
 
 ## Attributes
 
-To style the primitives, defined in the _attributes.py_ module are the current available attributes:
+To style the primitives, defined in the [attributes.py](./attributes.py) module are the current available attributes:
 
 - `stroke_color`
 - `stroke_width`
