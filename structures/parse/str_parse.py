@@ -52,13 +52,13 @@ def __parse_lines(lines: [str]):
             reading = 'loads'
 
         # <--- definition ---> #
-        elif reading is 'nodes':
+        elif reading == 'nodes':
             node = parse_node(line)
             result['nodes'][node.id] = node
-        elif reading is 'bars':
+        elif reading == 'bars':
             bar = parse_bar(line, result['nodes'])
             result['bars'].append(bar)
-        elif reading is 'loads':
+        elif reading == 'loads':
             load = parse_load(line)
             result['loads'].append(load)
         else:
