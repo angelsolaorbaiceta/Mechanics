@@ -41,3 +41,28 @@ image.svg_content(size, prims)
 Which saved into an `image.svg` would look like:
 
 ![](../../img/svg_image_rect_circ.svg)
+
+## Primitives
+
+The _svg_ package, defined in the _primitives.py_ module, currently contains the following primitives:
+
+- `segment`
+- `rectangle`
+- `circle`
+- `polygon`
+- `polyline`
+- `text`
+- `group`
+- `arrow`
+
+## Attributes
+
+To style the primitives, defined in the _attributes.py_ module are the current available attributes:
+
+- `stroke_color`
+- `stroke_width`
+- `fill_color`
+- `fill_opacity`
+- `affine_transform`
+- `font_size`
+- `font_family` 
