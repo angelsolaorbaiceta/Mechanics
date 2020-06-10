@@ -96,10 +96,10 @@ class StructureTest(unittest.TestCase):
         self._set_external_constraints()
 
         solution = self.structure.solve_structure()
-        print(solution)
+        # TODO
 
     def _set_external_constraints(self):
-        self.n_1.set_dx_constraint()
-        self.n_1.set_dy_constraint()
-        self.n_2.set_dx_constraint()
-        self.n_2.set_dy_constraint()
+        self.n_1.dx_constrained = True
+        self.n_1.dy_constrained = True
+        self.n_2.dx_constrained = True
+        self.n_2.dy_constrained = True
