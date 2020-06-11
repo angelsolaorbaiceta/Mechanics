@@ -4,6 +4,11 @@ from geom2d import nums
 
 
 class Point:
+    """
+    Point is a position in the 2D plane, defined by its two
+    coordinates: `x` and `y`.
+    """
+
     def __init__(self, x, y):
         self.x = x
         self.y = y

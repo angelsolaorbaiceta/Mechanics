@@ -2,6 +2,11 @@ from geom2d.nums import are_close_enough
 
 
 class Size:
+    """
+    Size is a tuple of a width and a height.
+    It represents the dimensions of a rectangle.
+    """
+
     def __init__(self, width, height):
         self.width = width
         self.height = height

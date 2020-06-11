@@ -5,30 +5,82 @@ from geom2d.vectors import make_vector_between, make_versor_between
 
 
 class Segment:
+    """
+    A segment is a straight line limited by two end points:
+    `start` and `end`.
+    """
+
     def __init__(self, start: Point, end: Point):
         self.start = start
         self.end = end
 
     def direction_vector(self):
+        """
+        Vector in the direction of the segment, going from `start`
+        to `end` and with the same length as the segment itself.
+
+        :return: `Vector` with length equal to segment's length
+        """
         return make_vector_between(self.start, self.end)
 
     def direction_versor(self):
+        """
+        Vector in the direction of the segment, going from `start`
+        to `end` and unitary length.
+
+        :return: `Vector` of unitary length
+        """
         return make_versor_between(self.start, self.end)
 
     def normal_versor(self):
+        """
+        Vector normal (perpendicular) to the segments direction
+        and unitary length.
+
+        This vector is the result of rotating 90º the segment's
+        `direction_versor`.
+
+        :return: `Vector` normal to the segment's direction
+        """
         return self.direction_versor().perpendicular()
 
     def length(self):
+        """
+        Length of the segment.
+        Equals to the distance from `start` to `end``
+
+        :return: `float` equal to the segment's length
+        """
         return self.start.distance_to(self.end)
 
     def point_at(self, t):
+        """
+        Returns a segment's middle point at a given position
+        between `start` and `end` given by the `t` parameter.
+
+        :param t: `float` in the range [0, 1]
+        :return: `Point`
+        """
         tparam.ensure_valid(t)
         return self.start.displaced(self.direction_vector(), t)
 
     def middle(self):
+        """
+        Returns the point at `t = 0.5`, that is, the point inside
+        the segment equidistant between `start` and `end`.
+
+        :return: `Point` at `t = 0.5`
+        """
         return self.point_at(tparam.MIDDLE)
 
     def closest_point_to(self, p: Point):
+        """
+        Computes the point which belongs to the segment and is
+        closest to a given external point `p`.
+
+        :param p: `Point`
+        :return: `Point` in segment closest to `p`
+        """
         v = make_vector_between(self.start, p)
         d = self.direction_versor()
         vs = v.projection_over(d)
@@ -42,6 +94,13 @@ class Segment:
         return self.start.displaced(d, vs)
 
     def distance_to(self, p: Point):
+        """
+        Computes the distance between the given point `p` and
+        the segment's closest point to `p`.
+
+        :param p: `Point`
+        :return: `float` distance to the closest point in segment
+        """
         return p.distance_to(
             self.closest_point_to(p)
         )

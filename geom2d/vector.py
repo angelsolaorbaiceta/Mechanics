@@ -4,6 +4,11 @@ from geom2d import nums
 
 
 class Vector:
+    """
+    Vector is a direction in the 2D plane, defined by its two
+    projections: `u` and `v`.
+    """
+
     def __init__(self, u, v):
         self.u = u
         self.v = v
