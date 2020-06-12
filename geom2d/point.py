@@ -19,6 +19,7 @@ class Point:
             self.y + other.y
         )
 
+    # TODO: this should return a Vector
     def __sub__(self, other):
         return Point(
             self.x - other.x,
@@ -26,11 +27,25 @@ class Point:
         )
 
     def distance_to(self, other):
+        """
+        Computes the distance from this point to `other`.
+
+        :param other: `Point`
+        :return: `float` = distance(this, other)
+        """
         delta_x = other.x - self.x
         delta_y = other.y - self.y
         return math.sqrt(delta_x ** 2 + delta_y ** 2)
 
     def displaced(self, vector, times=1):
+        """
+        Creates a new `Point` result of displacing this one the
+        given `vector` and number of times `times`.
+
+        :param vector: displacement `Vector`
+        :param times: times the displacement vector is applied
+        :return: `Point`
+        """
         scaled_vec = vector.scaled_by(times)
         return Point(
             self.x + scaled_vec.u,

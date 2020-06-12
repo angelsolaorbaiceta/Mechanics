@@ -106,6 +106,17 @@ class Segment:
         )
 
     def intersection_with(self, other):
+        """
+        Computes the intersection point with another segment:
+        `other`.
+
+        The result of the intersection may be a `Point` or `None`
+        in the cases where the segments don't intersect or have
+        infinite intersection points (overlapping segments).
+
+        :param other: `Segment`
+        :return: `Point` or `None`
+        """
         d1, d2 = self.direction_vector(), other.direction_vector()
 
         if d1.is_parallel_to(d2):
@@ -122,6 +133,12 @@ class Segment:
             return None
 
     def bisector(self):
+        """
+        Computes the bisector line: a `Line` perpendicular to the
+        segment and which passes through its middle `Point`.
+
+        :return: `Line` bisecting the segment
+        """
         return Line(
             self.middle(),
             self.direction_versor().perpendicular()
