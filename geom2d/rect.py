@@ -7,6 +7,11 @@ from geom2d.size import Size
 class Rect:
     """
     Rectangle defined by an origin point and size.
+
+    Instances of this class represent rectangles whose sides are
+    aligned with the horizontal and vertical axes. A rectangle
+    not aligned in this way may be represented with the `Polygon`
+    class.
     """
     def __init__(self, origin: Point, size: Size):
         self.origin = origin
