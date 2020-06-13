@@ -3,7 +3,14 @@ from geom2d.rect import Rect
 from geom2d.size import Size
 
 
-def make_rect_containing(points):
+def make_rect_containing(points: [Point]):
+    """
+    Computes the smallest rectangle containing all the passed
+    points.
+
+    :param points: `[Point]`
+    :return: `Rect`
+    """
     if not points:
         raise ValueError('Expected at least one point')
 
@@ -21,7 +28,18 @@ def make_rect_containing(points):
     )
 
 
-def make_rect_containing_with_margin(points, margin):
+def make_rect_containing_with_margin(
+        points: [Point],
+        margin: float
+):
+    """
+    Computes the smallest rectangle containing all the passed
+    points, and adds a margin to all four sides.
+
+    :param points: `[Point]`
+    :param margin: `float`
+    :return: `Rect`
+    """
     rect = make_rect_containing(points)
     return Rect(
         Point(
@@ -35,7 +53,16 @@ def make_rect_containing_with_margin(points, margin):
     )
 
 
-def make_rect_centered(center, width, height):
+def make_rect_centered(center: Point, width: float, height: float):
+    """
+    Computes a rectangle which center point is `center` and with
+    a size of `width` and `height`.
+
+    :param center: `Point`
+    :param width: `float`
+    :param height: `float`
+    :return:
+    """
     origin = Point(
         center.x - width / 2,
         center.y - height / 2
