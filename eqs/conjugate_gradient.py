@@ -14,6 +14,17 @@ def conjugate_gradient_solve(
     The conjugate gradient method is a iterative numeric method to
     solve systems of linear equations.
 
+    The method starts with a vector full of zeroes as the first
+    approximation to the solution and improves it in each
+    iteration.
+    In every iteration the error vector `r` is checked and only in
+    the case where every value is less than the `max_error`, the
+    solution is considered "good enough" and the solution vector
+    returned.
+
+    If after `max_iter` iterations a "good enough" solution hasn't
+    been found, the function raises an `ArithmeticError`.
+
     :param sys_mat: system `Matrix`
     :param sys_vec: system `Vector`
     :param max_iter: `int` max number of iterations
@@ -37,10 +48,11 @@ def conjugate_gradient_solve(
         if solution_good_enough():
             return solution
 
-        alpha = (r * r).sum / (p * (sys_mat.times_vector(p))).sum
+        m_times_p = sys_mat.times_vector(p)
+        alpha = (r * r).sum / (p * m_times_p).sum
         solution += p.scaled(alpha)
         old_r = r.copy()
-        r -= sys_mat.times_vector(p).scaled(alpha)
+        r -= m_times_p.scaled(alpha)
         beta = (r * r).sum / (old_r * old_r).sum
         p = r + p.scaled(beta)
 
