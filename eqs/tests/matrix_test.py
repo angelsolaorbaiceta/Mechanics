@@ -1,5 +1,6 @@
 import unittest
 
+from eqs import Vector
 from eqs.matrix import Matrix
 
 
@@ -56,6 +57,13 @@ class MatrixTest(unittest.TestCase):
             .set_data([1, 2, 3, 4, 5, 6]) \
             .scale(2)
         self.assert_matrix_has_data(matrix, expected)
+
+    def test_multiply_vector(self):
+        vector = Vector(3).set_data([1, 2, 3])
+        matrix = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6])
+        expected = Vector(2).set_data([14, 32])
+
+        self.assertEqual(expected, matrix.times_vector(vector))
 
     def assert_matrix_has_data(self, matrix, data):
         for row in range(matrix.rows_count):

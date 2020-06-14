@@ -1,3 +1,4 @@
+from eqs import Vector
 from geom2d import are_close_enough
 from utils.lists import list_of_list_of_zeros
 
@@ -65,6 +66,34 @@ class Matrix:
                 self.__data[i][j] *= factor
 
         return self
+
+    def times_vector(self, v: Vector):
+        """
+        Creates a new `Vector` result of multiplying this `Matrix`
+        times the passed `Vector`.
+
+        In oder for the product to be possible, the matrix column
+        count and vector length must match.
+
+        The resulting `Vector` has a length equal to this matrix'
+        rows count.
+
+        :param v: `Vector`
+        :return: `Vector`
+        """
+        if self.__cols_count != v.length:
+            raise ValueError('Cannot multiply: size mismatch')
+
+        result = Vector(self.__rows_count)
+
+        for i in range(self.__rows_count):
+            product_sum = 0
+            for j in range(self.__cols_count):
+                product_sum += self.__data[i][j] * v.value_at(j)
+
+            result.set_value(product_sum, i)
+
+        return result
 
     def __eq__(self, other):
         if self is other:
