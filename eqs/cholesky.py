@@ -1,6 +1,7 @@
 import math
 
 from eqs.matrix import Matrix
+from eqs.validate_sys import validate_system
 from eqs.vector import Vector
 
 
@@ -22,19 +23,11 @@ def cholesky_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
     :param sys_vec: system's vector `Vector`
     :return: result `Vector`
     """
-    __validate_system(sys_mat, sys_vec)
+    validate_system(sys_mat, sys_vec)
 
     low_matrix = lower_matrix_decomposition(sys_mat)
     low_solution = solve_lower_sys(low_matrix, sys_vec)
     return solve_upper_sys(low_matrix, low_solution)
-
-
-def __validate_system(sys_matrix: Matrix, sys_vector: Vector):
-    if sys_matrix.cols_count != sys_vector.length:
-        raise ValueError('Size mismatch between matrix and vector')
-
-    if not sys_matrix.is_square:
-        raise ValueError('System matrix must be square')
 
 
 def lower_matrix_decomposition(sys_mat: Matrix) -> Matrix:
