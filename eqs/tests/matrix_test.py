@@ -65,6 +65,21 @@ class MatrixTest(unittest.TestCase):
 
         self.assertEqual(expected, matrix.times_vector(vector))
 
+    def test_add_matrices(self):
+        m1 = Matrix(2, 2).set_data([1, 2, 3, 4])
+        m2 = Matrix(2, 2).set_data([1, 2, 3, 4])
+        expected_data = [2, 4, 6, 8]
+
+        self.assert_matrix_has_data(m1 + m2, expected_data)
+
+    def test_multiply_matrices(self):
+        m1 = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6])
+        m2 = Matrix(3, 2).set_data([1, 2, 3, 4, 5, 6])
+        expected_data = [22, 28, 49, 64]
+
+        # TODO
+        # self.assert_matrix_has_data(m1 * m2, expected_data)
+
     def assert_matrix_has_data(self, matrix, data):
         for row in range(matrix.rows_count):
             offset = matrix.cols_count * row

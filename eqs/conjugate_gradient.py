@@ -17,8 +17,8 @@ def conjugate_gradient_solve(
     The method starts with a vector full of zeroes as the first
     approximation to the solution and improves it in each
     iteration.
-    In every iteration the error vector `r` is checked and only in
-    the case where every value is less than the `max_error`, the
+    In every iteration the error vector `error` is checked and only
+    in the case where every value is less than the `max_error`, the
     solution is considered "good enough" and the solution vector
     returned.
 
@@ -29,17 +29,17 @@ def conjugate_gradient_solve(
     :param sys_vec: system `Vector`
     :param max_iter: `int` max number of iterations
     :param max_error: `float` max error accepted in the solution
-    :return:
+    :return: solution `Vector`
     """
     validate_system(sys_mat, sys_vec)
 
     solution = Vector(sys_vec.length)
-    r = sys_vec - sys_mat.times_vector(solution)
-    p = r.copy()
+    error = sys_vec - sys_mat.times_vector(solution)
+    p = error.copy()
 
     def solution_good_enough():
         for i in range(sys_vec.length):
-            if math.fabs(r.value_at(i)) > max_error:
+            if math.fabs(error.value_at(i)) > max_error:
                 return False
 
         return True
@@ -49,12 +49,12 @@ def conjugate_gradient_solve(
             return solution
 
         m_times_p = sys_mat.times_vector(p)
-        alpha = (r * r).sum / (p * m_times_p).sum
+        alpha = (error * error).sum / (p * m_times_p).sum
         solution += p.scaled(alpha)
-        old_r = r.copy()
-        r -= m_times_p.scaled(alpha)
-        beta = (r * r).sum / (old_r * old_r).sum
-        p = r + p.scaled(beta)
+        old_error = error.copy()
+        error -= m_times_p.scaled(alpha)
+        beta = (error * error).sum / (old_error * old_error).sum
+        p = error + p.scaled(beta)
 
     raise ArithmeticError(
         f'Reached max number of iterations ({max_iter}) without ' +
