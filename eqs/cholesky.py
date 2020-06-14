@@ -5,6 +5,23 @@ from eqs.vector import Vector
 
 
 def cholesky_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
+    """
+    The Cholesky factorization method solves systems of linear
+    equations whose matrix (`sys_mat`) is positive-definite.
+
+    The Cholesky method decomposes the system matrix `sys_mat`
+    into the product of a lower triangular matrix and its
+    conjugate transpose.
+    This step is done by the `lower_matrix_decomposition` function.
+
+    Then solves the system in two steps:
+        - `solve_lower_sys`
+        - `solve_upper_sys`
+
+    :param sys_mat: system's `Matrix`
+    :param sys_vec: system's vector `Vector`
+    :return: result `Vector`
+    """
     __validate_system(sys_mat, sys_vec)
 
     low_matrix = lower_matrix_decomposition(sys_mat)
@@ -21,6 +38,16 @@ def __validate_system(sys_matrix: Matrix, sys_vector: Vector):
 
 
 def lower_matrix_decomposition(sys_mat: Matrix) -> Matrix:
+    """
+    Decomposes the matrix `sys_mat` into the product of a lower
+    triangular matrix and its conjugate transpose: [A] = [L][L]'.
+
+    It only returns the lower triangular matrix [L] as the
+    transpose can be computed from it.
+
+    :param sys_mat: `Matrix`
+    :return: lower triangular `Matrix`
+    """
     size = sys_mat.rows_count
     low_mat = Matrix(size, size)
 
@@ -52,8 +79,17 @@ def lower_matrix_decomposition(sys_mat: Matrix) -> Matrix:
     return low_mat
 
 
-def solve_lower_sys(low_mat: Matrix, sys_vector: Vector):
-    size = sys_vector.length
+def solve_lower_sys(low_mat: Matrix, vector: Vector):
+    """
+    Given a lower triangular matrix `low_mat` [L] and a vector
+    `vector' [b], computes the [L][x] = [b] system solution,
+    [x], by forward substitution.
+
+    :param low_mat: lower triangular `Matrix` [L]
+    :param vector: system's `Vector` [b]
+    :return: solution `Vector` [x]
+    """
+    size = vector.length
     solution = Vector(size)
 
     for i in range(size):
@@ -64,7 +100,7 @@ def solve_lower_sys(low_mat: Matrix, sys_vector: Vector):
             y_j = solution.value_at(j)
             _sum += l_ij * y_j
 
-        b_i = sys_vector.value_at(i)
+        b_i = vector.value_at(i)
         l_ii = low_mat.value_at(i, i)
         solution_val = (b_i - _sum) / l_ii
         solution.set_value(solution_val, i)
@@ -72,8 +108,17 @@ def solve_lower_sys(low_mat: Matrix, sys_vector: Vector):
     return solution
 
 
-def solve_upper_sys(low_matrix: Matrix, low_vector: Vector):
-    size = low_vector.length
+def solve_upper_sys(up_matrix: Matrix, vector: Vector):
+    """
+    Given an upper triangular matrix `up_matrix` [U] and a vector
+    `vector`[b], computes the [U][x] = [b] system solution,
+    [x], by backward substitution.
+
+    :param up_matrix: upper triangular `Matrix` [U]
+    :param vector: system's `Vector` [b]
+    :return: solution vector [x]
+    """
+    size = vector.length
     last_index = size - 1
     solution = Vector(size)
 
@@ -81,12 +126,12 @@ def solve_upper_sys(low_matrix: Matrix, low_vector: Vector):
         _sum = 0.0
 
         for j in range(i + 1, size):
-            u_ij = low_matrix.value_transposed_at(i, j)
+            u_ij = up_matrix.value_transposed_at(i, j)
             x_j = solution.value_at(j)
             _sum += u_ij * x_j
 
-        y_i = low_vector.value_at(i)
-        u_ii = low_matrix.value_transposed_at(i, i)
+        y_i = vector.value_at(i)
+        u_ii = up_matrix.value_transposed_at(i, i)
         solution_val = (y_i - _sum) / u_ii
         solution.set_value(solution_val, i)
 
