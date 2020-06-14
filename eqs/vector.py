@@ -1,3 +1,5 @@
+from functools import reduce
+
 from geom2d import are_close_enough
 from utils.lists import list_of_zeros
 
@@ -11,6 +13,10 @@ class Vector:
     @property
     def length(self):
         return self.__length
+
+    @property
+    def sum(self):
+        return reduce(lambda sum, val: sum + val, self.__data)
 
     def set_value(self, value: float, index: int):
         self.__data[index] = value
@@ -31,6 +37,46 @@ class Vector:
 
     def value_at(self, index: int):
         return self.__data[index]
+
+    def scaled(self, factor):
+        result = self.copy()
+        for i in range(self.__length):
+            result.__data[i] *= factor
+
+        return result
+
+    def __sub__(self, other):
+        if other.__length != self.__length:
+            raise ValueError('Cannot subtract: length mismatch')
+
+        result = self.copy()
+        for i in range(self.__length):
+            result.__data[i] -= other.__data[i]
+
+        return result
+
+    def __add__(self, other):
+        if other.__length != self.__length:
+            raise ValueError('Cannot add: length mismatch')
+
+        result = self.copy()
+        for i in range(self.__length):
+            result.__data[i] += other.__data[i]
+
+        return result
+
+    def __mul__(self, other):
+        if other.__length != self.__length:
+            raise ValueError('Cannot multiply: length mismatch')
+
+        result = self.copy()
+        for i in range(self.__length):
+            result.__data[i] *= other.__data[i]
+
+        return result
+
+    def copy(self):
+        return Vector(self.__length).set_data(self.__data.copy())
 
     def __eq__(self, other):
         if self is other:
