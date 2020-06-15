@@ -93,8 +93,8 @@ class Matrix:
         If the size of the list doesn't match the matrix number
         of elements, an error is raised.
 
-        :param data:
-        :return:
+        :param data: `[float]` with the values
+        :return: this `Matrix`
         """
         if len(data) != self.__cols_count * self.__rows_count:
             raise ValueError('Cannot set data: size mismatch')
@@ -231,7 +231,40 @@ class Matrix:
         return result
 
     def __mul__(self, other):
-        return other
+        """
+        Computes a matrix result of multiplying this times `other`.
+
+        Warning: this method has ~O(n3) time complexity.
+
+        In order for this and `other` to be multiplied, the number
+        of columns of this and number of rows of `other` need to
+        be equal.
+
+        The result matrix has as many rows as this `Matrix` and as
+        many columns as `other` .
+
+        :param other: `Matrix`
+        :return: result `Matrix`
+        """
+        if self.__cols_count != other.__rows_count:
+            raise ValueError('Size mismatch')
+
+        rows = self.__rows_count
+        cols = other.__cols_count
+        size = self.__cols_count
+        a_data = self.__data
+        b_data = other.__data
+        result = Matrix(rows, cols)
+
+        for i in range(rows):
+            for j in range(cols):
+                prod_sum = 0
+                for k in range(size):
+                    prod_sum += a_data[i][k] * b_data[k][j]
+
+                result.__data[i][j] = prod_sum
+
+        return result
 
     def copy(self):
         """
