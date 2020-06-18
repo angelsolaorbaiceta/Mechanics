@@ -72,6 +72,13 @@ class MatrixTest(unittest.TestCase):
 
         self.assert_matrix_has_data(m1 + m2, expected_data)
 
+    def test_subtract_matrices(self):
+        m1 = Matrix(2, 2).set_data([1, 2, 3, 4])
+        m2 = Matrix(2, 2).set_data([4, 3, 2, 1])
+        expected_data = [-3, -1, 1, 3]
+
+        self.assert_matrix_has_data(m1 - m2, expected_data)
+
     def test_multiply_matrices(self):
         m1 = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6])
         m2 = Matrix(3, 2).set_data([1, 2, 3, 4, 5, 6])

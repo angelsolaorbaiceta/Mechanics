@@ -207,20 +207,16 @@ class Matrix:
 
     def __add__(self, other):
         """
-        Creates a new matrix result of adding this one with
+        Creates a new `Matrix` result of adding this one with
         `other`.
 
-        The row and column count of both matrices needs to be
+        The row and column lengths of both matrices need to be
         equal in order for the matrices to be added.
 
         :param other: `Matrix`
-        :return: result of adding this and `other`
+        :return: result of adding this matrix and `other`
         """
-        if self.__rows_count != other.__rows_count:
-            raise ValueError('Size mismatch')
-
-        if self.__cols_count != other.__cols_count:
-            raise ValueError('Size mismatch')
+        self.__ensure_matches_size(other)
 
         result = self.copy()
 
@@ -229,6 +225,34 @@ class Matrix:
                 result.__data[i][j] += other.__data[i][j]
 
         return result
+
+    def __sub__(self, other):
+        """
+        Creates a new `Matrix` result of subtracting `other` from
+        this one.
+
+        The row and column lengths of both matrices need to be
+        equal in order for the matrices to be subtracted.
+
+        :param other: `Matrix`
+        :return: result of subtracting `other` from this matrix
+        """
+        self.__ensure_matches_size(other)
+
+        result = self.copy()
+
+        for i in range(self.__rows_count):
+            for j in range(self.__cols_count):
+                result.__data[i][j] -= other.__data[i][j]
+
+        return result
+
+    def __ensure_matches_size(self, other):
+        if self.__rows_count != other.__rows_count:
+            raise ValueError('Row length mismatch')
+
+        if self.__cols_count != other.__cols_count:
+            raise ValueError('Column length mismatch')
 
     def __mul__(self, other):
         """

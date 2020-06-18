@@ -58,6 +58,82 @@ matrix = Matrix(2, 3) \
     .set_value(25, 2, 2)
 ```
 
+### Matrix operations
+
+Matrices can be added and subtracted.
+For example, to add the matrices:
+
+```
+⎡ 1 2 ⎤   ⎡ 3 4 ⎤   ⎡ 4  6  ⎤
+⎜ 3 4 ⎟ + ⎜ 5 6 ⎟ = ⎜ 8  10 ⎟
+⎣ 4 5 ⎦   ⎣ 7 8 ⎦   ⎣ 12 14 ⎦
+```
+
+we can do:
+
+```python
+from eqs.matrix import Matrix
+
+mat_a = Matrix(3, 2).set_data([1, 2, 3, 4, 5, 6])
+mat_b = Matrix(3, 2).set_data([3, 4, 5, 6, 7, 8])
+result = mat_a + mat_b
+```
+
+which yields the matrix:
+```
+⎡ 4  6  ⎤
+⎜ 8  10 ⎟
+⎣ 12 14 ⎦
+```
+
+To subtract the matrices:
+
+```
+⎡ 1 2 ⎤   ⎡ 3 4 ⎤   ⎡ -2 -2 ⎤
+⎜ 3 4 ⎟ - ⎜ 5 6 ⎟ = ⎜ -2 -2 ⎟
+⎣ 4 5 ⎦   ⎣ 7 8 ⎦   ⎣ -2 -2 ⎦
+```
+
+we can, using the matrices defined above:
+
+```python
+result = mat_a - mat_b
+```
+
+which yields the matrix:
+```
+⎡ -2 -2 ⎤
+⎜ -2 -2 ⎟
+⎣ -2 -2 ⎦
+```
+
+Matrices can also be multiplied.
+For example:
+
+```
+⎡ 1 2 ⎤               ⎡ 15 18 21 ⎤
+⎜ 3 4 ⎟ * ⎡ 1 2 3 ⎤ = ⎜ 33 40 47 ⎟
+⎣ 4 5 ⎦   ⎣ 4 5 6 ⎦   ⎣ 51 62 73 ⎦
+```
+
+can be multiplied:
+
+```python
+from eqs.matrix import Matrix
+
+mat_a = Matrix(3, 2).set_data([1, 2, 3, 4, 5, 6])
+mat_b = Matrix(2, 3).set_data([3, 4, 5, 6, 7, 8])
+result = mat_a * mat_b
+```
+
+which yields the matrix:
+```
+⎡ 15 18 21 ⎤
+⎜ 33 40 47 ⎟
+⎣ 51 62 73 ⎦
+```
+
+
 ## Vector
 
 ## Cholesky Factorization
