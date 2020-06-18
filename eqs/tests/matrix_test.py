@@ -65,6 +65,12 @@ class MatrixTest(unittest.TestCase):
 
         self.assertEqual(expected, matrix.times_vector(vector))
 
+    def test_cant_add_matrices(self):
+        m1 = Matrix(1, 2)
+        m2 = Matrix(2, 3)
+
+        self.assertRaises(ValueError, lambda: m1 + m2)
+
     def test_add_matrices(self):
         m1 = Matrix(2, 2).set_data([1, 2, 3, 4])
         m2 = Matrix(2, 2).set_data([1, 2, 3, 4])
@@ -72,12 +78,24 @@ class MatrixTest(unittest.TestCase):
 
         self.assert_matrix_has_data(m1 + m2, expected_data)
 
+    def test_cant_subtract_matrices(self):
+        m1 = Matrix(1, 2)
+        m2 = Matrix(2, 3)
+
+        self.assertRaises(ValueError, lambda: m1 - m2)
+
     def test_subtract_matrices(self):
         m1 = Matrix(2, 2).set_data([1, 2, 3, 4])
         m2 = Matrix(2, 2).set_data([4, 3, 2, 1])
         expected_data = [-3, -1, 1, 3]
 
         self.assert_matrix_has_data(m1 - m2, expected_data)
+
+    def test_cant_multiply_matrices(self):
+        m1 = Matrix(2, 3)
+        m2 = Matrix(5, 6)
+
+        self.assertRaises(ValueError, lambda: m1 * m2)
 
     def test_multiply_matrices(self):
         m1 = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6])
