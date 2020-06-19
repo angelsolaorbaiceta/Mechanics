@@ -13,8 +13,14 @@ from eqs.matrix import Matrix
 matrix = Matrix(2, 3)
 ```
 
-A newly created matrix is initialized full of zeroes.
-To set values in the matrix, you can set all at once:
+A newly created `Matrix` is initialized full of zeroes:
+
+```
+⎡ 0 0 0 ⎤
+⎣ 0 0 0 ⎦
+```
+
+To set values in a `Matrix`, you can set all of them at once (make sure the size of the list matches the total number of items in the matrix):
 
 ```python
 from eqs.matrix import Matrix
@@ -133,8 +139,51 @@ which yields the matrix:
 ⎣ 51 62 73 ⎦
 ```
 
+A matrix can also be multiplied with a vector.
+For example:
+
+```
+⎡1 2 3⎤ ⎧1⎫   ⎧14⎫
+⎢4 5 6⎥ ⎨2⎬ = ⎨32⎬
+⎣7 8 9⎦ ⎩3⎭   ⎩50⎭
+```
+
+can be done:
+
+```python
+from eqs.matrix import Matrix, Vector
+
+mat = Matrix(3, 3).set_data([1, 2, 3, 4, 5, 6, 7, 8, 9])
+vec = Vector(3).set_data([1, 2, 3])
+result = mat.times_vector(vec)
+```
+
+which results in the vector:
+
+```
+⎧14⎫
+⎨32⎬
+⎩50⎭
+```
+
 
 ## Vector
+
+Vectors are created passing the `Vector` class constructor a size:
+
+```python
+from eqs.vector import Vector
+
+vec = Vector(3)
+```
+
+A newly created `Vector` is initialized with all zeroes:
+
+```
+⎧0⎫
+⎨0⎬
+⎩0⎭
+```
 
 ## Cholesky Factorization
 
