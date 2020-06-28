@@ -5,6 +5,15 @@ from graphic.svg.read import read_template
 def svg_content(
         size, primitives, viewbox_rect=None, transform=None
 ):
+    """
+    Returns the string content of an SVG image containing the
+    passed list of primitives and 
+    :param size:
+    :param primitives:
+    :param viewbox_rect:
+    :param transform:
+    :return:
+    """
     viewbox_rect = viewbox_rect or __default_viewbox_rect(size)
     transform = transform or __default_transform()
     template = read_template('img')

@@ -16,6 +16,7 @@ class Vector:
 
     @property
     def sum(self):
+        # TODO: use operator
         return reduce(lambda total, val: total + val, self.__data)
 
     def set_value(self, value: float, index: int):
