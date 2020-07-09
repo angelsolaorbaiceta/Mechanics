@@ -35,6 +35,7 @@ class Vector:
         """
         return Vector(factor * self.u, factor * self.v)
 
+    @property
     def norm(self):
         """
         The norm or length of the vector.
@@ -50,7 +51,7 @@ class Vector:
 
         :return: `bool`
         """
-        return nums.is_close_to_one(self.norm())
+        return nums.is_close_to_one(self.norm)
 
     def normalized(self):
         """
@@ -59,7 +60,7 @@ class Vector:
 
         :return: `Vector`
         """
-        return self.scaled_by(1.0 / self.norm())
+        return self.scaled_by(1.0 / self.norm)
 
     def with_length(self, length):
         """
@@ -121,7 +122,7 @@ class Vector:
         :return: `float` angle in radians
         """
         dot_product = self.dot(other)
-        norm_product = self.norm() * other.norm()
+        norm_product = self.norm * other.norm
         return math.acos(dot_product / norm_product)
 
     def angle_to(self, other):
@@ -186,7 +187,7 @@ class Vector:
 
         :return: `float` = sin(angle)
         """
-        return self.v / self.norm()
+        return self.v / self.norm
 
     def cosine(self):
         """
@@ -195,7 +196,7 @@ class Vector:
 
         :return: `float` = cos(angle)
         """
-        return self.u / self.norm()
+        return self.u / self.norm
 
     def __eq__(self, other):
         """
@@ -218,11 +219,11 @@ class Vector:
                nums.are_close_enough(self.v, other.v)
 
     def __str__(self):
-        return f'({self.u}, {self.v}) with norm {self.norm()}'
+        return f'({self.u}, {self.v}) with norm {self.norm}'
 
     def to_formatted_str(self, decimals: int):
         u = round(self.u, decimals)
         v = round(self.v, decimals)
-        norm = round(self.norm(), decimals)
+        norm = round(self.norm, decimals)
 
         return f'({u}, {v}) with norm {norm}'
