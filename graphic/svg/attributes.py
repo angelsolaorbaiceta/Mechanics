@@ -2,6 +2,12 @@ from geom2d.affine_transf import AffineTransform
 
 
 def stroke_color(color):
+    """
+    Returns an SVG stroke attribute using the given color.
+
+    :param color: `String` color to be used for the stroke
+    :return: `String`
+    """
     return f'stroke="{color}"'
 
 

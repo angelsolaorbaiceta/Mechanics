@@ -1,6 +1,7 @@
 import unittest
 
 from geom2d.point import Point
+from geom2d.vector import Vector
 
 
 class TestPoint(unittest.TestCase):
@@ -20,6 +21,6 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_minus(self):
-        expected = Point(-3, -4)
+        expected = Vector(-3, -4)
         actual = self.p - self.q
         self.assertEqual(expected, actual)

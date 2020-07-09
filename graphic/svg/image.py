@@ -7,12 +7,22 @@ def svg_content(
 ):
     """
     Returns the string content of an SVG image containing the
-    passed list of primitives and 
-    :param size:
-    :param primitives:
-    :param viewbox_rect:
-    :param transform:
-    :return:
+    passed list of SVG primitives and of the given size.
+
+    The viewbox can be optionally set. If `None` is used, the
+    viewbox will be set as a rectangle whose origin is (0, 0)
+    and its size is the same the image's size.
+
+    An affine transformation can optionally be set. This affine
+    transformation is applied to the entire SVG content. If `None`
+    is used, the affine transformation is set as an identity
+    transformation.
+
+    :param size: `Size` of the image
+    :param primitives: list of SVG primitives
+    :param viewbox_rect: `Rect` to use as the image's viewbox
+    :param transform: `AffineTransf` applied to the entire image
+    :return: `String` SVG content
     """
     viewbox_rect = viewbox_rect or __default_viewbox_rect(size)
     transform = transform or __default_transform()

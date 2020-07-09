@@ -1,6 +1,7 @@
 import math
 
 from geom2d import nums
+from geom2d.vector import Vector
 
 
 class Point:
@@ -14,14 +15,26 @@ class Point:
         self.y = y
 
     def __add__(self, other):
+        """
+        Creates a `Point` result of adding the coordinates of this
+        point and `other`.
+
+        :param other: `Point`
+        :return: `Point` sum of `self` and `other`
+        """
         return Point(
             self.x + other.x,
             self.y + other.y
         )
 
-    # TODO: this should return a Vector
     def __sub__(self, other):
-        return Point(
+        """
+        Creates a `Vector` going from `other` to `self`.
+
+        :param other: `Point`
+        :return: `Vector`: `other` -> `self`
+        """
+        return Vector(
             self.x - other.x,
             self.y - other.y
         )
