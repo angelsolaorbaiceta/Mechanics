@@ -50,7 +50,7 @@ class Point:
         delta_y = other.y - self.y
         return math.sqrt(delta_x ** 2 + delta_y ** 2)
 
-    def displaced(self, vector, times=1):
+    def displaced(self, vector: Vector, times=1):
         """
         Creates a new `Point` result of displacing this one the
         given `vector` and number of times `times`.

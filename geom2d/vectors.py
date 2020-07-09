@@ -10,10 +10,10 @@ def make_vector_between(p: Point, q: Point):
     :param q: tip `Point`
     :return: `Vector`
     """
-    return Vector(q.x - p.x, q.y - p.y)
+    return q - p
 
 
-def make_versor(u, v):
+def make_versor(u: float, v: float):
     """
     Creates a `Vector` with `u` and `v` projections, then
     normalizes it.
