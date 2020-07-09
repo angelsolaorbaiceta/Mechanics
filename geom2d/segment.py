@@ -124,8 +124,8 @@ class Segment:
 
         cross_prod = d1.cross(d2)
         delta = other.start - self.start
-        t1 = (delta.x * d2.v - delta.y * d2.u) / cross_prod
-        t2 = (delta.x * d1.v - delta.y * d1.u) / cross_prod
+        t1 = (delta.u * d2.v - delta.v * d2.u) / cross_prod
+        t2 = (delta.u * d1.v - delta.v * d1.u) / cross_prod
 
         if tparam.is_valid(t1) and tparam.is_valid(t2):
             return self.point_at(t1)
