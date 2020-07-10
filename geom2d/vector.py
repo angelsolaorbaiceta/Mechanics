@@ -36,6 +36,26 @@ class Vector:
         return Vector(factor * self.u, factor * self.v)
 
     @property
+    def sine(self):
+        """
+        Computes the sine of the angle of this vector with the
+        horizontal direction.
+
+        :return: `float` = sin(angle)
+        """
+        return self.v / self.norm
+
+    @property
+    def cosine(self):
+        """
+        Computes the cosine of the angle of this vector with the
+        horizontal direction.
+
+        :return: `float` = cos(angle)
+        """
+        return self.u / self.norm
+
+    @property
     def norm(self):
         """
         The norm or length of the vector.
@@ -44,6 +64,7 @@ class Vector:
         """
         return math.sqrt(self.u ** 2 + self.v ** 2)
 
+    @property
     def is_normal(self):
         """
         Boolean indicating whether the vector is normal or not.
@@ -179,24 +200,6 @@ class Vector:
         :return: `float` length of the projection
         """
         return self.dot(direction.normalized())
-
-    def sine(self):
-        """
-        Computes the sine of the angle of this vector with the
-        horizontal direction.
-
-        :return: `float` = sin(angle)
-        """
-        return self.v / self.norm
-
-    def cosine(self):
-        """
-        Computes the cosine of the angle of this vector with the
-        horizontal direction.
-
-        :return: `float` = cos(angle)
-        """
-        return self.u / self.norm
 
     def __eq__(self, other):
         """
