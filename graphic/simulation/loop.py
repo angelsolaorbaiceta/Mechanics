@@ -41,8 +41,7 @@ def main_loop(
             last_elapsed_s = frame_rate_s
         else:
             last_elapsed_s = elapsed_s
-            print(f'Frame took longer than expected!')
+            print('Frame took longer than expected!')
 
         frame += 1
         time_s += last_elapsed_s
-

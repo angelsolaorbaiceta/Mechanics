@@ -1,6 +1,7 @@
 import unittest
 
-from geom2d import *
+from geom2d import Point, Rect, Segment, Size, Polygon, Circle, \
+    Vector
 from graphic.svg import primitives
 
 
