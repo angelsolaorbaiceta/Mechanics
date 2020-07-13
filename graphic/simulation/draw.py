@@ -103,7 +103,7 @@ class CanvasDrawing:
         :param length: `Int` length of the arrow head
         :param height: `Int` height of the arrow head
         """
-        director = segment.direction_vector()
+        director = segment.direction_vector
         v_l = director.opposite().with_length(length)
         v_h1 = director.perpendicular().with_length(height / 2.0)
         v_h2 = v_h1.opposite()

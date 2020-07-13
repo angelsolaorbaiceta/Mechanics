@@ -33,9 +33,9 @@ def bars_to_svg(bars: [StrBarSolution], settings, config):
         geometry = _bar.final_geometry_scaling_displacement(
             settings.disp_scale
         )
-        normal = geometry.normal_versor()
+        normal = geometry.normal_versor
         center = geometry.middle().displaced(normal, __STRESS_DISP)
-        angle = geometry.direction_versor().angle_to(__I_VERSOR)
+        angle = geometry.direction_versor.angle_to(__I_VERSOR)
 
         return caption_to_svg(
             f'σ = {round(_bar.stress, __DECIMAL_POS)}',

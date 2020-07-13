@@ -31,7 +31,7 @@ class StrBar:
         return self.geometry.length()
 
     def global_stiffness_matrix(self) -> Matrix:
-        direction = self.geometry.direction_vector()
+        direction = self.geometry.direction_vector
         eal = self.young_mod * self.cross_section / self.length
         c = direction.cosine
         s = direction.sine

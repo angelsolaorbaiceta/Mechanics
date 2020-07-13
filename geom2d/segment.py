@@ -14,6 +14,7 @@ class Segment:
         self.start = start
         self.end = end
 
+    @property
     def direction_vector(self):
         """
         Vector in the direction of the segment, going from `start`
@@ -23,6 +24,7 @@ class Segment:
         """
         return make_vector_between(self.start, self.end)
 
+    @property
     def direction_versor(self):
         """
         Vector in the direction of the segment, going from `start`
@@ -32,6 +34,7 @@ class Segment:
         """
         return make_versor_between(self.start, self.end)
 
+    @property
     def normal_versor(self):
         """
         Vector normal (perpendicular) to the segments direction
@@ -42,7 +45,7 @@ class Segment:
 
         :return: `Vector` normal to the segment's direction
         """
-        return self.direction_versor().perpendicular()
+        return self.direction_versor.perpendicular()
 
     def length(self):
         """
@@ -62,7 +65,7 @@ class Segment:
         :return: `Point`
         """
         tparam.ensure_valid(t)
-        return self.start.displaced(self.direction_vector(), t)
+        return self.start.displaced(self.direction_vector, t)
 
     def middle(self):
         """
@@ -82,7 +85,7 @@ class Segment:
         :return: `Point` in segment closest to `p`
         """
         v = make_vector_between(self.start, p)
-        d = self.direction_versor()
+        d = self.direction_versor
         vs = v.projection_over(d)
 
         if vs < 0:
@@ -117,7 +120,7 @@ class Segment:
         :param other: `Segment`
         :return: `Point` or `None`
         """
-        d1, d2 = self.direction_vector(), other.direction_vector()
+        d1, d2 = self.direction_vector, other.direction_vector
 
         if d1.is_parallel_to(d2):
             return None
@@ -141,7 +144,7 @@ class Segment:
         """
         return Line(
             self.middle(),
-            self.direction_versor().perpendicular()
+            self.direction_versor.perpendicular()
         )
 
     def __eq__(self, other):

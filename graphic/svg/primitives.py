@@ -65,7 +65,7 @@ def group(primitives, attributes=()):
 
 
 def arrow(_segment: Segment, length, height, attributes=()):
-    director = _segment.direction_vector()
+    director = _segment.direction_vector
     v_l = director.opposite().with_length(length)
     v_h1 = director.perpendicular().with_length(height / 2.0)
     v_h2 = v_h1.opposite()
