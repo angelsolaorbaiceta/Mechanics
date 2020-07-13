@@ -28,7 +28,7 @@ class StrBar:
 
     @property
     def length(self):
-        return self.geometry.length()
+        return self.geometry.length
 
     def global_stiffness_matrix(self) -> Matrix:
         direction = self.geometry.direction_vector

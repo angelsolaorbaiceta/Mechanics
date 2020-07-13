@@ -48,11 +48,11 @@ class StrBarSolution:
 
     @property
     def original_length(self):
-        return self.original_geometry.length()
+        return self.original_geometry.length
 
     @property
     def final_length(self):
-        return self.final_geometry.length()
+        return self.final_geometry.length
 
     @property
     def elongation(self):

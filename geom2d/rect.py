@@ -95,7 +95,7 @@ class Rect:
 
         return Rect(
             Point(h_overlap.start, v_overlap.start),
-            Size(h_overlap.length(), v_overlap.length())
+            Size(h_overlap.length, v_overlap.length)
         )
 
     def __horizontal_overlap_with(self, other):

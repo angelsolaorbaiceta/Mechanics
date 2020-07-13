@@ -14,7 +14,7 @@ class TestSegment(unittest.TestCase):
 
     def test_length(self):
         expected = 400 * math.sqrt(2)
-        actual = self.segment.length()
+        actual = self.segment.length
         self.assertAlmostEqual(expected, actual)
 
     # --- POINT AT --- #

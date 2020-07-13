@@ -47,6 +47,7 @@ class Segment:
         """
         return self.direction_versor.perpendicular()
 
+    @property
     def length(self):
         """
         Length of the segment.
@@ -91,7 +92,7 @@ class Segment:
         if vs < 0:
             return self.start
 
-        if vs > self.length():
+        if vs > self.length:
             return self.end
 
         return self.start.displaced(d, vs)
