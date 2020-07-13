@@ -1,5 +1,7 @@
 # Mechanics
 
+![Python package](https://github.com/angelsolaorbaiceta/Mechanics/workflows/Python%20package/badge.svg?branch=master)
+
 Learn how to solve mechanics problems using _Python 3_.
 
 ## Packages
