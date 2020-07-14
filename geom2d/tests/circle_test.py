@@ -11,6 +11,15 @@ class TestCircle(unittest.TestCase):
 
     circle = Circle(Point(10, 10), 10)
 
+    # --- PROPERTIES --- #
+    def test_area(self):
+        expected = math.pi * 100
+        self.assertAlmostEqual(expected, self.circle.area)
+
+    def test_circumference(self):
+        expected = math.pi * 20
+        self.assertAlmostEqual(expected, self.circle.circumference)
+
     # --- CONTAINS --- #
     def test_contains_point(self):
         point = Point(11, 12)
