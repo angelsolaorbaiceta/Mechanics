@@ -24,7 +24,7 @@ class TestPolygon(unittest.TestCase):
 
     def test_centroid(self):
         expected = Point(10, 10)
-        actual = self.polygon.centroid()
+        actual = self.polygon.centroid
         self.assertEqual(expected, actual)
 
     def test_doesnt_contain_point(self):
