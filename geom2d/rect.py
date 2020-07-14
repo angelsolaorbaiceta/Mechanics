@@ -13,10 +13,12 @@ class Rect:
     not aligned in this way may be represented with the `Polygon`
     class.
     """
+
     def __init__(self, origin: Point, size: Size):
         self.origin = origin
         self.size = size
 
+    @property
     def left(self):
         """
         Min x value for the rectangle.
@@ -25,6 +27,7 @@ class Rect:
         """
         return self.origin.x
 
+    @property
     def right(self):
         """
         Max x value for the rectangle.
@@ -33,6 +36,7 @@ class Rect:
         """
         return self.origin.x + self.size.width
 
+    @property
     def bottom(self):
         """
         Min y value for the rectangle.
@@ -41,6 +45,7 @@ class Rect:
         """
         return self.origin.y
 
+    @property
     def top(self):
         """
         Max y value for the rectangle.
@@ -49,6 +54,7 @@ class Rect:
         """
         return self.origin.y + self.size.height
 
+    @property
     def area(self):
         """
         Area of the rectangle.
@@ -57,6 +63,7 @@ class Rect:
         """
         return self.size.width * self.size.height
 
+    @property
     def perimeter(self):
         """
         Length of the length of all sides of the rectangle.
@@ -72,8 +79,8 @@ class Rect:
         :param point: `Point`
         :return: `bool`
         """
-        return self.left() < point.x < self.right() \
-               and self.bottom() < point.y < self.top()
+        return self.left < point.x < self.right \
+               and self.bottom < point.y < self.top
 
     def intersection_with(self, other):
         """
@@ -99,14 +106,14 @@ class Rect:
         )
 
     def __horizontal_overlap_with(self, other):
-        self_interval = OpenInterval(self.left(), self.right())
-        other_interval = OpenInterval(other.left(), other.right())
+        self_interval = OpenInterval(self.left, self.right)
+        other_interval = OpenInterval(other.left, other.right)
 
         return self_interval.compute_overlap_with(other_interval)
 
     def __vertical_overlap_with(self, other):
-        self_interval = OpenInterval(self.bottom(), self.top())
-        other_interval = OpenInterval(other.bottom(), other.top())
+        self_interval = OpenInterval(self.bottom, self.top)
+        other_interval = OpenInterval(other.bottom, other.top)
 
         return self_interval.compute_overlap_with(other_interval)
 
@@ -124,9 +131,9 @@ class Rect:
         """
         return Polygon([
             self.origin,
-            Point(self.right(), self.bottom()),
-            Point(self.right(), self.top()),
-            Point(self.left(), self.top())
+            Point(self.right, self.bottom),
+            Point(self.right, self.top),
+            Point(self.left, self.top)
         ])
 
     def __eq__(self, other):

@@ -5,6 +5,7 @@ class OpenInterval:
         self.start = start
         self.end = end
 
+    @property
     def length(self):
         return self.end - self.start
 
