@@ -33,7 +33,7 @@ class TestSegment(unittest.TestCase):
 
     def test_middle_point(self):
         expected = Point(200, 200)
-        actual = self.segment.middle()
+        actual = self.segment.middle
         self.assertEqual(expected, actual)
 
     # --- CLOSEST POINT --- #

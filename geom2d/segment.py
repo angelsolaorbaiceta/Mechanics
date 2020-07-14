@@ -68,6 +68,7 @@ class Segment:
         tparam.ensure_valid(t)
         return self.start.displaced(self.direction_vector, t)
 
+    @property
     def middle(self):
         """
         Returns the point at `t = 0.5`, that is, the point inside
@@ -136,6 +137,7 @@ class Segment:
         else:
             return None
 
+    @property
     def bisector(self):
         """
         Computes the bisector line: a `Line` perpendicular to the
@@ -143,10 +145,7 @@ class Segment:
 
         :return: `Line` bisecting the segment
         """
-        return Line(
-            self.middle(),
-            self.direction_versor.perpendicular()
-        )
+        return Line(self.middle, self.normal_versor)
 
     def __eq__(self, other):
         if self is other:
