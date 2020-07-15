@@ -20,7 +20,7 @@ def vector_to_svg(
         origin
     )
     caption_origin = segment.start.displaced(
-        segment.normal_versor(),
+        segment.normal_versor,
         __CAPTION_DISP
     )
 
