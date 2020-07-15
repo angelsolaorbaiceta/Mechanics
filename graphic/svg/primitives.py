@@ -2,10 +2,17 @@ from geom2d import Circle, Rect, Segment, Point, Polygon, Vector
 from graphic.svg.attributes import attrs_to_str
 from graphic.svg.read import read_template
 
+__segment_template = read_template('line')
+__rect_template = read_template('rect')
+__circle_template = read_template('circle')
+__polygon_template = read_template('polygon')
+__polyline_template = read_template('polyline')
+__text_template = read_template('text')
+__group_template = read_template('group')
+
 
 def segment(seg: Segment, attributes=()):
-    template = read_template('line')
-    return template \
+    return __segment_template \
         .replace('{{x1}}', str(seg.start.x)) \
         .replace('{{y1}}', str(seg.start.y)) \
         .replace('{{x2}}', str(seg.end.x)) \
@@ -14,8 +21,7 @@ def segment(seg: Segment, attributes=()):
 
 
 def rectangle(rect: Rect, attributes=()):
-    template = read_template('rect')
-    return template \
+    return __rect_template \
         .replace('{{x}}', str(rect.origin.x)) \
         .replace('{{y}}', str(rect.origin.y)) \
         .replace('{{width}}', str(rect.size.width)) \
@@ -24,8 +30,7 @@ def rectangle(rect: Rect, attributes=()):
 
 
 def circle(circ: Circle, attributes=()):
-    template = read_template('circle')
-    return template \
+    return __circle_template \
         .replace('{{cx}}', str(circ.center.x)) \
         .replace('{{cy}}', str(circ.center.y)) \
         .replace('{{r}}', str(circ.radius)) \
@@ -33,22 +38,19 @@ def circle(circ: Circle, attributes=()):
 
 
 def polygon(pol: Polygon, attributes=()):
-    template = read_template('polygon')
-    return template \
+    return __polygon_template \
         .replace('{{points}}', __format_points(pol.vertices)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
 def polyline(points, attributes=()):
-    template = read_template('polyline')
-    return template \
+    return __polyline_template \
         .replace('{{points}}', __format_points(points)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
 def text(txt, pos: Point, disp: Vector, attrs_list=()):
-    template = read_template('text')
-    return template \
+    return __text_template \
         .replace('{{x}}', str(pos.x)) \
         .replace('{{y}}', str(pos.y)) \
         .replace('{{dx}}', str(disp.u)) \
@@ -58,8 +60,7 @@ def text(txt, pos: Point, disp: Vector, attrs_list=()):
 
 
 def group(primitives, attributes=()):
-    template = read_template('group')
-    return template \
+    return __group_template \
         .replace('{{content}}', '\n\t'.join(primitives)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
