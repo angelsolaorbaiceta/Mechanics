@@ -1,4 +1,4 @@
-from geom2d import *
+from geom2d import Circle, Rect, Segment, Point, Polygon, Vector
 from graphic.svg.attributes import attrs_to_str
 from graphic.svg.read import read_template
 
