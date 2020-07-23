@@ -12,6 +12,13 @@ __group_template = read_template('group')
 
 
 def segment(seg: Segment, attributes=()):
+    """
+    Returns an SVG line segment element as string.
+
+    :param seg: `Segment` geometric primitive
+    :param attributes: list of SVG attributes
+    :return: <line x1="" y1="" x2="" y2="" ... />
+    """
     return __segment_template \
         .replace('{{x1}}', str(seg.start.x)) \
         .replace('{{y1}}', str(seg.start.y)) \
@@ -21,6 +28,13 @@ def segment(seg: Segment, attributes=()):
 
 
 def rectangle(rect: Rect, attributes=()):
+    """
+    Returns an SVG rectangle element as string.
+
+    :param rect: `Rect` geometric primitive
+    :param attributes: list of SVG attributes
+    :return: <rect x="" y="" width="" height="" ... />
+    """
     return __rect_template \
         .replace('{{x}}', str(rect.origin.x)) \
         .replace('{{y}}', str(rect.origin.y)) \
@@ -30,6 +44,13 @@ def rectangle(rect: Rect, attributes=()):
 
 
 def circle(circ: Circle, attributes=()):
+    """
+    Returns an SVG circle element as string.
+
+    :param circ: `Circle` geometric primitive
+    :param attributes: list of SVG attributes
+    :return: <circle cx="" cy="" r="" ... />
+    """
     return __circle_template \
         .replace('{{cx}}', str(circ.center.x)) \
         .replace('{{cy}}', str(circ.center.y)) \
@@ -38,6 +59,13 @@ def circle(circ: Circle, attributes=()):
 
 
 def polygon(pol: Polygon, attributes=()):
+    """
+    Returns an SVG polygon element as string.
+
+    :param pol: `Polygon` geometric primitive
+    :param attributes:  list of SVG attributes
+    :return: <polygon points="" ... />
+    """
     return __polygon_template \
         .replace('{{points}}', __format_points(pol.vertices)) \
         .replace('{{attrs}}', attrs_to_str(attributes))

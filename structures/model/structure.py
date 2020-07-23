@@ -126,10 +126,7 @@ class Structure:
 
         return StructureSolution(nodes, bars)
 
-    def __node_to_solution(
-            self,
-            node: StrNode
-    ) -> StrNodeSolution:
+    def __node_to_solution(self, node: StrNode) -> StrNodeSolution:
         (dof_x, dof_y) = self.__dofs_dict[node.id]
         disp = Vector(
             self.__global_displacements.value_at(dof_x),
