@@ -16,7 +16,7 @@ def loads_to_svg(nodes: [StrNodeSolution], settings, config):
 
     def svg_load(position: Point, load: Vector):
         return vector_to_svg(
-            origin=position,
+            position=position,
             vector=load,
             scale=settings.load_scale,
             color=config['colors']['load'],

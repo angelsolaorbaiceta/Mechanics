@@ -12,7 +12,7 @@ def node_reactions_to_svg(
         position = node.displaced_pos_scaled(settings.disp_scale)
         reaction = solution.reaction_for_node(node)
         return vector_to_svg(
-            origin=position,
+            position=position,
             vector=reaction,
             scale=settings.load_scale,
             color=config['colors']['reaction'],

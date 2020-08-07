@@ -7,6 +7,14 @@ __LOAD_REGEX = r'(?P<node_id>\d+)\s*->\s*' \
 
 
 def parse_load(load_str: str):
+    """
+    Parses a load vector from a string or raises a `ValueError` if
+    the given string doesn't follow the expected format.
+
+    :param load_str: definition string
+    :return: tuple of node id and load vector
+    """
+
     match = re.match(__LOAD_REGEX, load_str)
     if not match:
         raise ValueError(

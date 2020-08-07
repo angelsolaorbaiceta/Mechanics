@@ -9,15 +9,26 @@ __DECIMAL_POS = 2
 
 
 def vector_to_svg(
-        origin: Point,
+        position: Point,
         vector: Vector,
         scale: float,
         color: str,
         config
 ):
+    """
+    Creates an SVG representation of the given vector using an
+    arrow and a label aligned with the arrow.
+
+    :param position: origin of the vector
+    :param vector: `Vector`
+    :param scale: scale to use in the drawing
+    :param color: color to use for the arrow and label
+    :param config: configuration dictionary
+    :return: SVG arrow and label
+    """
     segment = Segment(
-        origin.displaced(vector, -scale),
-        origin
+        position.displaced(vector, -scale),
+        position
     )
     caption_origin = segment.start.displaced(
         segment.normal_versor,

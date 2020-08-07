@@ -8,6 +8,17 @@ __BAR_REGEX = r'(?P<id>\d+)\s*:\s*' \
 
 
 def parse_bar(bar_str: str, nodes_dict):
+    """
+    Parses a `StrBar` from a string or raises a `ValueError` if
+    the given string doesn't follow the expected format.
+
+    To add the nodes to the bar, the nodes dictionary is required.
+
+    :param bar_str: definition string
+    :param nodes_dict: nodes dictionary
+    :return: `StrBar`
+    """
+
     match = re.match(__BAR_REGEX, bar_str)
     if not match:
         raise ValueError(

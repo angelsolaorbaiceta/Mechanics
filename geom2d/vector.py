@@ -225,6 +225,17 @@ class Vector:
         return f'({self.u}, {self.v}) with norm {self.norm}'
 
     def to_formatted_str(self, decimals: int):
+        """
+        Returns a string of the form: '(u, v) with norm N', where
+        `u` and `v` are the components of the vector and `N` the
+        norm.
+
+        All numbers are rounded to the passed in number of
+        decimals.
+
+        :param decimals: number of decimals
+        :return: '(u, v) with norm N' string
+        """
         u = round(self.u, decimals)
         v = round(self.v, decimals)
         norm = round(self.norm, decimals)

@@ -12,6 +12,14 @@ __DECIMAL_POS = 4
 
 
 def bars_to_svg(bars: [StrBarSolution], settings, config):
+    """
+    Creates the list of SVG elements representing the bars.
+
+    :param bars: list of `StrBarSolution`
+    :param settings:
+    :param config:
+    :return: list of SVG elements
+    """
     def original_bar_to_svg(_bar: StrBarSolution):
         color = config['colors']['original']
         return __bar_svg(
@@ -34,12 +42,12 @@ def bars_to_svg(bars: [StrBarSolution], settings, config):
             settings.disp_scale
         )
         normal = geometry.normal_versor
-        center = geometry.middle.displaced(normal, __STRESS_DISP)
+        position = geometry.middle.displaced(normal, __STRESS_DISP)
         angle = geometry.direction_versor.angle_to(__I_VERSOR)
 
         return caption_to_svg(
             f'σ = {round(_bar.stress, __DECIMAL_POS)}',
-            center,
+            position,
             angle,
             bar_color(_bar),
             config

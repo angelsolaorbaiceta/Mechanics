@@ -12,11 +12,31 @@ __BARS_HEADER = 'bars'
 
 
 def parse_structure(structure_string: str):
+    """
+    Parses a `Structure` from a string or raises a `ValueError` if
+    the given string doesn't follow the expected format.
+
+    The input string should contain the structure definition split
+    into lines. This function first splits those lines and parses
+    the structure parsing line by line using the appropriate
+    parsing logic.
+
+    :param structure_string: definition string
+    :return: `Structure`
+    """
     lines = structure_string.split('\n')
     return parse_structure_from_lines(lines)
 
 
 def parse_structure_from_lines(lines: [str]):
+    """
+    Parses a `Structure` from a list of strings: the definition
+    lines. This function will raise a `ValueError` if there is
+    any problem parsing the structure.
+
+    :param lines: definition lines
+    :return: `Structure`
+    """
     parsed = __parse_lines(lines)
     nodes_dict = parsed['nodes']
     loads = parsed['loads']

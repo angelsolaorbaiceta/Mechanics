@@ -9,6 +9,14 @@ __NODE_REGEX = r'(?P<id>\d+)\s*:\s*' \
 
 
 def parse_node(node_str: str):
+    """
+    Parses a `StrNode` from a string or raises a `ValueError` if
+    the given string doesn't follow the expected format.
+
+    :param node_str: definition string
+    :return: `StrNode`
+    """
+
     match = re.match(__NODE_REGEX, node_str)
     if not match:
         raise ValueError(
