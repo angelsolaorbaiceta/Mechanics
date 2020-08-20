@@ -3,7 +3,7 @@ import re
 __TRANSF_VAL_RE = r'(?P<val>-?\d+(\.\d+)?)'
 
 
-def parse(term, line):
+def parse_transform_term(term, line):
     __ensure_term_name(term, line)
     return __parse_transform_term(line)
 

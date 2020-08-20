@@ -16,6 +16,25 @@ def structure_solution_to_svg(
         settings,
         _config=None,
 ):
+    """
+    Creates the content of the SVG diagram that depicts the
+    structure solution passed as first argument.
+
+    The settings dictionary should contain the different scales
+    used for plotting the different parts of the diagram:
+
+    - `disp_scale`: scale used in the displacements.
+    - `load_scale`: scale used for drawing loads.
+    - `scale`: scale used for the drawing as a whole.
+    - `no_draw_original`: used to decide whether to draw the
+      original geometry or not.
+
+    :param result: structure solution
+    :param settings:
+    :param _config:
+    :return: SVG
+    """
+
     __validate_settings(settings)
     default_config = __read_config()
 

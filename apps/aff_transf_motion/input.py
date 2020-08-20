@@ -1,5 +1,5 @@
 from apps.aff_transf_motion.parse_geom import *
-from apps.aff_transf_motion.parse_transform import parse
+from apps.aff_transf_motion.parse_transform import parse_transform_term
 from geom2d import AffineTransform
 
 
@@ -11,12 +11,12 @@ def read_input():
 
 def __read_transform():
     return AffineTransform(
-        sx=parse('sx', input()),
-        sy=parse('sy', input()),
-        shx=parse('shx', input()),
-        shy=parse('shy', input()),
-        tx=parse('tx', input()),
-        ty=parse('ty', input())
+        sx=parse_transform_term('sx', input()),
+        sy=parse_transform_term('sy', input()),
+        shx=parse_transform_term('shx', input()),
+        shy=parse_transform_term('shy', input()),
+        tx=parse_transform_term('tx', input()),
+        ty=parse_transform_term('ty', input())
     )
 
 
