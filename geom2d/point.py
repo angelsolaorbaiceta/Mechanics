@@ -19,6 +19,9 @@ class Point:
         Creates a `Point` result of adding the coordinates of this
         point and `other`.
 
+        This operation doesn't make a lot of algebraic sense, but
+        it will be useful for some operations.
+
         :param other: `Point`
         :return: `Point` sum of `self` and `other`
         """

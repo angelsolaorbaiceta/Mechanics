@@ -14,10 +14,10 @@ class Line:
     def is_perpendicular_to(self, other):
         return self.direction.is_perpendicular_to(other.direction)
 
-    def perpendicular_through(self, point):
+    def perpendicular_through(self, point: Point):
         return Line(point, self.direction.perpendicular())
 
-    def parallel_through(self, point):
+    def parallel_through(self, point: Point):
         return Line(point, self.direction)
 
     def intersection_with(self, other):

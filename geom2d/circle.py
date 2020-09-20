@@ -77,7 +77,7 @@ class Circle:
 
         return direction.with_length(radii_sum - centers_dist)
 
-    def to_polygon(self, divisions):
+    def to_polygon(self, divisions: int):
         """
         Creates a polygon to approximate the circle using the given
         number of divisions.
@@ -91,7 +91,7 @@ class Circle:
              for i in range(divisions)]
         )
 
-    def __point_at_angle(self, angle):
+    def __point_at_angle(self, angle: float):
         return Point(
             self.center.x + self.radius * math.cos(angle),
             self.center.y + self.radius * math.sin(angle)

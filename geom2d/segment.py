@@ -57,7 +57,7 @@ class Segment:
         """
         return self.start.distance_to(self.end)
 
-    def point_at(self, t):
+    def point_at(self, t: float):
         """
         Returns a segment's middle point at a given position
         between `start` and `end` given by the `t` parameter.

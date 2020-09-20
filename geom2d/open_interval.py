@@ -9,7 +9,7 @@ class OpenInterval:
     its two ends, 2 and 7, but the ends are excluded.
     """
 
-    def __init__(self, start, end):
+    def __init__(self, start: float, end: float):
         if start > end:
             raise ValueError('start should be smaller than end')
         self.start = start

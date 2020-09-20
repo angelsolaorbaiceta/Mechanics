@@ -14,6 +14,13 @@ class Vector:
         self.v = v
 
     def __add__(self, other):
+        """
+        Creates a `Vector` result of adding the coordinates of this
+        point and `other`.
+
+        :param other: `Vector`
+        :return: `Vector` sum of `self` and `other`
+        """
         return Vector(
             self.u + other.u,
             self.v + other.v

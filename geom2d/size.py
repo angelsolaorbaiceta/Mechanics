@@ -7,7 +7,7 @@ class Size:
     It represents the dimensions of a rectangle.
     """
 
-    def __init__(self, width, height):
+    def __init__(self, width: float, height: float):
         self.width = width
         self.height = height
 
