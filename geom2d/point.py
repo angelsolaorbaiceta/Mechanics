@@ -69,6 +69,13 @@ class Point:
         )
 
     def __eq__(self, other):
+        """
+        Two points are equal if their coordinates are equal (or
+        close enough).
+
+        :param other: `Point`
+        :return: are the points equal?
+        """
         if self is other:
             return True
 
@@ -82,6 +89,13 @@ class Point:
         return f'({self.x}, {self.y})'
 
     def to_formatted_str(self, decimals: int):
+        """
+        Returns a string including the coordinates of the point
+        rounded to the given number of decimals.
+
+        :param decimals: number of decimals
+        :return: `string` representation of the point
+        """
         x = round(self.x, decimals)
         y = round(self.y, decimals)
 

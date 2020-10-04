@@ -148,6 +148,13 @@ class Segment:
         return Line(self.middle, self.normal_versor)
 
     def __eq__(self, other):
+        """
+        Two segments are equal if their start and end points are
+        equal.
+
+        :param other: `Segment`
+        :return: are the segments equal?
+        """
         if self is other:
             return True
 

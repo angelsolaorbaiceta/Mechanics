@@ -98,6 +98,13 @@ class Circle:
         )
 
     def __eq__(self, other):
+        """
+        Two circles are equal if their center points and radii are
+        equal.
+
+        :param other: `Circle`
+        :return: are the circles equal?
+        """
         if self is other:
             return True
 

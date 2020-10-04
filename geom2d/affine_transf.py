@@ -1,9 +1,9 @@
 from geom2d.circle import Circle
 from geom2d.nums import are_close_enough, value_or_zero
+from geom2d.point import Point
 from geom2d.polygon import Polygon
 from geom2d.rect import Rect
 from geom2d.segment import Segment
-from geom2d.point import Point
 
 
 class AffineTransform:
@@ -151,6 +151,13 @@ class AffineTransform:
         )
 
     def __eq__(self, other):
+        """
+        Two affine transformations are equal if all its values are
+        equal: sx, sy, shx, shy, tx and ty.
+
+        :param other: `AffineTransform`
+        :return: are the affine transformations equal?
+        """
         if self is other:
             return True
 

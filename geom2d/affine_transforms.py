@@ -1,11 +1,21 @@
 import math
 
 from geom2d.affine_transf import AffineTransform
-from geom2d.interpolation import *
+from geom2d.interpolation import ease_in_out_t_sequence, \
+    interpolate
 from geom2d.point import Point
 
 
-def make_scale(sx, sy, center=Point(0, 0)):
+def make_scale(sx: float, sy: float, center=Point(0, 0)):
+    """
+    Creates a scaling affine transformation about the `center`
+    point and using the `sx` and `sy` scale factors.
+
+    :param sx: scale in the x-axis
+    :param sy: scale in the y-axis
+    :param center: center point
+    :return: `AffineTransform`
+    """
     return AffineTransform(
         sx=sx,
         sy=sy,
@@ -14,7 +24,15 @@ def make_scale(sx, sy, center=Point(0, 0)):
     )
 
 
-def make_rotation(radians, center=Point(0, 0)):
+def make_rotation(radians: float, center=Point(0, 0)):
+    """
+    Creates a rotation affine transformation of the given angle
+    in radians about the `center` point.
+
+    :param radians: angle in radians
+    :param center: center point
+    :return: `AffineTransform`
+    """
     cos = math.cos(radians)
     sin = math.sin(radians)
     oneMinusCos = 1.0 - cos
@@ -29,7 +47,21 @@ def make_rotation(radians, center=Point(0, 0)):
     )
 
 
-def ease_in_out_interpolation(start, end, steps):
+def ease_in_out_interpolation(
+        start: AffineTransform,
+        end: AffineTransform,
+        steps: int
+):
+    """
+    Creates a sequence of affine transformations from a `start`
+    transformation to an `end` transformation using an ease-out
+    interpolation function.
+
+    :param start: start affine transformation
+    :param end: end affine transformation
+    :param steps: number of steps to use in the interpolation
+    :return:
+    """
     t_seq = ease_in_out_t_sequence(steps)
     return [__interpolated(start, end, t) for t in t_seq]
 

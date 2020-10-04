@@ -210,14 +210,11 @@ class Vector:
 
     def __eq__(self, other):
         """
-        Returns a `bool` indicating whether this and `other` vector
-        are equal.
-
         Two `Vector` instances are equal if their projections are
         equal.
 
         :param other: `Vector`
-        :return: `bool`
+        :return: are the vectors equal?
         """
         if self is other:
             return True

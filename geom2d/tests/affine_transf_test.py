@@ -40,6 +40,6 @@ class TestAffineTransform(unittest.TestCase):
     # INVERSE #
     def test_inverse(self):
         transf = AffineTransform(1, 2, 3, 4, 5, 6)
-        expected = AffineTransform(1, 1)
+        expected = AffineTransform()
         actual = transf.then(transf.inverse())
         self.assertEqual(expected, actual)

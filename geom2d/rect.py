@@ -137,6 +137,12 @@ class Rect:
         ])
 
     def __eq__(self, other):
+        """
+        Two rects are equal if their origins and sizes are equal.
+
+        :param other: `Rect`
+        :return: are the rects equal?
+        """
         if self is other:
             return True
 
