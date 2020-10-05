@@ -129,32 +129,68 @@ yields:
 
 ### `text`
 
-```python
+SVG label.
 
+```python
+from geom2d import Point, Vector
+from graphic.svg import attributes, primitives
+
+primitives.text(
+    "hi there", 
+    Point(10, 15), 
+    Vector(5, 5), 
+    [attributes.font_family('Verdana')]
+)
 ```
 yields:
 ```xml
-
+<text x="10" y="15" dx="5" dy="5" font-family="Verdana">    
+    hi there
+</text>
 ```
 
 ### `group`
 
-```python
+A group of SVG elements.
 
+```python
+from geom2d import Point
+from graphic.svg import attributes, primitives
+
+poly_one = primitives.polyline(
+    (Point(0, 0), Point(10, 15), Point(20, 25)), 
+    [attributes.stroke_color('red')]
+)
+poly_two = primitives.polyline(
+    (Point(0, 0), Point(100, 150), Point(200, 250)), 
+    [attributes.stroke_color('green')]
+)
+primitives.group((poly_one, poly_two))
 ```
 yields:
 ```xml
-
+<g >
+    <polyline points="0,0 10,15 20,25" stroke="red"/>
+    <polyline points="0,0 100,150 200,250" stroke="green"/>
+</g>
 ```
 
 ### `arrow`
 
-```python
+This primitive is made up of a line segment (the arrow's line) and a polyline for the arrow's head.
 
+```python
+from geom2d import Point, Segment
+from graphic.svg import primitives
+
+primitives.arrow(Segment(Point(10, 10), Point(200, 10)), 20, 5)
 ```
 yields:
 ```xml
-
+<g >
+    <line x1="10" y1="10" x2="200" y2="10" />
+    <polyline points="180.0,12.5 200,10 180.0,7.5" />
+</g>
 ```
 
 
@@ -162,10 +198,75 @@ yields:
 
 To style the primitives, defined in the [attributes.py](./attributes.py) module are the current available attributes:
 
-- `stroke_color`
-- `stroke_width`
-- `fill_color`
-- `fill_opacity`
-- `affine_transform`
-- `font_size`
-- `font_family` 
+### `stroke_color`
+
+The color of the stroke.
+
+```python
+from graphic.svg import attributes
+attributes.stroke_color('black')
+```
+results in: `'stroke="black"'`.
+
+### `stroke_width`
+
+The color of the stroke.
+
+```python
+from graphic.svg import attributes
+attributes.stroke_width(3)
+```
+results in: `'stroke-width="3"'`.
+
+### `fill_color`
+
+The path or text fill color.
+
+```python
+from graphic.svg import attributes
+attributes.fill_color('gray')
+```
+results in: `'fill="gray"'`.
+
+### `fill_opacity`
+
+The path or text fill color's opacity.
+
+```python
+from graphic.svg import attributes
+attributes.fill_opacity(0.3)
+```
+results in: `'fill-opacity="0.3"'`.
+
+### `affine_transform`
+
+The affine transformation used to transform a node.
+
+```python
+from geom2d import AffineTransform
+from graphic.svg import attributes
+
+transf = AffineTransform(1, 2, 3, 4, 5, 6)
+attributes.affine_transform(transf)
+```
+results in: `'transform="matrix(1 6 5 2 3 4)"'`.
+
+### `font_size`
+
+The text's font size in pixels.
+
+```python
+from graphic.svg import attributes
+attributes.font_size(12)
+```
+results in: `'font-size="12px"'`.
+
+### `font_family`
+
+The text's font family.
+
+```python
+from graphic.svg import attributes
+attributes.font_family('Arial')
+``` 
+results in: `'font-family="Arial"'`.
