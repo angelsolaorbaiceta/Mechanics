@@ -103,7 +103,7 @@ def text(txt, pos: Point, disp: Vector, attrs_list=()):
         .replace('{{attrs}}', attrs_to_str(attrs_list))
 
 
-def group(primitives: List[str], attributes=()):
+def group(primitives: [str], attributes=()):
     """
     Returns an SVG group element with the primitives list inside of
     it.

@@ -18,10 +18,10 @@ rect = Rect(Point(50, 50), Size(100, 100))
 # SVG primitives
 blue_fill = attributes.fill_color('#0666D6')
 green_fill = attributes.fill_color('#279F43')
-prims = [
+prims = (
     primitives.circle(circ, [blue_fill]),
     primitives.rectangle(rect, [green_fill])
-]
+)
 
 image.svg_content(size, prims)
 ````
