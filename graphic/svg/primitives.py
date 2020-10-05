@@ -63,7 +63,7 @@ def polygon(pol: Polygon, attributes=()):
     Returns an SVG polygon element as string.
 
     :param pol: `Polygon` geometric primitive
-    :param attributes:  list of SVG attributes
+    :param attributes: list of SVG attributes
     :return: <polygon points="" ... />
     """
     return __polygon_template \
@@ -71,13 +71,29 @@ def polygon(pol: Polygon, attributes=()):
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
-def polyline(points, attributes=()):
+def polyline(points: [Point], attributes=()):
+    """
+    Returns an SVG polyline element as string.
+
+    :param points: sequence of `Point`s, the vertices of the polyline
+    :param attributes: list of SVG attributes
+    :return: <polyline points="" .../>
+    """
     return __polyline_template \
         .replace('{{points}}', __format_points(points)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
 def text(txt, pos: Point, disp: Vector, attrs_list=()):
+    """
+    Returns an SVG text element as string.
+
+    :param txt: the text
+    :param pos: origin position for the text
+    :param disp: displacement applied to the text
+    :param attrs_list: list of SVG attributes
+    :return: <text x="" y="" dx="" dy="" ...>Hello</text>
+    """
     return __text_template \
         .replace('{{x}}', str(pos.x)) \
         .replace('{{y}}', str(pos.y)) \
@@ -87,13 +103,36 @@ def text(txt, pos: Point, disp: Vector, attrs_list=()):
         .replace('{{attrs}}', attrs_to_str(attrs_list))
 
 
-def group(primitives, attributes=()):
+def group(primitives: List[str], attributes=()):
+    """
+    Returns an SVG group element with the primitives list inside of
+    it.
+
+    :param primitives: list of SVG primitives as string.
+    :param attributes: list of SVG attributes
+    :return: <g ...>...</g>
+    """
     return __group_template \
         .replace('{{content}}', '\n\t'.join(primitives)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
-def arrow(_segment: Segment, length, height, attributes=()):
+def arrow(
+        _segment: Segment,
+        length: float,
+        height: float,
+        attributes=()
+):
+    """
+    Returns an SVG group of primitives representing an arrow: a
+    segment with an arrow head in its end.
+
+    :param _segment: arrow's line segment
+    :param length: arrow's head length
+    :param height: arrow's head height
+    :param attributes: list of SVG attributes
+    :return: <g>...</g>
+    """
     director = _segment.direction_vector
     v_l = director.opposite().with_length(length)
     v_h1 = director.perpendicular().with_length(height / 2.0)

@@ -46,14 +46,117 @@ Which saved into an `image.svg` would look like:
 
 The _svg_ package, defined in the [primitives.py](./primitives.py) module, currently contains the following primitives:
 
-- `segment`
-- `rectangle`
-- `circle`
-- `polygon`
-- `polyline`
-- `text`
-- `group`
-- `arrow`
+### `segment`
+
+SVG representation of the `geom2d.Segment` primitive.
+
+```python
+from geom2d import Point, Segment
+from graphic.svg import attributes, primitives
+
+segment = Segment(Point(10, 15), Point(20, 25))
+primitives.segment(segment, [attributes.stroke_width(2)])
+```
+yields:
+```xml
+<line x1="10" y1="15" x2="20" y2="25" stroke-width="2"/>
+```
+
+### `rectangle`
+
+SVG representation of the `geom2d.Rect` primitive.
+
+```python
+from geom2d import Point, Size, Rect
+from graphic.svg import attributes, primitives
+
+rect = Rect(Point(10, 15), Size(100, 200))
+primitives.rectangle(rect, [attributes.fill_color('blue')])
+```
+yields:
+```xml
+<rect x="10" y="15" width="100" height="200" fill="blue"/>
+```
+
+### `circle`
+
+SVG representation of the `geom2d.Circle` primitive.
+
+```python
+from geom2d import Point, Circle
+from graphic.svg import attributes, primitives
+
+circle = Circle(Point(10, 15), 40)
+primitives.circle(circle, [attributes.stroke_color('green')])
+```
+yields:
+```xml
+<circle cx="10" cy="15" r="40" stroke="green"/>
+```
+
+### `polygon`
+
+SVG representation of the `geom2d.Polygon` primitive.
+
+```python
+from geom2d import polygons
+from graphic.svg import attributes, primitives
+
+polygon = polygons.make_polygon_from_coords((0, 0, 10, 15, 20, 25, 30, 35))
+primitives.polygon(polygon, [attributes.stroke_width(1)])
+
+```
+yields:
+```xml
+<polygon points="0,0 10,15 20,25 30,35" stroke-width="1"/>
+```
+
+### `polyline`
+
+SVG representation of a list of points connected to form an open line.
+
+```python
+from geom2d import Point
+from graphic.svg import attributes, primitives
+
+points = (Point(0, 0), Point(10, 15), Point(20, 25))
+primitives.polyline(points, [attributes.stroke_color('red')])
+```
+yields:
+```xml
+<polyline points="0,0 10,15 20,25" stroke="red"/>
+```
+
+### `text`
+
+```python
+
+```
+yields:
+```xml
+
+```
+
+### `group`
+
+```python
+
+```
+yields:
+```xml
+
+```
+
+### `arrow`
+
+```python
+
+```
+yields:
+```xml
+
+```
+
 
 ## Attributes
 
