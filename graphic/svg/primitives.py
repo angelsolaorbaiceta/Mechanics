@@ -151,5 +151,5 @@ def arrow(
     )
 
 
-def __format_points(points):
+def __format_points(points: [Point]):
     return ' '.join([f'{p.x},{p.y}' for p in points])
