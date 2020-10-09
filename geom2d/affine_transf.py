@@ -13,7 +13,7 @@ class AffineTransform:
     An affine transformation can be defined using matrix notation:
 
     `⎡ sx  shx tx ⎤`\n
-    `⎪ sx  shx tx ⎪`\n
+    `⎪ shy sy  ty ⎪`\n
     `⎣ 0   0   1  ⎦`\n
 
     Affine transformations have the following terms:
