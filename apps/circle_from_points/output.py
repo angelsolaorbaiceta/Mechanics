@@ -1,6 +1,5 @@
 from geom2d import make_rect_centered, Circle, Point, Vector
 from graphic import svg
-from graphic.svg import attributes
 
 
 def draw_to_svg(points: [Point], circle: Circle, config):
@@ -37,7 +36,7 @@ def output_to_svg(circle: Circle, config):
     ]
 
 
-def input_to_svg(points: [Point], point_radius, config):
+def input_to_svg(points: [Point], point_radius: float, config):
     style = style_from_config(config)
     label_style = label_style_from_config(config)
     [a, b, c] = points
@@ -55,9 +54,9 @@ def input_to_svg(points: [Point], point_radius, config):
 
 def style_from_config(config):
     return [
-        attributes.stroke_color(config['stroke-color']),
-        attributes.stroke_width(config['stroke-width']),
-        attributes.fill_color(config['fill-color'])
+        svg.stroke_color(config['stroke-color']),
+        svg.stroke_width(config['stroke-width']),
+        svg.fill_color(config['fill-color'])
     ]
 
 
