@@ -7,13 +7,13 @@ This repository contains the code from the book: **Hardcore Programming for Mech
 
 ![](img/hpfme-cover.png)
 
-You can buy the book from the [No Starch Press website](https://nostarch.com/), and from [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/171850078).
+You can buy the book from [No Starch Press](https://nostarch.com/), and from [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/171850078).
 
 ## Set Up
 
 This project has no external dependencies.
-The code is tested (using [GitHub actions](https://github.com/angelsolaorbaiceta/Mechanics/actions)) against Python versions: 3.6, 3.7, 3.8 and 3.9.
-It should work fine for any of these.
+The code is tested using Python versions: 3.6, 3.7, 3.8 and 3.9.
+It should work fine for any of these versions.
 
 ## Packages
 
