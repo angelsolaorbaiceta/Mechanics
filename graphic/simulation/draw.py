@@ -94,7 +94,12 @@ class CanvasDrawing:
             width=self.outline_width
         )
 
-    def draw_arrow(self, segment: Segment, length, height):
+    def draw_arrow(
+            self,
+            segment: Segment,
+            length: float,
+            height: float
+    ):
         """
         Draws a segment with an arrow in it's end.
         The arrow's dimensions are given by `length` and `height`.

@@ -10,6 +10,14 @@ from .node import StrNode
 
 
 class Structure:
+    """
+    A truss structure is a group of linear resistant elements
+    (bars) that joined together are meant to withstand the
+    application of external loads.
+
+    A structure is defined by its nodes and bars.
+    """
+
     __DOF_PER_NODE = 2
 
     def __init__(self, nodes: [StrNode], bars: [StrBar]):
@@ -23,14 +31,30 @@ class Structure:
 
     @property
     def nodes_count(self):
+        """
+        The number of nodes in the structure.
+
+        :return: `int` number of nodes
+        """
         return len(self.__nodes)
 
     @property
     def bars_count(self):
+        """
+        The number of bars in the structure.
+
+        :return: `int` number of bars
+        """
         return len(self.__bars)
 
     @property
     def loads_count(self):
+        """
+        The total number of external loads applied in the nodes
+        of the structure.
+
+        :return: `int` number of external loads
+        """
         return reduce(
             lambda count, node: count + node.loads_count,
             self.__nodes,
@@ -38,6 +62,13 @@ class Structure:
         )
 
     def solve_structure(self) -> StructureSolution:
+        """
+        Computes the solution for the structure: the displacements
+        of the nodes under the existing loads and the stresses on
+        each of the bars.
+
+        :return: `StructureSolution`
+        """
         self.__assign_degrees_of_freedom()
         self.__solve_system_of_equations()
         return self.__make_structure_solution()

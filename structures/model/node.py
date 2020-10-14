@@ -5,6 +5,14 @@ from geom2d import Point, Vector
 
 
 class StrNode:
+    """
+    A node in the structure is the point where one or more bars
+    meet.
+
+    A node is defined in a position in the plane, an identifier,
+    external loads and optional external constraints. The external
+    constraints are applied on the displacements
+    """
 
     def __init__(
             self,
@@ -22,10 +30,21 @@ class StrNode:
 
     @property
     def loads_count(self):
+        """
+        Returns the number of external loads applied in the node.
+
+        :return: `int` number of loads
+        """
         return len(self.loads)
 
     @property
     def net_load(self):
+        """
+        Returns the net load vector: the result of adding all
+        applied external load vectors.
+
+        :return: `Vector` net load
+        """
         return reduce(
             operator.add,
             self.loads,
@@ -33,9 +52,20 @@ class StrNode:
         )
 
     def add_load(self, load: Vector):
+        """
+        Adds an external load vector.
+
+        :param load: `Vector` external load
+        """
         self.loads.append(load)
 
     def __eq__(self, other):
+        """
+        Two nodes are considered equal if their position is equal.
+
+        :param other: `Node`
+        :return: are the nodes equal?
+        """
         if self is other:
             return True
 

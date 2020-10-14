@@ -4,6 +4,13 @@ from .node import StrNode
 
 
 class StrBar:
+    """
+    A bar is a resistant element whose geometry is represented by a
+    line segment. A bar is defined between two nodes.
+
+    The resistant properties for a bar in a truss structure are its
+    cross section and its material's Young modulus.
+    """
 
     def __init__(
             self,
@@ -21,6 +28,11 @@ class StrBar:
 
     @property
     def geometry(self):
+        """
+        Line segment representing the geometry of the bar.
+
+        :return: `Segment`
+        """
         return Segment(
             self.start_node.position,
             self.end_node.position
@@ -28,9 +40,19 @@ class StrBar:
 
     @property
     def length(self):
+        """
+        The length of the bar's directrix.
+
+        :return: `float` length of the directrix
+        """
         return self.geometry.length
 
     def global_stiffness_matrix(self) -> Matrix:
+        """
+        Computes the bar's stiffness matrix in global coordinates.
+
+        :return: global stiffness `Matrix`
+        """
         direction = self.geometry.direction_vector
         eal = self.young_mod * self.cross_section / self.length
         c = direction.cosine

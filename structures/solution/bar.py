@@ -1,5 +1,3 @@
-from typing import Dict
-
 from geom2d import Segment, make_vector_between
 from structures.model.bar import StrBar
 from .node import StrNodeSolution
