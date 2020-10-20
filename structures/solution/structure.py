@@ -16,7 +16,7 @@ class StructureSolution:
         self.nodes = nodes
         self.bars = bars
 
-    def bounds_rect(self, margin, scale=1):
+    def bounds_rect(self, margin: float, scale=1):
         d_pos = [
             node.displaced_pos_scaled(scale)
             for node in self.nodes

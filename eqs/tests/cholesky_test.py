@@ -1,6 +1,7 @@
 import unittest
 
-from eqs.cholesky import *
+from eqs.cholesky import lower_matrix_decomposition, \
+    solve_lower_sys, solve_upper_sys, cholesky_solve
 from eqs.matrix import Matrix
 from eqs.vector import Vector
 

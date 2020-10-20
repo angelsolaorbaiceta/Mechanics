@@ -31,7 +31,7 @@ class StrNode:
     @property
     def loads_count(self):
         """
-        Returns the number of external loads applied in the node.
+        The number of external loads applied in the node.
 
         :return: `int` number of loads
         """
@@ -40,8 +40,8 @@ class StrNode:
     @property
     def net_load(self):
         """
-        Returns the net load vector: the result of adding all
-        applied external load vectors.
+        The net load vector: the result of adding all the applied
+        external load vectors.
 
         :return: `Vector` net load
         """

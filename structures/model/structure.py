@@ -12,8 +12,7 @@ from .node import StrNode
 class Structure:
     """
     A truss structure is a group of linear resistant elements
-    (bars) that joined together are meant to withstand the
-    application of external loads.
+    (bars) built to withstand the application of external loads.
 
     A structure is defined by its nodes and bars.
     """
