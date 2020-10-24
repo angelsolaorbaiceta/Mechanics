@@ -49,7 +49,7 @@ def __bars_to_string(bars: [StrBarSolution]):
 
 def __bar_to_string(bar: StrBarSolution):
     nodes_str = f'{bar.start_node.id} ➜ {bar.end_node.id}'
-    type_str = '⊕ TRACTION' if bar.stress >= 0 else '⊖ COMPRESSION'
+    type_str = '⊕ TENSION' if bar.stress >= 0 else '⊖ COMPRESSION'
     elongation = round(bar.elongation, __DECIMAL_POS)
     strain = '{:.3e}'.format(bar.strain)
     stress = round(bar.stress, __DECIMAL_POS)
