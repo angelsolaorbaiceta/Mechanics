@@ -1,7 +1,7 @@
 import unittest
 
 from geom2d import Vector
-from structures.parse import parse_load
+from structures.parse.load_parse import parse_load
 
 
 class LoadParseTest(unittest.TestCase):

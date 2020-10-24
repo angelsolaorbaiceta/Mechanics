@@ -1,7 +1,7 @@
 import unittest
 
 from geom2d import Point
-from structures.parse import parse_node
+from structures.parse.node_parse import parse_node
 
 
 class NodeParseTest(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from structures.parse import parse_bar
+from structures.parse.bar_parse import parse_bar
 
 
 class BarParseTest(unittest.TestCase):

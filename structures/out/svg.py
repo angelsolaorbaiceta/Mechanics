@@ -64,15 +64,19 @@ def __read_config():
     return json.loads(config)
 
 
+__expected_settings = (
+    # scale applied to the diagram
+    'scale',
+    # scale applied to the node displacements
+    'disp_scale',
+    # scale applied to the load vectors
+    'load_scale',
+    # boolean to decide whether to draw the original geometry
+    'no_draw_original'
+)
+
+
 def __validate_settings(settings):
-    if 'scale' not in settings:
-        raise ValueError('"scale" missing in settings')
-
-    if 'disp_scale' not in settings:
-        raise ValueError('"disp_scale" missing in settings')
-
-    if 'load_scale' not in settings:
-        raise ValueError('"load_scale" missing in settings')
-
-    if 'no_draw_original' not in settings:
-        raise ValueError('"no_draw_original" missing in settings')
+    for setting in __expected_settings:
+        if setting not in settings:
+            raise ValueError(f'"{setting}" missing in settings')
