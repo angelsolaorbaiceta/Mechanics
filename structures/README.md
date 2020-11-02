@@ -8,7 +8,14 @@ Once resolved, the solution generation diagram looks like the following:
 
 ![](../img/plane_truss_result.svg)
 
-The _structures_ package is split into sub-packages.
+The _structures_ package is split into sub-packages:
+
+
+- [_model_](#model)
+- [_solution_](#solution)
+- [_parse_](#parse)
+- [_generation_](#generation)
+- [_out_](#out)
 
 ## model
 
@@ -101,7 +108,55 @@ This package contains the same elements as _model_ (node, bar and structure), bu
 
 ## parse
 
-TODO
+The _parse_ package defines the functions that can be used to parse the structure model from their text representation.
+The structures can be defined in plain text files.
+Here's an example of a structure text file:
+
+```
+nodes
+1: (0.0, 0.0)      (xy)
+2: (400.0, 0.0)    (y)
+3: (200.0, 400.0)  ()
+
+loads
+3 -> (2500.0, -5000.0)
+
+bars
+1: (1 -> 2) 30 20000000
+2: (2 -> 3) 30 20000000
+3: (3 -> 1) 30 20000000
+```
+
+The file must contain three sections: `nodes`, `loads` and `bars`.
+Each section should be followed by the definition of the entities, each in its own line.
+
+### The Nodes Format
+
+The node definition lines should follow the format:
+
+```
+<node_id>: (<x_coord>, <y_coord>) (<external_constraints>)
+```
+
+### The Loads Format
+
+The load definition lines should follow the format:
+
+```
+<node_id> -> (<Fx>, <Fy>)
+```
+
+### The Bars Format
+
+The bar definition lines should follow the format:
+
+```
+<bar_id>: (<start_node_id> -> <end_node_id>) <A> <E>
+```
+
+### Parsing a Structure From a String
+
+The structure model can be constructed by parsing
 
 ## generation
 
