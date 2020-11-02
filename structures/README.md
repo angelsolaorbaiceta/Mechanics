@@ -39,7 +39,7 @@ loads = [Vector(0, -50), Vector(100, 0)]
 node = StrNode(1, Point(10, 35), loads)
 ```
 
-and add constraints to the X and Y displacements:
+and add external constraints to the X and Y displacements:
 
 ```python
 from geom2d import Point, Vector
@@ -97,13 +97,7 @@ solution = structure.solve_structure()
 ## solution
 
 The _solution_ package define the model classes representing the structural elements with their solution values.
-This package contains the same elements as _model_ (node, bar and structure), but with their solution values included:
-
-### `StrNodeSolution`
-
-### `StrBarSolution`
-
-### `StructureSolution`
+This package contains the same elements as _model_ (node, bar and structure), but with their solution values included: `StrNodeSolution`, `StrBarSolution` and `StructureSolution`.
 
 ## parse
 
