@@ -9,6 +9,20 @@ def generate_warren_structure(
         cross_sec: float, young: float,
         node_load: Vector
 ):
+    """
+    Generates and prints to the standard output a Warren truss
+    structure with the given number of spans, span length, height,
+    bar resistant properties and a load vector that'll be applied
+    in every node.
+
+    :param spans: even number of spans
+    :param span: span length
+    :param height: truss height
+    :param cross_sec: bars cross section
+    :param young: bars Young modulus
+    :param node_load: load vector applied in every node
+    :return:
+    """
     if spans % 2 != 0:
         raise ValueError('Need an even number of spans')
 

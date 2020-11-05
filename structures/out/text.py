@@ -8,6 +8,15 @@ __SEPARATION = ['------------------------------------------', '\n']
 
 
 def structure_solution_to_string(result: StructureSolution):
+    """
+    Returns a string containing a human-readable text report of the
+    structure's resolution. This report includes the displacement
+    vector of every node, and their external reaction force. For
+    the case of bars, it includes the stress and strain values.
+
+    :param result: the structure's result model
+    :return: text report
+    """
     nodes_text = __nodes_to_string(result)
     bars_text = __bars_to_string(result.bars)
     return list_to_string(nodes_text + __SEPARATION + bars_text)

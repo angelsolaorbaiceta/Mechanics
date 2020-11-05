@@ -156,13 +156,97 @@ The bar definition lines should follow the format:
 
 ### Parsing a Structure From a String
 
-The structure model can be constructed by parsing
+The structure model can be constructed by parsing a string defining the structure:
+
+```python
+from structures.parse.str_parse import parse_structure
+
+structure = parse_structure('...')
+```
 
 ## generation
 
-TODO
+The _generation_ package defines functions to generate certain typologies of truss structures, such as Warren or Baltimore.
+
+![](../img/truss_typologies.svg)
+
+These functions print the structure string representation to the standard output.
+They can be imported and used as part of another script:
+
+```python
+from geom2d import Vector
+from structures.generation.gen_baltimore import generate_baltimore_structure
+
+generate_baltimore_structure(
+    spans=6, 
+    span=250, 
+    height=300, 
+    cross_sec=45, 
+    young=20000000,
+    node_load=Vector(1000, -2000)
+)
+```
+
+or executed as script:
+
+```bash
+python3 structures/generation/gen_baltimore.py 6 250 300 45 20000000 1000 -2000
+```
+
+Located in the project's parent folder are bash scripts that wrap the execution of these generation scripts, so following our example above, we could also:
+
+```bash
+bash ./gen_baltimore.sh 6 250 300 45 20000000 1000 -2000
+```
 
 ## out
 
-TODO
+The _out_ package is in charge of drawing SVG diagrams and writing a text report for the truss structure's resolution.
 
+### Text Report
+
+The structure solution can be writen to a text report for the engineer to analyze the results.
+The _text_ module defines a function that produces this text report:
+
+```python
+from structures.out.text import structure_solution_to_string
+
+structure_solution = ...
+# string report
+report = structure_solution_to_string(structure_solution)
+
+# save the string into a file
+with open('result.txt', 'w') as file:
+    file.write(report)
+```
+
+### Diagram
+
+The structure solution can be plotted in a diagram for the engineer to visually inspect.
+The _svg_ module defines a function that draws this diagram:
+
+```python
+from structures.out.svg import structure_solution_to_svg
+
+structure_solution = ...
+settings = {
+    # scale applied to the displacements to exaggerate the deformation
+    'disp_scale': 100,
+    # scale applied to the drawing (bar lengths are converted to px)
+    'scale': 1.25,
+    # scale applied to draw the load vectors
+    'load_scale': 0.75,
+    # we want the original geometry also drawn in the diagram
+    'no_draw_original': False
+}
+# SVG string with the diagram
+svg = structure_solution_to_svg(structure_solution, settings)
+
+# save the SVG string into a file
+with open('result.svg', 'w') as file:
+    file.write(svg)
+```
+
+The result of this code would be an SVG like the following:
+
+![](../img/plane_truss_result.svg)
