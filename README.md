@@ -9,11 +9,10 @@ This repository contains the code from the book: **Hardcore Programming for Mech
 
 You can buy the book from [No Starch Press](https://nostarch.com/), and from [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/171850078).
 
-## Set Up
+## Setup
 
 This project has no external dependencies.
 The code is tested using Python versions: 3.6, 3.7, 3.8 and 3.9.
-It should work fine for any of these versions.
 
 ## Packages
 
@@ -26,4 +25,5 @@ This project includes the following packages:
     - [svg](./graphic/svg/README.md): SVG images generation based on _geom2d_ primitives
     - [simulation](./graphic/simulation/README.md): Animation generation drawing on a _tkinter_ canvas
 - [structures](./structures/README.md): truss structure resolution package
+- apps: the complete applications build in the book
 

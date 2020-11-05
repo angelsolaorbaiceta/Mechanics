@@ -5,7 +5,7 @@ from utils.lists import list_of_list_of_zeros
 
 class Matrix:
     """
-    A matrix is a nxm array of numbers, where `n` is the number
+    A matrix is a n x m array of numbers, where `n` is the number
     of rows and `m` the number of columns.
 
     Upon initialization, the matrix is filled with zeroes.
@@ -50,11 +50,11 @@ class Matrix:
         Sets the given `value` in the matrix at the position
         indicated by `row` and `column` indices.
 
-        If a value was already set at the given position, it's
+        If a value was already set at the given position, it'll be
         overwritten.
 
         If any of the row or column indices is out of bounds, an
-        error is raised.
+        error will be raised.
 
         :param value: `float`
         :param row: `int` row index
@@ -305,6 +305,16 @@ class Matrix:
         return matrix
 
     def __eq__(self, other):
+        """
+        Two matrices are considered to be equal if they contain
+        the same elements at exactly the same position.
+
+        This is a rather expensive computation with a quadratic
+        time complexity.
+
+        :param other: `Matrix`
+        :return: whether the matrices are equal or not
+        """
         if self is other:
             return True
 
