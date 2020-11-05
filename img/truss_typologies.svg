@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3615px" height="1193px" viewBox="0 0 3615 1193" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>truss_typologies</title>
+    <g id="truss_typologies" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="baltimore" transform="translate(2733.000000, 868.000000) scale(-1, 1) translate(-2733.000000, -868.000000) translate(1909.000000, 671.000000)">
+            <g id="structure" transform="translate(45.000000, 7.000000)" stroke="#606060" stroke-width="5">
+                <rect id="Rectangle" x="238" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="508" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="778" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="1048" y="0" width="270" height="300"></rect>
+                <polyline id="Path-37" points="238 300 0 300 238 0"></polyline>
+                <polyline id="Path-37" transform="translate(1437.000000, 150.000000) scale(-1, 1) translate(-1437.000000, -150.000000) " points="1556 300 1318 300 1556 0"></polyline>
+                <polyline id="Path-41" points="119 151 238 300 373 151 508.5 301 643 151 778 301 913 151 1048 300 1183 150 1318.5 300 1437 150"></polyline>
+                <line x1="118.5" y1="150.5" x2="118.5" y2="302.5" id="Line-43" stroke-linecap="square"></line>
+                <polyline id="Line-43-Copy" stroke-linecap="square" points="508 -2.84217094e-14 643 151.5 643 302"></polyline>
+                <polyline id="Line-43" stroke-linecap="square" points="238.5 -1.13686838e-13 373 151.5 373 303"></polyline>
+                <polyline id="Line-43-Copy" stroke-linecap="square" points="1048 1.70530257e-13 913 151.5 913 302"></polyline>
+                <polyline id="Line-43-Copy" stroke-linecap="square" points="1318.5 0 1183 151.5 1183 302"></polyline>
+                <line x1="1437" y1="150" x2="1437" y2="302" id="Line-43-Copy" stroke-linecap="square"></line>
+            </g>
+            <g id="left-support" transform="translate(1558.000000, 323.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="43.5 0 63 32 24 32"></polygon>
+                <g id="ground" transform="translate(0.000000, 31.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="right-support" transform="translate(0.000000, 322.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="44.5 0 64 20 25 20"></polygon>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="34" cy="34" rx="10" ry="9"></ellipse>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="54" cy="34" rx="10" ry="9"></ellipse>
+                <g id="ground" transform="translate(0.000000, 46.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="nodes" transform="translate(38.000000, 0.000000)" fill="#FFFFFF" stroke="#606060" stroke-width="5">
+                <circle id="Oval" cx="1325" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="307" r="7"></circle>
+                <circle id="Oval" cx="785" cy="307" r="7"></circle>
+                <circle id="Oval" cx="515" cy="307" r="7"></circle>
+                <circle id="Oval" cx="245" cy="307" r="7"></circle>
+                <circle id="Oval" cx="7" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1563" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1325" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="7" r="7"></circle>
+                <circle id="Oval" cx="785" cy="7" r="7"></circle>
+                <circle id="Oval" cx="515" cy="7" r="7"></circle>
+                <circle id="Oval" cx="245" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1444" cy="158" r="7"></circle>
+                <circle id="Oval" cx="1190" cy="158" r="7"></circle>
+                <circle id="Oval" cx="920" cy="158" r="7"></circle>
+                <circle id="Oval" cx="650" cy="158" r="7"></circle>
+                <circle id="Oval" cx="380" cy="158" r="7"></circle>
+                <circle id="Oval" cx="125" cy="158" r="7"></circle>
+                <circle id="Oval" cx="1444" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1190" cy="307" r="7"></circle>
+                <circle id="Oval" cx="920" cy="307" r="7"></circle>
+                <circle id="Oval" cx="650" cy="307" r="7"></circle>
+                <circle id="Oval" cx="380" cy="307" r="7"></circle>
+                <circle id="Oval" cx="125" cy="307" r="7"></circle>
+            </g>
+        </g>
+        <g id="howe" transform="translate(883.000000, 868.000000) scale(-1, 1) translate(-883.000000, -868.000000) translate(59.000000, 671.000000)">
+            <g id="structure" transform="translate(45.000000, 7.000000)" stroke="#606060" stroke-width="5">
+                <rect id="Rectangle" x="238" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="508" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="778" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="1048" y="0" width="270" height="300"></rect>
+                <polyline id="Path-37" points="238 300 0 300 238 0"></polyline>
+                <polyline id="Path-37" transform="translate(1437.000000, 150.000000) scale(-1, 1) translate(-1437.000000, -150.000000) " points="1556 300 1318 300 1556 0"></polyline>
+                <line x1="237.5" y1="300.5" x2="508.5" y2="0.5" id="Line-3" stroke-linecap="square"></line>
+                <polyline id="Path-40" points="508 300 779 0 1048 300"></polyline>
+                <line x1="1048.5" y1="0.5" x2="1318.5" y2="300.5" id="Line-6" stroke-linecap="square"></line>
+            </g>
+            <g id="left-support" transform="translate(1558.000000, 323.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="43.5 0 63 32 24 32"></polygon>
+                <g id="ground" transform="translate(0.000000, 31.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="right-support" transform="translate(0.000000, 322.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="44.5 0 64 20 25 20"></polygon>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="34" cy="34" rx="10" ry="9"></ellipse>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="54" cy="34" rx="10" ry="9"></ellipse>
+                <g id="ground" transform="translate(0.000000, 46.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="nodes" transform="translate(38.000000, 0.000000)" fill="#FFFFFF" stroke="#606060" stroke-width="5">
+                <circle id="Oval" cx="1325" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1325" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="307" r="7"></circle>
+                <circle id="Oval" cx="785" cy="7" r="7"></circle>
+                <circle id="Oval" cx="785" cy="307" r="7"></circle>
+                <circle id="Oval" cx="515" cy="7" r="7"></circle>
+                <circle id="Oval" cx="515" cy="307" r="7"></circle>
+                <circle id="Oval" cx="245" cy="7" r="7"></circle>
+                <circle id="Oval" cx="245" cy="307" r="7"></circle>
+                <circle id="Oval" cx="7" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1563" cy="307" r="7"></circle>
+            </g>
+        </g>
+        <g id="pratt" transform="translate(2733.000000, 274.000000) scale(-1, 1) translate(-2733.000000, -274.000000) translate(1909.000000, 77.000000)">
+            <g id="structure" transform="translate(45.000000, 7.000000)" stroke="#606060" stroke-width="5">
+                <rect id="Rectangle" x="238" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="508" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="778" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="1048" y="0" width="270" height="300"></rect>
+                <polyline id="Path-37" points="238 300 0 300 238 0"></polyline>
+                <polyline id="Path-37" transform="translate(1437.000000, 150.000000) scale(-1, 1) translate(-1437.000000, -150.000000) " points="1556 300 1318 300 1556 0"></polyline>
+                <polyline id="Path-39" points="508 0 778 300 1048 0"></polyline>
+                <line x1="238.5" y1="0.5" x2="508.5" y2="300.5" id="Line" stroke-linecap="square"></line>
+                <line x1="1047.5" y1="300.5" x2="1318.5" y2="0.5" id="Line-2" stroke-linecap="square"></line>
+            </g>
+            <g id="left-support" transform="translate(1558.000000, 323.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="43.5 0 63 32 24 32"></polygon>
+                <g id="ground" transform="translate(0.000000, 31.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="right-support" transform="translate(0.000000, 322.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="44.5 0 64 20 25 20"></polygon>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="34" cy="34" rx="10" ry="9"></ellipse>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="54" cy="34" rx="10" ry="9"></ellipse>
+                <g id="ground" transform="translate(0.000000, 46.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="nodes" transform="translate(38.000000, 0.000000)" fill="#FFFFFF" stroke="#606060" stroke-width="5">
+                <circle id="Oval" cx="1325" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1325" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="307" r="7"></circle>
+                <circle id="Oval" cx="785" cy="7" r="7"></circle>
+                <circle id="Oval" cx="785" cy="307" r="7"></circle>
+                <circle id="Oval" cx="515" cy="7" r="7"></circle>
+                <circle id="Oval" cx="515" cy="307" r="7"></circle>
+                <circle id="Oval" cx="245" cy="7" r="7"></circle>
+                <circle id="Oval" cx="245" cy="307" r="7"></circle>
+                <circle id="Oval" cx="7" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1563" cy="307" r="7"></circle>
+            </g>
+        </g>
+        <g id="warren" transform="translate(883.000000, 274.000000) scale(-1, 1) translate(-883.000000, -274.000000) translate(59.000000, 77.000000)">
+            <g id="structure" transform="translate(45.000000, 7.000000)" stroke="#606060" stroke-width="5">
+                <rect id="Rectangle" x="238" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="508" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="778" y="0" width="270" height="300"></rect>
+                <rect id="Rectangle" x="1048" y="0" width="270" height="300"></rect>
+                <polyline id="Path-37" points="238 300 0 300 238 0"></polyline>
+                <polyline id="Path-37" transform="translate(1437.000000, 150.000000) scale(-1, 1) translate(-1437.000000, -150.000000) " points="1556 300 1318 300 1556 0"></polyline>
+                <polyline id="Path-38" points="238 0 508 300 778 0 1048 300 1318 0"></polyline>
+            </g>
+            <g id="left-support" transform="translate(1558.000000, 323.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="43.5 0 63 32 24 32"></polygon>
+                <g id="ground" transform="translate(0.000000, 31.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="right-support" transform="translate(0.000000, 322.000000)" stroke="#979797">
+                <polygon id="Triangle" stroke-width="4.9" fill="#FFFFFF" points="44.5 0 64 20 25 20"></polygon>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="34" cy="34" rx="10" ry="9"></ellipse>
+                <ellipse id="Oval" stroke-width="4.2" fill="#FFFFFF" cx="54" cy="34" rx="10" ry="9"></ellipse>
+                <g id="ground" transform="translate(0.000000, 46.000000)" stroke-linecap="square">
+                    <line x1="0.39375" y1="0.7" x2="88.7321777" y2="0.7" id="Line-4" stroke-width="4.9"></line>
+                    <line x1="5.5125" y1="2.78154297" x2="5.5125" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="20.86875" y1="2.78154297" x2="20.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="36.61875" y1="2.78154297" x2="36.61875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="52.36875" y1="2.78154297" x2="52.36875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="68.11875" y1="2.78154297" x2="68.11875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                    <line x1="83.86875" y1="2.78154297" x2="83.86875" y2="25.8446289" id="Line-5" stroke-width="3.5"></line>
+                </g>
+            </g>
+            <g id="nodes" transform="translate(38.000000, 0.000000)" fill="#FFFFFF" stroke="#606060" stroke-width="5">
+                <circle id="Oval" cx="1325" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1325" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="7" r="7"></circle>
+                <circle id="Oval" cx="1055" cy="307" r="7"></circle>
+                <circle id="Oval" cx="785" cy="7" r="7"></circle>
+                <circle id="Oval" cx="785" cy="307" r="7"></circle>
+                <circle id="Oval" cx="515" cy="7" r="7"></circle>
+                <circle id="Oval" cx="515" cy="307" r="7"></circle>
+                <circle id="Oval" cx="245" cy="7" r="7"></circle>
+                <circle id="Oval" cx="245" cy="307" r="7"></circle>
+                <circle id="Oval" cx="7" cy="307" r="7"></circle>
+                <circle id="Oval" cx="1563" cy="307" r="7"></circle>
+            </g>
+        </g>
+        <text id="Warren" font-family="AvenirNext-Regular, Avenir Next" font-size="60" font-weight="normal" letter-spacing="-2.47692394" fill="#606060">
+            <tspan x="791" y="531">Warren</tspan>
+        </text>
+        <text id="Pratt" font-family="AvenirNext-Regular, Avenir Next" font-size="60" font-weight="normal" letter-spacing="-2.47692394" fill="#606060">
+            <tspan x="2678" y="531">Pratt</tspan>
+        </text>
+        <text id="Howe" font-family="AvenirNext-Regular, Avenir Next" font-size="60" font-weight="normal" letter-spacing="-2.47692394" fill="#606060">
+            <tspan x="809" y="1125">Howe</tspan>
+        </text>
+        <text id="Baltimore" font-family="AvenirNext-Regular, Avenir Next" font-size="60" font-weight="normal" letter-spacing="-2.47692394" fill="#606060">
+            <tspan x="2612" y="1125">Baltimore</tspan>
+        </text>
+    </g>
+</svg>
