@@ -166,7 +166,6 @@ which results in the vector:
 ⎩50⎭
 ```
 
-
 ## Vector
 
 Vectors are created passing the `Vector` class constructor a size:
@@ -185,6 +184,148 @@ A newly created `Vector` is initialized with all zeroes:
 ⎩0⎭
 ```
 
+We can set the values of a vector:
+
+```python
+from eqs.vector import Vector
+
+vec = Vector(3).set_data([1, 2, 3])
+```
+
+which would result in:
+
+```
+⎧1⎫
+⎨2⎬
+⎩3⎭
+```
+
+We can add to a given value in the vector:
+
+```python
+from eqs.vector import Vector
+
+vec = Vector(3).set_data([1, 2, 3])
+vec.add_to_value(10, 2)
+```
+
+results in:
+
+```
+⎧1 ⎫
+⎨2 ⎬
+⎩13⎭
+```
+
+We can use the `value_at` method to get a value:
+
+```python
+from eqs.vector import Vector
+
+vec = Vector(3).set_data([1, 2, 3])
+vec.value_at(2) # returns 3
+```
+
+### Vector Operations
+
+Vectors can be added, subtracted an multiplied:
+
+```python
+from eqs.vector import Vector
+
+vec_a = Vector(2).set_data([1, 2])
+vec_b = Vector(2).set_data([4, 3])
+
+addition = vec_a + vec_b
+subtraction = vec_a - vec_b
+multiplication = vec_a * vec_b
+```
+
 ## Cholesky Factorization
 
+The Cholesky factorization is a direct numerical method that can be used to solve systems of linear equations whose matrix is positive-definite.
+We can use it to solve systems of equations like the following:
+
+```
+⎡4   -2   4⎤ ⎧x1⎫   ⎧ 0 ⎫
+⎢-2  10  -2⎥ ⎨x2⎬ = ⎨-3 ⎬
+⎣4   -2   8⎦ ⎩x3⎭   ⎩-15⎭
+```
+
+in our code:
+
+```python
+from eqs.vector import Vector
+from eqs.matrix import Matrix
+from eqs.cholesky import cholesky_solve
+
+mat = Matrix(3, 3).set_data((4, -2, 4, -2, 10, -2, 4, -2, 8))
+vec = Vector(3).set_data((0, -3, -15))
+
+solution = cholesky_solve(mat, vec)
+```
+
+here, `solution` is the vector:
+
+```
+⎧ 3.583⎫
+⎨-0.333⎬
+⎩-3.75 ⎭
+```
+
+The Cholesky's lower matrix decomposition can also be obtained.
+The Cholesky numerical method computes this lower triangular matrix as part of its process:
+
+```python
+from eqs.matrix import Matrix
+from eqs.cholesky import lower_matrix_decomposition
+
+mat = Matrix(3, 3).set_data((4, -2, 4, -2, 10, -2, 4, -2, 8))
+
+lower_triangular = lower_matrix_decomposition(mat)
+```
+
+which yields the matrix:
+
+```
+⎡ 2  0  0⎤
+⎢-1  3  0⎥
+⎣ 2  0  2⎦
+```
+
 ## Conjugate Gradient
+
+The conjugate gradient method is a iterative numeric method to solve systems of linear equations.
+Let's use it to solve the system:
+
+```
+⎡4   -2   4⎤ ⎧x1⎫   ⎧ 0 ⎫
+⎢-2  10  -2⎥ ⎨x2⎬ = ⎨-3 ⎬
+⎣4   -2   8⎦ ⎩x3⎭   ⎩-15⎭
+```
+
+in our code:
+
+```python
+from eqs.vector import Vector
+from eqs.matrix import Matrix
+from eqs.conjugate_gradient import conjugate_gradient_solve
+
+mat = Matrix(3, 3).set_data((4, -2, 4, -2, 10, -2, 4, -2, 8))
+vec = Vector(3).set_data((0, -3, -15))
+
+solution = conjugate_gradient_solve(
+    sys_mat=mat, 
+    sys_vec=vec, 
+    max_iter=100, 
+    max_error=1E-5
+)
+```
+
+here, `solution` is the vector:
+
+```
+⎧ 3.583⎫
+⎨-0.333⎬
+⎩-3.75 ⎭
+```
