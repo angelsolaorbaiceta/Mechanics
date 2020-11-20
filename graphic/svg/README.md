@@ -2,6 +2,27 @@
 
 The _svg_ package can draw [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) images from the geometric primitives defined in the _geom2d_ package.
 
+__Contents__:
+
+- [Quick Example](#quick-example)
+- [Primitives](#primitives)
+    - [`segment`](#segment)
+    - [`rectangle`](#rectangle)
+    - [`circle`](#circle)
+    - [`polygon`](#polygon)
+    - [`polyline`](#polyline)
+    - [`text`](#text)
+    - [`group`](#group)
+    - [`arrow`](#arrow)
+- [Attributes](#attributes)
+    - [`stroke_color`](#stroke_color)
+    - [`stroke_width`](#stroke_width)
+    - [`fill_color`](#fill_color)
+    - [`fill_opacity`](#fill_opacity)
+    - [`affine_transform`](#affine_transform)
+    - [`font_size`](#font_size)
+    - [`font_family`](#font_family)
+
 ## Quick Example
 
 To generate the content of an SVG image consisting in a rectangle and a circle:

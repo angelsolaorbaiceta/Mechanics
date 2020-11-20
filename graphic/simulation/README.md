@@ -2,6 +2,11 @@
 
 The _simulation_ package can draw animated vector images to a _tkinter_ canvas.
 
+__Contents__:
+
+- [Simulation Loop](#simulation-loop)
+- [Canvas Drawing](#canvas-drawing)
+
 ## Simulation Loop
 
 Inside the [loop.py](./loop.py) module is defined the main algorithm for a simulation time loop.

@@ -2,6 +2,12 @@
 
 The _geom2d_ package implements 2D geometry primitives and operations.
 
+__Contents__:
+
+- [Primitives](#primitives)
+- [Transformations](#transformations)
+- [Intersections](#intersections)
+
 ## Primitives
 
 This _geom2d_ package defines the following two-dimensional geometric primitives:
