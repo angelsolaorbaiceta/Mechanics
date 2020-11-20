@@ -6,7 +6,7 @@ This package also defines the [Matrix](./matrix.py) and [Vector](./vector.py) cl
 __Contents__:
 
 - [Matrix](#Matrix)
-    - [Matrix Operations](#Matrix Operations)
+    - [Matrix Operations](<#Matrix Operations>)
 - [Vector](#Vector)
     - [Vector Operations](#Vector Operations)
 - [Cholesky Factorization](#Cholesky Factorization)
