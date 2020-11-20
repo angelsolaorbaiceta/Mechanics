@@ -3,6 +3,15 @@
 The _eqs_ package implements numeric methods to solve systems of equations.
 This package also defines the [Matrix](./matrix.py) and [Vector](./vector.py) classes to define the systems of equations.
 
+__Contents__:
+
+- [Matrix](#Matrix)
+    - [Matrix Operations](#Matrix Operations)
+- [Vector](#Vector)
+    - [Vector Operations](#Vector Operations)
+- [Cholesky Factorization](#Cholesky Factorization)
+- [Conjugate Gradient](#Conjugate Gradient)
+
 ## Matrix
 
 Matrices are created using the constructor, which takes as parameters the number of rows and columns:
@@ -64,7 +73,7 @@ matrix = Matrix(2, 3) \
     .set_value(25, 2, 2)
 ```
 
-### Matrix operations
+### Matrix Operations
 
 Matrices can be added and subtracted.
 For example, to add the matrices:
