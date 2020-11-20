@@ -8,9 +8,9 @@ __Contents__:
 - [Matrix](#Matrix)
     - [Matrix Operations](#matrix-operations)
 - [Vector](#Vector)
-    - [Vector Operations](#Vector Operations)
-- [Cholesky Factorization](#Cholesky Factorization)
-- [Conjugate Gradient](#Conjugate Gradient)
+    - [Vector Operations](#vector-operations)
+- [Cholesky Factorization](#cholesky-factorization)
+- [Conjugate Gradient](#conjugate-gradient)
 
 ## Matrix
 
