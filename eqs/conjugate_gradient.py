@@ -9,7 +9,7 @@ def conjugate_gradient_solve(
         sys_vec: Vector,
         max_iter=100,
         max_error=1e-8
-):
+) -> Vector:
     """
     The conjugate gradient method is a iterative numeric method to
     solve systems of linear equations.
