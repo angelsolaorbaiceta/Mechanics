@@ -104,6 +104,14 @@ class MatrixTest(unittest.TestCase):
 
         self.assert_matrix_has_data(m1 * m2, expected_data)
 
+    def test_transpose_matrix(self):
+        mat = Matrix(2, 3) \
+            .set_data([1, 2, 3, 4, 5, 6]) \
+            .transposed()
+        expected = Matrix(3, 2).set_data([1, 4, 2, 5, 3, 6])
+
+        self.assertEqual(expected, mat)
+
     def assert_matrix_has_data(self, matrix, data):
         for row in range(matrix.rows_count):
             offset = matrix.cols_count * row

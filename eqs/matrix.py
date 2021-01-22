@@ -160,6 +160,20 @@ class Matrix:
         """
         return self.__data[col][row]
 
+    def transposed(self):
+        """
+        Creates a new matrix, result of transposing this matrix.
+
+        :return: transposed matrix
+        """
+        trans_mat = Matrix(self.__cols_count, self.__rows_count)
+
+        for i in range(self.__rows_count):
+            for j in range(self.__cols_count):
+                trans_mat.__data[j][i] = self.__data[i][j]
+
+        return trans_mat
+
     def scale(self, factor: float):
         """
         Multiplies in place every value in the matrix times the
