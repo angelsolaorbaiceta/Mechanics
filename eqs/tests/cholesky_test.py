@@ -1,7 +1,6 @@
 import unittest
 
-from eqs.cholesky import lower_matrix_decomposition, \
-    solve_lower_sys, solve_upper_sys, cholesky_solve
+from eqs.cholesky import lower_matrix_decomposition, cholesky_solve
 from eqs.matrix import Matrix
 from eqs.vector import Vector
 
@@ -26,17 +25,6 @@ class CholeskyTest(unittest.TestCase):
     def test_lower_matrix_decomposition(self):
         actual = lower_matrix_decomposition(self.sys_matrix)
         self.assertEqual(self.low_matrix, actual)
-
-    def test_lower_system_resolution(self):
-        actual = solve_lower_sys(self.low_matrix, self.sys_vec)
-        self.assertEqual(self.low_solution, actual)
-
-    def test_upper_system_resolution(self):
-        actual = solve_upper_sys(
-            self.low_matrix,
-            self.low_solution
-        )
-        self.assertEqual(self.solution, actual)
 
     def test_solve_system(self):
         actual = cholesky_solve(self.sys_matrix, self.sys_vec)

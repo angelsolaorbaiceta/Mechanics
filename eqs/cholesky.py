@@ -28,8 +28,9 @@ def cholesky_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
     validate_system(sys_mat, sys_vec)
 
     low_matrix = lower_matrix_decomposition(sys_mat)
+    up_matrix = low_matrix.transposed()
     low_solution = solve_lower_sys(low_matrix, sys_vec)
-    return solve_upper_sys(low_matrix, low_solution)
+    return solve_upper_sys(up_matrix, low_solution)
 
 
 def lower_matrix_decomposition(sys_mat: Matrix) -> Matrix:
