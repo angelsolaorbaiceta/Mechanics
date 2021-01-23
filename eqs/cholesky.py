@@ -1,8 +1,7 @@
 import math
 
-from eqs.lower_system import solve_lower_sys
+from eqs.lu_solve import lu_system_solve
 from eqs.matrix import Matrix
-from eqs.upper_system import solve_upper_sys
 from eqs.validate_sys import validate_system
 from eqs.vector import Vector
 
@@ -27,10 +26,9 @@ def cholesky_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
     """
     validate_system(sys_mat, sys_vec)
 
-    low_matrix = lower_matrix_decomposition(sys_mat)
-    up_matrix = low_matrix.transposed()
-    low_solution = solve_lower_sys(low_matrix, sys_vec)
-    return solve_upper_sys(up_matrix, low_solution)
+    lower_matrix = lower_matrix_decomposition(sys_mat)
+    upper_matrix = lower_matrix.transposed()
+    return lu_system_solve(lower_matrix, upper_matrix, sys_vec)
 
 
 def lower_matrix_decomposition(sys_mat: Matrix) -> Matrix:
