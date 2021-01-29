@@ -11,6 +11,16 @@ def doolitle_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
 
 
 def doolitle_decomposition(matrix: Matrix) -> (Matrix, Matrix):
+    """
+    Decomposes the matrix `matrix` into the product of a lower
+    triangular and an upper triangular matrices: [A] = [L][U].
+
+    This function returns a tuple including the lower and upper
+    triangular matrices, exactly in this order: ([L], [U]).
+
+    :param matrix: `Matrix`
+    :return: ([L], [U])
+    """
     if not matrix.is_square:
         raise ValueError('Can\'t decompose a non-square matrix')
 
