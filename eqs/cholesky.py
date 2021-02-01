@@ -13,12 +13,11 @@ def cholesky_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
 
     The Cholesky method decomposes the system matrix `sys_mat`
     into the product of a lower triangular matrix and its
-    conjugate transpose.
+    conjugate transpose: [L][L]'.
     This step is done by the `lower_matrix_decomposition` function.
 
-    Then solves the system in two steps:
-        - `solve_lower_sys`
-        - `solve_upper_sys`
+    Then solves the system in two steps: a forward substitution
+    followed by a backward substitution.
 
     :param sys_mat: system's `Matrix`
     :param sys_vec: system's vector `Vector`

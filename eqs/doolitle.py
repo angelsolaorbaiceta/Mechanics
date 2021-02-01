@@ -4,6 +4,18 @@ from eqs.validate_sys import validate_system
 
 
 def doolitle_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
+    """
+    The Doolitle factorization method resolves systems of linear
+    equations by decomposing the matrix into a product of a lower
+    and an upper triangular matrices: [L][U].
+
+    Then solves the system in two steps: a forward substitution
+    followed by a backward substitution.
+
+    :param sys_mat: system's `Matrix`
+    :param sys_vec: system's `Vector`
+    :return: result `Vector`
+    """
     validate_system(sys_mat, sys_vec)
 
     (lower, upper) = doolitle_decomposition(sys_mat)
