@@ -7,7 +7,8 @@ This repository contains the code from the book: **Hardcore Programming for Mech
 
 ![](img/hpfme-cover.png)
 
-You can buy the book from [No Starch Press](https://nostarch.com/), and from [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/171850078).
+COMING SOON.
+You can buy the book from [No Starch Press](https://nostarch.com/) or [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/171850078).
 
 ## Setup
 
