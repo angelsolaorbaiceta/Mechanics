@@ -5,7 +5,7 @@
 Learn how to solve mechanics problems using Python 3.
 This repository contains the code from the book: **Hardcore Programming for Mechanical Engineers**.
 
-![](img/hpfme-cover.png)
+![](img/hpfme-cover.jpg)
 
 COMING SOON.
 You can buy the book from [No Starch Press](https://nostarch.com/hardcore-programming-mechanical-engineers) or [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/1718500785).
