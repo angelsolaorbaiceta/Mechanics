@@ -3,7 +3,7 @@ from structures.model.bar import StrBar
 
 __BAR_REGEX = r'(?P<id>\d+)\s*:\s*' \
               r'\((?P<start_id>\d+)\s*->\s*(?P<end_id>\d+)\)\s*' \
-              r'(?P<sec>[\d\.]+)\s*' \
+              r'(?P<sec>[\d\.]+)\s+' \
               r'(?P<young>[\d\.]+)'
 
 
