@@ -1,5 +1,8 @@
 import re
+from typing import Dict
+
 from structures.model.bar import StrBar
+from structures.model.node import StrNode
 
 __BAR_REGEX = r'(?P<id>\d+)\s*:\s*' \
               r'\((?P<start_id>\d+)\s*->\s*(?P<end_id>\d+)\)\s*' \
@@ -7,7 +10,7 @@ __BAR_REGEX = r'(?P<id>\d+)\s*:\s*' \
               r'(?P<young>[\d\.]+)'
 
 
-def parse_bar(bar_str: str, nodes_dict):
+def parse_bar(bar_str: str, nodes_dict: Dict[int, StrNode]):
     """
     Parses a `StrBar` from a string or raises a `ValueError` if
     the given string doesn't follow the expected format.
