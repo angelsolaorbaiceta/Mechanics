@@ -1,6 +1,6 @@
 from math import sqrt
 
-from geom2d import Vector
+from geom2d import Segment, Vector
 from graphic import svg
 from graphic.svg import attributes
 from structures.solution.bar import StrBarSolution
@@ -72,7 +72,7 @@ def bars_to_svg(bars: [StrBarSolution], settings, config):
     return original + final + stresses
 
 
-def __bar_svg(geometry, color, cross_section):
+def __bar_svg(geometry: Segment, color: str, cross_section: float):
     section_height = sqrt(cross_section)
     return svg.segment(
         geometry,
