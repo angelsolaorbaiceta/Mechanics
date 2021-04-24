@@ -177,7 +177,7 @@ class Vector:
         sin = math.sin(radians)
         return Vector(
             self.u * cos - self.v * sin,
-            self.u * sin - self.v * cos
+            self.u * sin + self.v * cos
         )
 
     def perpendicular(self):

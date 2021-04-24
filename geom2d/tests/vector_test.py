@@ -93,6 +93,16 @@ class TestVector(unittest.TestCase):
         expected = Vector(1 / sqrt2, 1 / sqrt2)
         self.assertEqual(expected, actual)
 
+    def test_rotate_right_angle(self):
+        actual = self.east.rotated_radians(math.pi / 2)
+        expected = Vector(0, 1)
+        self.assertEqual(expected, actual)
+
+    def test_rotate_straight_angle(self):
+        actual = self.north_east.rotated_radians(math.pi)
+        expected = Vector(-1, -1)
+        self.assertEqual(expected, actual)
+
     def test_rotate_negative_angle(self):
         sqrt2 = math.sqrt(2)
         actual = self.east.rotated_radians(-math.pi / 4)
