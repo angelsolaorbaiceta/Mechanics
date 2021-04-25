@@ -19,7 +19,7 @@ def parse_points():
     )
 
 
-def __point_from_string(string):
+def __point_from_string(string: str):
     matches = re.match(r'(?P<x>\d+)\s(?P<y>\d+)', string)
     return Point(
         int(matches.group('x')),

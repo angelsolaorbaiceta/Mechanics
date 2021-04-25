@@ -84,7 +84,7 @@ def polyline(points: [Point], attributes=()):
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
-def text(txt, pos: Point, disp: Vector, attrs_list=()):
+def text(txt: str, pos: Point, disp: Vector, attrs_list=()):
     """
     Returns an SVG text element as string.
 
