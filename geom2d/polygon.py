@@ -50,7 +50,7 @@ class Polygon:
             vtx_sum.y / vtx_count
         )
 
-    def contains_point(self, point):
+    def contains_point(self, point: Point):
         """
         Tests whether the polygon contains the given point.
 

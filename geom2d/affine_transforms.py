@@ -35,13 +35,13 @@ def make_rotation(radians: float, center=Point(0, 0)):
     """
     cos = math.cos(radians)
     sin = math.sin(radians)
-    oneMinusCos = 1.0 - cos
+    one_minus_cos = 1.0 - cos
 
     return AffineTransform(
         sx=cos,
         sy=cos,
-        tx=center.x * oneMinusCos + center.y * sin,
-        ty=center.y * oneMinusCos - center.x * sin,
+        tx=center.x * one_minus_cos + center.y * sin,
+        ty=center.y * one_minus_cos - center.x * sin,
         shx=-sin,
         shy=sin
     )
@@ -66,7 +66,7 @@ def ease_in_out_interpolation(
     return [__interpolated(start, end, t) for t in t_seq]
 
 
-def __interpolated(s: AffineTransform, e: AffineTransform, t):
+def __interpolated(s: AffineTransform, e: AffineTransform, t: float):
     return AffineTransform(
         sx=interpolate(s.sx, e.sx, t),
         sy=interpolate(s.sy, e.sy, t),
