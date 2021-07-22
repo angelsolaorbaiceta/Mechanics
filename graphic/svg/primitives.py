@@ -1,3 +1,4 @@
+from typing import List
 from geom2d import Circle, Rect, Segment, Point, Polygon, Vector
 from graphic.svg.attributes import attrs_to_str
 from graphic.svg.read import read_template
@@ -71,7 +72,7 @@ def polygon(pol: Polygon, attributes=()):
         .replace('{{attrs}}', attrs_to_str(attributes))
 
 
-def polyline(points: [Point], attributes=()):
+def polyline(points: List[Point], attributes=()):
     """
     Returns an SVG polyline element as string.
 
@@ -103,7 +104,7 @@ def text(txt: str, pos: Point, disp: Vector, attrs_list=()):
         .replace('{{attrs}}', attrs_to_str(attrs_list))
 
 
-def group(primitives: [str], attributes=()):
+def group(primitives: List[str], attributes=()):
     """
     Returns an SVG group element with the primitives list inside of
     it.
@@ -151,5 +152,5 @@ def arrow(
     )
 
 
-def __format_points(points: [Point]):
+def __format_points(points: List[Point]):
     return ' '.join([f'{p.x},{p.y}' for p in points])

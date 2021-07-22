@@ -1,3 +1,4 @@
+from typing import List
 from structures.solution.bar import StrBarSolution
 from structures.solution.node import StrNodeSolution
 from structures.solution.structure import StructureSolution
@@ -52,7 +53,7 @@ def __node_to_string(
     return list_to_string(strings) + '\n'
 
 
-def __bars_to_string(bars: [StrBarSolution]):
+def __bars_to_string(bars: List[StrBarSolution]):
     return [__bar_to_string(bar) for bar in bars]
 
 

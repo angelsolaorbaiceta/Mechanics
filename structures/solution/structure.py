@@ -1,5 +1,6 @@
 import operator
 from functools import reduce
+from typing import List
 
 from geom2d import make_rect_containing_with_margin, Vector
 from .bar import StrBarSolution
@@ -16,8 +17,8 @@ class StructureSolution:
 
     def __init__(
             self,
-            nodes: [StrNodeSolution],
-            bars: [StrBarSolution]
+            nodes: List[StrNodeSolution],
+            bars: List[StrBarSolution]
     ):
         self.nodes = nodes
         self.bars = bars

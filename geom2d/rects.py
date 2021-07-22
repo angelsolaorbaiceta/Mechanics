@@ -1,9 +1,10 @@
+from typing import List
 from geom2d.point import Point
 from geom2d.rect import Rect
 from geom2d.size import Size
 
 
-def make_rect_containing(points: [Point]):
+def make_rect_containing(points: List[Point]):
     """
     Computes the smallest rectangle containing all the passed
     points.
@@ -29,7 +30,7 @@ def make_rect_containing(points: [Point]):
 
 
 def make_rect_containing_with_margin(
-        points: [Point],
+        points: List[Point],
         margin: float
 ):
     """

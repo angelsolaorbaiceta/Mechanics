@@ -1,3 +1,4 @@
+from typing import List
 from geom2d.affine_transf import AffineTransform
 
 
@@ -73,7 +74,7 @@ def font_family(font: str):
     return f'font-family="{font}"'
 
 
-def attrs_to_str(attrs_list: [str]):
+def attrs_to_str(attrs_list: List[str]):
     """
     Combines a list of SVG attributes in a single string.
 

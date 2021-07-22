@@ -1,3 +1,4 @@
+from typing import Tuple
 from eqs import Matrix, Vector
 from eqs.lu_solve import lu_system_solve
 from eqs.validate_sys import validate_system
@@ -22,7 +23,7 @@ def doolitle_solve(sys_mat: Matrix, sys_vec: Vector) -> Vector:
     return lu_system_solve(lower, upper, sys_vec)
 
 
-def doolitle_decomposition(matrix: Matrix) -> (Matrix, Matrix):
+def doolitle_decomposition(matrix: Matrix) -> Tuple[Matrix, Matrix]:
     """
     Decomposes the matrix `matrix` into the product of a lower
     triangular and an upper triangular matrices: [A] = [L][U].

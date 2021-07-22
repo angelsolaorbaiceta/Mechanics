@@ -1,6 +1,7 @@
 import math
 import operator
 from functools import reduce
+from typing import List
 
 from geom2d.nums import are_close_enough
 from geom2d.point import Point
@@ -16,7 +17,7 @@ class Polygon:
     connected to form a closed polygonal chain.
     """
 
-    def __init__(self, vertices: [Point]):
+    def __init__(self, vertices: List[Point]):
         if len(vertices) < 3:
             raise ValueError('Need 3 or more vertices')
 

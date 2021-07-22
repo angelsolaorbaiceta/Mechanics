@@ -1,4 +1,5 @@
 from math import sqrt
+from typing import List
 
 from geom2d import Segment, Vector
 from graphic import svg
@@ -11,7 +12,7 @@ __STRESS_DISP = 10
 __DECIMAL_POS = 4
 
 
-def bars_to_svg(bars: [StrBarSolution], settings, config):
+def bars_to_svg(bars: List[StrBarSolution], settings, config):
     """
     Creates the list of SVG elements representing the bars.
 

@@ -1,3 +1,4 @@
+from typing import List
 from geom2d import Circle, Vector
 from graphic import svg
 from graphic.svg import attributes
@@ -5,7 +6,7 @@ from structures.solution.node import StrNodeSolution
 from .captions_svg import caption_to_svg
 
 
-def nodes_to_svg(nodes: [StrNodeSolution], settings, config):
+def nodes_to_svg(nodes: List[StrNodeSolution], settings, config):
     def node_to_svg(node: StrNodeSolution):
         radius = config['sizes']['node_radius']
         stroke_size = config['sizes']['stroke']
