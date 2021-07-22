@@ -33,7 +33,7 @@ def ensure_valid(t: float):
         raise TParamError(t)
 
 
-def is_valid(t: float):
+def is_valid(t: float) -> bool:
     """
     Returns a `bool` indicating if the given value for a t
     parameter is valid.

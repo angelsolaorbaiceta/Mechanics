@@ -1,10 +1,11 @@
+from typing import List
 from geom2d import AffineTransform, Rect, Point, Size
 from graphic.svg.read import read_template
 
 
 def svg_content(
         size: Size,
-        primitives: [str],
+        primitives: List[str],
         viewbox_rect=None,
         transform=None
 ):

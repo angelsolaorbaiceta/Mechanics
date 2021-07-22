@@ -1,10 +1,11 @@
+from typing import List
 from geom2d import Vector, Point
 from graphic import svg
 from structures.solution.node import StrNodeSolution
 from .vector_svg import vector_to_svg
 
 
-def loads_to_svg(nodes: [StrNodeSolution], settings, config):
+def loads_to_svg(nodes: List[StrNodeSolution], settings, config):
     def svg_node_loads(node: StrNodeSolution):
         position = node.displaced_pos_scaled(settings.disp_scale)
         return svg.group(

@@ -1,4 +1,5 @@
 import re
+from typing import List
 
 from structures.model.structure import Structure
 from .bar_parse import parse_bar
@@ -28,7 +29,7 @@ def parse_structure(structure_string: str):
     return parse_structure_from_lines(lines)
 
 
-def parse_structure_from_lines(lines: [str]):
+def parse_structure_from_lines(lines: List[str]):
     """
     Parses a `Structure` from a list of strings: the definition
     lines. This function will raise a `ValueError` if there is
@@ -55,7 +56,7 @@ def __apply_loads_to_nodes(loads, nodes):
         nodes[node_id].add_load(load)
 
 
-def __parse_lines(lines: [str]):
+def __parse_lines(lines: List[str]):
     reading = ''
     result = {'nodes': {}, 'loads': [], 'bars': []}
 
@@ -92,4 +93,4 @@ def __parse_lines(lines: [str]):
 def __should_ignore_line(line: str):
     stripped = line.strip()
     return len(stripped) == 0 or \
-           stripped.startswith(__COMMENT_INDICATOR)
+        stripped.startswith(__COMMENT_INDICATOR)

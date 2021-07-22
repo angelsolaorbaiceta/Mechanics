@@ -24,7 +24,7 @@ class OpenInterval:
         """
         return self.end - self.start
 
-    def contains(self, value: float):
+    def contains(self, value: float) -> bool:
         """
         Tests whether this interval contains a given value or not.
 
@@ -33,7 +33,7 @@ class OpenInterval:
         """
         return self.start < value < self.end
 
-    def overlaps_interval(self, other):
+    def overlaps_interval(self, other) -> bool:
         """
         Tests whether this and other interval overlap.
 
@@ -45,9 +45,9 @@ class OpenInterval:
             return True
 
         return self.contains(other.start) \
-               or self.contains(other.end) \
-               or other.contains(self.start) \
-               or other.contains(self.end)
+            or self.contains(other.end) \
+            or other.contains(self.start) \
+            or other.contains(self.end)
 
     def compute_overlap_with(self, other):
         """

@@ -1,4 +1,5 @@
 from functools import reduce
+from typing import List
 
 from eqs import Matrix, Vector as EqVector, cholesky_solve
 from geom2d import Vector
@@ -19,7 +20,7 @@ class Structure:
 
     __DOF_PER_NODE = 2
 
-    def __init__(self, nodes: [StrNode], bars: [StrBar]):
+    def __init__(self, nodes: List[StrNode], bars: List[StrBar]):
         self.__bars = bars
         self.__nodes = nodes
 

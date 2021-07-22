@@ -1,3 +1,4 @@
+from typing import List
 from eqs import Vector
 from geom2d import are_close_enough
 from utils.lists import list_of_list_of_zeros
@@ -80,7 +81,7 @@ class Matrix:
         self.__data[row][col] += amount
         return self
 
-    def set_data(self, data: [float]):
+    def set_data(self, data: List[float]):
         """
         Sets the given list of `float` numbers as the values of
         the matrix.
