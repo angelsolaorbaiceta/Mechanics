@@ -7,13 +7,12 @@ This repository contains the code from the book: **Hardcore Programming for Mech
 
 ![](img/hpfme-cover.jpg)
 
-COMING SOON.
 You can buy the book from [No Starch Press](https://nostarch.com/hardcore-programming-mechanical-engineers) or [Amazon](https://www.amazon.com/Hardcore-Programming-Engineers-Angel-Sola/dp/1718500785).
 
 ## Setup
 
 This project has no external dependencies.
-The code is tested using Python versions: 3.6, 3.7, 3.8 and 3.9.
+The code is automatically tested using Python versions: 3.6, 3.7, 3.8 and 3.9; any of these Python versions should work.
 
 ## Packages
 
@@ -27,4 +26,3 @@ This project includes the following packages:
     - [simulation](./graphic/simulation/README.md): Animation generation drawing on a _tkinter_ canvas
 - [structures](./structures/README.md): truss structure resolution package
 - apps: the complete applications build in the book
-
