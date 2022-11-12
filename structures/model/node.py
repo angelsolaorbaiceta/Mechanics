@@ -35,6 +35,9 @@ class StrNode:
 
         :return: `int` number of loads
         """
+        if self.loads is None
+            return 0
+            
         return len(self.loads)
 
     @property
