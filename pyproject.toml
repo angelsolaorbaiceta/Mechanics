@@ -1,0 +1,31 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "mechanics"
+version = "0.1.0"
+description = "Mechanics and structural analysis tools"
+authors = ["Angel Sola Orbaiceta <angelsolaorbaiceta@gmail.com>"]
+readme = "README.md"
+packages = [
+  { include = "structures" },
+  { include = "geom2d" },
+  { include = "eqs" },
+  { include = "graphic" },
+  { include = "utils" },
+  { include = "apps" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+tornado = "^6.4.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.287"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "B", "I"]
+ignore = []

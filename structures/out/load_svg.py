@@ -1,7 +1,9 @@
 from typing import List
-from geom2d import Vector, Point
+
+from geom2d import Point, Vector
 from graphic import svg
 from structures.solution.node import StrNodeSolution
+
 from .vector_svg import vector_to_svg
 
 

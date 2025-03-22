@@ -2,6 +2,7 @@ import re
 from typing import List
 
 from structures.model.structure import Structure
+
 from .bar_parse import parse_bar
 from .load_parse import parse_load
 from .node_parse import parse_node
@@ -12,7 +13,7 @@ __LOADS_HEADER = "loads"
 __BARS_HEADER = "bars"
 
 
-def parse_structure(structure_string: str):
+def parse_structure(structure_string: str) -> "Structure":
     """
     Parses a `Structure` from a string or raises a `ValueError` if
     the given string doesn't follow the expected format.
@@ -22,8 +23,14 @@ def parse_structure(structure_string: str):
     the structure parsing line by line using the appropriate
     parsing logic.
 
-    :param structure_string: definition string
-    :return: `Structure`
+    Args:
+        structure_string: definition string
+
+    Returns:
+        Structure: the parsed structure model
+
+    Raises:
+        ValueError: if the string doesn't conform to the structure model format.
     """
     lines = structure_string.split("\n")
     return parse_structure_from_lines(lines)
@@ -80,7 +87,9 @@ def __parse_lines(lines: List[str]):
             load = parse_load(line)
             result["loads"].append(load)
         else:
-            raise RuntimeError(f"Unknown error in line ${i}: ${line}")
+            raise RuntimeError(
+                f"Unknown error in line {i}: {line}. Are you sure your definition matches the spec?"
+            )
 
     return result
 

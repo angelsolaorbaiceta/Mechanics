@@ -1,6 +1,7 @@
-from geom2d import Point, Vector, Segment
+from geom2d import Point, Segment, Vector
 from graphic import svg
 from graphic.svg import attributes
+
 from .captions_svg import caption_to_svg
 
 __I_VERSOR = Vector(1, 0)

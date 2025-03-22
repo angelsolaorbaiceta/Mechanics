@@ -1,10 +1,10 @@
 import json
-
-import pkg_resources as res
+from importlib import resources
 
 from geom2d import AffineTransform
 from graphic import svg
 from structures.solution.structure import StructureSolution
+
 from .bar_svg import bars_to_svg
 from .load_svg import loads_to_svg
 from .node_svg import nodes_to_svg
@@ -57,7 +57,7 @@ def structure_solution_to_svg(
 
 
 def __read_config():
-    config = res.resource_string(__name__, "config.json")
+    config = resources.files(__package__).joinpath("config.json").read_bytes()
     return json.loads(config)
 
 

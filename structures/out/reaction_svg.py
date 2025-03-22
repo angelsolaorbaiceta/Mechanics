@@ -1,5 +1,6 @@
 from structures.solution.node import StrNodeSolution
 from structures.solution.structure import StructureSolution
+
 from .vector_svg import vector_to_svg
 
 

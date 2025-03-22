@@ -2,7 +2,8 @@ import operator
 from functools import reduce
 from typing import List
 
-from geom2d import make_rect_containing_with_margin, Vector
+from geom2d import Vector, make_rect_containing_with_margin
+
 from .bar import StrBarSolution
 from .node import StrNodeSolution
 

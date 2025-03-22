@@ -1,8 +1,10 @@
 from typing import List
+
 from geom2d import Circle, Vector
 from graphic import svg
 from graphic.svg import attributes
 from structures.solution.node import StrNodeSolution
+
 from .captions_svg import caption_to_svg
 
 

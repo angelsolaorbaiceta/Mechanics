@@ -5,6 +5,7 @@ from geom2d import Segment, Vector
 from graphic import svg
 from graphic.svg import attributes
 from structures.solution.bar import StrBarSolution
+
 from .captions_svg import caption_to_svg
 
 __I_VERSOR = Vector(1, 0)

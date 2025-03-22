@@ -1,4 +1,5 @@
 from typing import List
+
 from structures.solution.bar import StrBarSolution
 from structures.solution.node import StrNodeSolution
 from structures.solution.structure import StructureSolution
