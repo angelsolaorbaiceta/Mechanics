@@ -11,19 +11,19 @@ def simulate(transform, primitives, config):
     tk.minsize(width=400, height=400)
 
     canvas = Canvas(tk)
-    canvas.pack(fill='both', side='top', expand=True)
+    canvas.pack(fill="both", side="top", expand=True)
 
     def start_simulation():
         tk.update()
         main_loop(update_system, redraw, should_continue)
 
-    button = Button(tk, text='Play', command=start_simulation)
-    button.pack(anchor='center', side='bottom')
+    button = Button(tk, text="Play", command=start_simulation)
+    button.pack(anchor="center", side="bottom")
 
     # ---------- UPDATE, DRAW & CONTINUE ---------- #
-    frames = config['frames']
+    frames = config["frames"]
     transform_seq = __make_transform_sequence(transform, frames)
-    axis_length = config['axes']['length']
+    axis_length = config["axes"]["length"]
     x_axis = Segment(Point(0, 0), Point(axis_length, 0))
     y_axis = Segment(Point(0, 0), Point(0, axis_length))
     drawing = CanvasDrawing(canvas, transform_seq[0])
@@ -35,34 +35,30 @@ def simulate(transform, primitives, config):
     def redraw():
         drawing.clear_drawing()
 
-        drawing.outline_width = config['axes']['stroke-width']
-        drawing.outline_color = config['axes']['x-color']
+        drawing.outline_width = config["axes"]["stroke-width"]
+        drawing.outline_color = config["axes"]["x-color"]
         drawing.draw_arrow(
-            x_axis,
-            config['axes']['arrow-length'],
-            config['axes']['arrow-height']
+            x_axis, config["axes"]["arrow-length"], config["axes"]["arrow-height"]
         )
 
-        drawing.outline_color = config['axes']['y-color']
+        drawing.outline_color = config["axes"]["y-color"]
         drawing.draw_arrow(
-            y_axis,
-            config['axes']['arrow-length'],
-            config['axes']['arrow-height']
+            y_axis, config["axes"]["arrow-length"], config["axes"]["arrow-height"]
         )
 
-        drawing.outline_width = config['geometry']['stroke-width']
-        drawing.outline_color = config['geometry']['stroke-color']
+        drawing.outline_width = config["geometry"]["stroke-width"]
+        drawing.outline_color = config["geometry"]["stroke-color"]
 
-        for circle in primitives['circs']:
+        for circle in primitives["circs"]:
             drawing.draw_circle(circle)
 
-        for rect in primitives['rects']:
+        for rect in primitives["rects"]:
             drawing.draw_rectangle(rect)
 
-        for polygon in primitives['polys']:
+        for polygon in primitives["polys"]:
             drawing.draw_polygon(polygon)
 
-        for segment in primitives['segs']:
+        for segment in primitives["segs"]:
             drawing.draw_segment(segment)
 
     def should_continue(frame, time_s):
@@ -75,6 +71,4 @@ def simulate(transform, primitives, config):
 
 def __make_transform_sequence(end_transform, frames):
     start_transform = tf.AffineTransform(sx=1, sy=1, tx=20, ty=20)
-    return tf.ease_in_out_interpolation(
-        start_transform, end_transform, frames
-    )
+    return tf.ease_in_out_interpolation(start_transform, end_transform, frames)

@@ -17,7 +17,7 @@ class TestPolygon(unittest.TestCase):
         expected = [
             Segment(self.vertices[0], self.vertices[1]),
             Segment(self.vertices[1], self.vertices[2]),
-            Segment(self.vertices[2], self.vertices[0])
+            Segment(self.vertices[2], self.vertices[0]),
         ]
         actual = self.polygon.sides()
         self.assertEqual(expected, actual)
@@ -36,6 +36,4 @@ class TestPolygon(unittest.TestCase):
         self.assertTrue(self.polygon.contains_point(point))
 
     def test_contains_vertex(self):
-        self.assertTrue(
-            self.polygon.contains_point(self.vertices[0])
-        )
+        self.assertTrue(self.polygon.contains_point(self.vertices[0]))

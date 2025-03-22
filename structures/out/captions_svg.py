@@ -3,13 +3,7 @@ from graphic import svg
 from graphic.svg import attributes
 
 
-def caption_to_svg(
-        caption: str,
-        position: Point,
-        angle: float,
-        color: str,
-        config
-):
+def caption_to_svg(caption: str, position: Point, angle: float, color: str, config):
     """
     Creates the SVG caption with the `caption` text, located at
     `position` and rotated `angle` radians.
@@ -21,8 +15,8 @@ def caption_to_svg(
     :param config: configuration dictionary
     :return: `SVG`
     """
-    font = config['font']['family']
-    size = config['font']['size']
+    font = config["font"]["family"]
+    size = config["font"]["size"]
 
     rotation = make_rotation(angle, position)
     scale = make_scale(1, -1, position)
@@ -36,6 +30,6 @@ def caption_to_svg(
             attributes.fill_color(color),
             attributes.affine_transform(transform),
             attributes.font_family(font),
-            attributes.font_size(size)
-        ]
+            attributes.font_size(size),
+        ],
     )

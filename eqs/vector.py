@@ -78,7 +78,7 @@ class Vector:
         :return: this vector
         """
         if len(data) != self.__length:
-            raise ValueError('Cannot set data: length mismatch')
+            raise ValueError("Cannot set data: length mismatch")
 
         for i in range(self.__length):
             self.__data[i] = data[i]
@@ -117,7 +117,7 @@ class Vector:
         :return: vector result of subtraction
         """
         if other.__length != self.__length:
-            raise ValueError('Cannot subtract: length mismatch')
+            raise ValueError("Cannot subtract: length mismatch")
 
         result = self.copy()
         for i in range(self.__length):
@@ -134,7 +134,7 @@ class Vector:
         :return: vector result of addition
         """
         if other.__length != self.__length:
-            raise ValueError('Cannot add: length mismatch')
+            raise ValueError("Cannot add: length mismatch")
 
         result = self.copy()
         for i in range(self.__length):
@@ -151,7 +151,7 @@ class Vector:
         :return: vector result of multiplication
         """
         if other.__length != self.__length:
-            raise ValueError('Cannot multiply: length mismatch')
+            raise ValueError("Cannot multiply: length mismatch")
 
         result = self.copy()
         for i in range(self.__length):
@@ -185,10 +185,7 @@ class Vector:
             return False
 
         for i in range(self.length):
-            if not are_close_enough(
-                    self.value_at(i),
-                    other.value_at(i)
-            ):
+            if not are_close_enough(self.value_at(i), other.value_at(i)):
                 return False
 
         return True

@@ -106,9 +106,7 @@ class Segment:
         :param p: `Point`
         :return: `float` distance to the closest point in segment
         """
-        return p.distance_to(
-            self.closest_point_to(p)
-        )
+        return p.distance_to(self.closest_point_to(p))
 
     def intersection_with(self, other):
         """
@@ -161,8 +159,7 @@ class Segment:
         if not isinstance(other, Segment):
             return False
 
-        return self.start == other.start \
-               and self.end == other.end
+        return self.start == other.start and self.end == other.end
 
     def __str__(self):
-        return f'segment from {self.start} to {self.end}'
+        return f"segment from {self.start} to {self.end}"

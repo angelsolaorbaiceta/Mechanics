@@ -50,7 +50,7 @@ def affine_transform(t: AffineTransform):
     :param t: `AffineTransform`
     :return: transform="matrix(sx shy shx sy tx ty)"
     """
-    values = f'{t.sx} {t.shy} {t.shx} {t.sy} {t.tx} {t.ty}'
+    values = f"{t.sx} {t.shy} {t.shx} {t.sy} {t.tx} {t.ty}"
     return f'transform="matrix({values})"'
 
 
@@ -81,4 +81,4 @@ def attrs_to_str(attrs_list: List[str]):
     :param attrs_list: list of attributes
     :return: combined attributes string
     """
-    return ' '.join(attrs_list)
+    return " ".join(attrs_list)

@@ -18,10 +18,7 @@ class Size:
         :param scale: `float`
         :return: scaled `Size`
         """
-        return Size(
-            self.width * scale,
-            self.height * scale
-        )
+        return Size(self.width * scale, self.height * scale)
 
     def __eq__(self, other):
         """
@@ -36,5 +33,6 @@ class Size:
         if not isinstance(other, Size):
             return False
 
-        return are_close_enough(self.width, other.width) \
-               and are_close_enough(self.height, other.height)
+        return are_close_enough(self.width, other.width) and are_close_enough(
+            self.height, other.height
+        )

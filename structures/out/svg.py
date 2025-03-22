@@ -12,9 +12,9 @@ from .reaction_svg import node_reactions_to_svg
 
 
 def structure_solution_to_svg(
-        result: StructureSolution,
-        settings,
-        _config=None,
+    result: StructureSolution,
+    settings,
+    _config=None,
 ):
     """
     Creates the content of the SVG diagram that depicts the
@@ -40,10 +40,7 @@ def structure_solution_to_svg(
 
     config = {**default_config, **(_config or {})}
 
-    viewbox = result.bounds_rect(
-        config['sizes']['margin'],
-        settings.scale
-    )
+    viewbox = result.bounds_rect(config["sizes"]["margin"], settings.scale)
     transform = AffineTransform(sx=1, sy=-1, tx=0, ty=0)
 
     svg_bars = bars_to_svg(result.bars, settings, config)
@@ -55,24 +52,24 @@ def structure_solution_to_svg(
         size=viewbox.size,
         primitives=svg_bars + svg_nodes + svg_react + svg_loads,
         viewbox_rect=viewbox,
-        transform=transform
+        transform=transform,
     )
 
 
 def __read_config():
-    config = res.resource_string(__name__, 'config.json')
+    config = res.resource_string(__name__, "config.json")
     return json.loads(config)
 
 
 __expected_settings = (
     # scale applied to the diagram
-    'scale',
+    "scale",
     # scale applied to the node displacements
-    'disp_scale',
+    "disp_scale",
     # scale applied to the load vectors
-    'load_scale',
+    "load_scale",
     # boolean to decide whether to draw the original geometry
-    'no_draw_original'
+    "no_draw_original",
 )
 
 

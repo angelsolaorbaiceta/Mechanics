@@ -8,7 +8,6 @@ from geom2d.vector import Vector
 
 
 class TestCircle(unittest.TestCase):
-
     circle = Circle(Point(10, 10), 10)
 
     # --- PROPERTIES --- #
@@ -54,10 +53,5 @@ class TestCircle(unittest.TestCase):
     def test_to_polygon_4_divisions(self):
         circle = Circle(Point(2, 5), 10)
         actual = circle.to_polygon(4)
-        expected = Polygon([
-            Point(12, 5),
-            Point(2, 15),
-            Point(-8, 5),
-            Point(2, -5)
-        ])
+        expected = Polygon([Point(12, 5), Point(2, 15), Point(-8, 5), Point(2, -5)])
         self.assertEqual(expected, actual)

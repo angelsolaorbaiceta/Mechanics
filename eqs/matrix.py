@@ -98,7 +98,7 @@ class Matrix:
         :return: this `Matrix`
         """
         if len(data) != self.__cols_count * self.__rows_count:
-            raise ValueError('Cannot set data: size mismatch')
+            raise ValueError("Cannot set data: size mismatch")
 
         for row in range(self.__rows_count):
             offset = self.__cols_count * row
@@ -207,7 +207,7 @@ class Matrix:
         :return: `Vector`
         """
         if self.__cols_count != v.length:
-            raise ValueError('Size mismatch')
+            raise ValueError("Size mismatch")
 
         result = Vector(self.__rows_count)
 
@@ -264,10 +264,10 @@ class Matrix:
 
     def __ensure_matches_size(self, other):
         if self.__rows_count != other.__rows_count:
-            raise ValueError('Row length mismatch')
+            raise ValueError("Row length mismatch")
 
         if self.__cols_count != other.__cols_count:
-            raise ValueError('Column length mismatch')
+            raise ValueError("Column length mismatch")
 
     def __mul__(self, other):
         """
@@ -286,7 +286,7 @@ class Matrix:
         :return: result `Matrix`
         """
         if self.__cols_count != other.__rows_count:
-            raise ValueError('Size mismatch')
+            raise ValueError("Size mismatch")
 
         rows = self.__rows_count
         cols = other.__cols_count
@@ -344,10 +344,7 @@ class Matrix:
 
         for i in range(self.__rows_count):
             for j in range(self.__cols_count):
-                if not are_close_enough(
-                        self.__data[i][j],
-                        other.__data[i][j]
-                ):
+                if not are_close_enough(self.__data[i][j], other.__data[i][j]):
                     return False
 
         return True

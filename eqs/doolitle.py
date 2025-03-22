@@ -35,7 +35,7 @@ def doolitle_decomposition(matrix: Matrix) -> Tuple[Matrix, Matrix]:
     :return: ([L], [U])
     """
     if not matrix.is_square:
-        raise ValueError('Can\'t decompose a non-square matrix')
+        raise ValueError("Can't decompose a non-square matrix")
 
     size = matrix.rows_count
     (lower, upper) = (Matrix(size, size), Matrix(size, size))
@@ -49,7 +49,7 @@ def doolitle_decomposition(matrix: Matrix) -> Tuple[Matrix, Matrix]:
                 for k in range(i):
                     l_ik = lower.value_at(i, k)
                     u_kj = upper.value_at(k, j)
-                    _sum += (l_ik * u_kj)
+                    _sum += l_ik * u_kj
 
                 upper.set_value(val - _sum, i, j)
 
@@ -58,7 +58,7 @@ def doolitle_decomposition(matrix: Matrix) -> Tuple[Matrix, Matrix]:
                 for k in range(j):
                     l_ik = lower.value_at(i, k)
                     u_kj = upper.value_at(k, j)
-                    _sum += (l_ik * u_kj)
+                    _sum += l_ik * u_kj
 
                 u_jj = upper.value_at(j, j)
                 lower.set_value((val - _sum) / u_jj, i, j)

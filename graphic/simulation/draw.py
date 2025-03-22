@@ -15,16 +15,16 @@ class CanvasDrawing:
 
     def __init__(self, canvas: Canvas, transform: AffineTransform):
         self.__canvas = canvas
-        self.outline_color = '#aa3355'
+        self.outline_color = "#aa3355"
         self.outline_width = 3
-        self.fill_color = ''
+        self.fill_color = ""
         self.transform = transform
 
     def clear_drawing(self):
         """
         Clears the drawing setting it blank.
         """
-        self.__canvas.delete('all')
+        self.__canvas.delete("all")
 
     def draw_segment(self, segment: Segment):
         """
@@ -40,7 +40,7 @@ class CanvasDrawing:
             segment_t.end.x,
             segment_t.end.y,
             fill=self.outline_color,
-            width=self.outline_width
+            width=self.outline_width,
         )
 
     def draw_circle(self, circle: Circle, divisions=30):
@@ -55,9 +55,7 @@ class CanvasDrawing:
         :param circle: `Circle`
         :param divisions: `int` defaulting to 30
         """
-        self.__draw_polygon(
-            self.transform.apply_to_circle(circle, divisions)
-        )
+        self.__draw_polygon(self.transform.apply_to_circle(circle, divisions))
 
     def draw_rectangle(self, rect: Rect):
         """
@@ -66,9 +64,7 @@ class CanvasDrawing:
 
         :param rect: `Rect`
         """
-        self.__draw_polygon(
-            self.transform.apply_to_rect(rect)
-        )
+        self.__draw_polygon(self.transform.apply_to_rect(rect))
 
     def draw_polygon(self, polygon: Polygon):
         """
@@ -77,29 +73,19 @@ class CanvasDrawing:
 
         :param polygon: `Polygon`
         """
-        self.__draw_polygon(
-            self.transform.apply_to_polygon(polygon)
-        )
+        self.__draw_polygon(self.transform.apply_to_polygon(polygon))
 
     def __draw_polygon(self, polygon: Polygon):
-        vertices = reduce(
-            list.__add__,
-            [[v.x, v.y] for v in polygon.vertices]
-        )
+        vertices = reduce(list.__add__, [[v.x, v.y] for v in polygon.vertices])
 
         self.__canvas.create_polygon(
             vertices,
             fill=self.fill_color,
             outline=self.outline_color,
-            width=self.outline_width
+            width=self.outline_width,
         )
 
-    def draw_arrow(
-            self,
-            segment: Segment,
-            length: float,
-            height: float
-    ):
+    def draw_arrow(self, segment: Segment, length: float, height: float):
         """
         Draws a segment with an arrow in it's end.
         The arrow's dimensions are given by `length` and `height`.
@@ -114,15 +100,5 @@ class CanvasDrawing:
         v_h2 = v_h1.opposite()
 
         self.draw_segment(segment)
-        self.draw_segment(
-            Segment(
-                segment.end,
-                segment.end.displaced(v_l + v_h1)
-            )
-        )
-        self.draw_segment(
-            Segment(
-                segment.end,
-                segment.end.displaced(v_l + v_h2)
-            )
-        )
+        self.draw_segment(Segment(segment.end, segment.end.displaced(v_l + v_h1)))
+        self.draw_segment(Segment(segment.end, segment.end.displaced(v_l + v_h2)))

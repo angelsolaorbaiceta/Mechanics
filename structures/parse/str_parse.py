@@ -6,10 +6,10 @@ from .bar_parse import parse_bar
 from .load_parse import parse_load
 from .node_parse import parse_node
 
-__COMMENT_INDICATOR = '#'
-__NODES_HEADER = 'nodes'
-__LOADS_HEADER = 'loads'
-__BARS_HEADER = 'bars'
+__COMMENT_INDICATOR = "#"
+__NODES_HEADER = "nodes"
+__LOADS_HEADER = "loads"
+__BARS_HEADER = "bars"
 
 
 def parse_structure(structure_string: str):
@@ -25,7 +25,7 @@ def parse_structure(structure_string: str):
     :param structure_string: definition string
     :return: `Structure`
     """
-    lines = structure_string.split('\n')
+    lines = structure_string.split("\n")
     return parse_structure_from_lines(lines)
 
 
@@ -39,16 +39,13 @@ def parse_structure_from_lines(lines: List[str]):
     :return: `Structure`
     """
     parsed = __parse_lines(lines)
-    nodes_dict = parsed['nodes']
-    loads = parsed['loads']
-    bars = parsed['bars']
+    nodes_dict = parsed["nodes"]
+    loads = parsed["loads"]
+    bars = parsed["bars"]
 
     __apply_loads_to_nodes(loads, nodes_dict)
 
-    return Structure(
-        list(nodes_dict.values()),
-        bars
-    )
+    return Structure(list(nodes_dict.values()), bars)
 
 
 def __apply_loads_to_nodes(loads, nodes):
@@ -57,8 +54,8 @@ def __apply_loads_to_nodes(loads, nodes):
 
 
 def __parse_lines(lines: List[str]):
-    reading = ''
-    result = {'nodes': {}, 'loads': [], 'bars': []}
+    reading = ""
+    result = {"nodes": {}, "loads": [], "bars": []}
 
     for i, line in enumerate(lines):
         if __should_ignore_line(line):
@@ -66,31 +63,28 @@ def __parse_lines(lines: List[str]):
 
         # <--- header ---> #
         if re.match(__NODES_HEADER, line):
-            reading = 'nodes'
+            reading = "nodes"
         elif re.match(__BARS_HEADER, line):
-            reading = 'bars'
+            reading = "bars"
         elif re.match(__LOADS_HEADER, line):
-            reading = 'loads'
+            reading = "loads"
 
         # <--- definition ---> #
-        elif reading == 'nodes':
+        elif reading == "nodes":
             node = parse_node(line)
-            result['nodes'][node.id] = node
-        elif reading == 'bars':
-            bar = parse_bar(line, result['nodes'])
-            result['bars'].append(bar)
-        elif reading == 'loads':
+            result["nodes"][node.id] = node
+        elif reading == "bars":
+            bar = parse_bar(line, result["nodes"])
+            result["bars"].append(bar)
+        elif reading == "loads":
             load = parse_load(line)
-            result['loads'].append(load)
+            result["loads"].append(load)
         else:
-            raise RuntimeError(
-                f'Unknown error in line ${i}: ${line}'
-            )
+            raise RuntimeError(f"Unknown error in line ${i}: ${line}")
 
     return result
 
 
 def __should_ignore_line(line: str):
     stripped = line.strip()
-    return len(stripped) == 0 or \
-        stripped.startswith(__COMMENT_INDICATOR)
+    return len(stripped) == 0 or stripped.startswith(__COMMENT_INDICATOR)

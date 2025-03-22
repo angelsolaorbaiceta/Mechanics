@@ -4,9 +4,7 @@ from eqs.upper_system import solve_upper_sys
 
 
 def lu_system_solve(
-        lower_matrix: Matrix,
-        upper_matrix: Matrix,
-        sys_vector: Vector
+    lower_matrix: Matrix, upper_matrix: Matrix, sys_vector: Vector
 ) -> Vector:
     """
     Given a linear equation system's matrix LU decomposition and

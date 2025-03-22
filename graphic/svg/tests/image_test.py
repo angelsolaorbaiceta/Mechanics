@@ -5,7 +5,6 @@ from graphic.svg.image import svg_content
 
 
 class TestSvgImage(unittest.TestCase):
-
     size = Size(200, 350)
     viewbox = Rect(Point(4, 5), Size(180, 230))
 

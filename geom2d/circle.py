@@ -23,7 +23,7 @@ class Circle:
 
         :return: `float` area
         """
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius**2
 
     @property
     def circumference(self):
@@ -87,14 +87,13 @@ class Circle:
         """
         angle_delta = 2 * math.pi / divisions
         return Polygon(
-            [self.__point_at_angle(angle_delta * i)
-             for i in range(divisions)]
+            [self.__point_at_angle(angle_delta * i) for i in range(divisions)]
         )
 
     def __point_at_angle(self, angle: float):
         return Point(
             self.center.x + self.radius * math.cos(angle),
-            self.center.y + self.radius * math.sin(angle)
+            self.center.y + self.radius * math.sin(angle),
         )
 
     def __eq__(self, other):
@@ -111,8 +110,9 @@ class Circle:
         if not isinstance(other, Circle):
             return False
 
-        return self.center == other.center \
-               and are_close_enough(self.radius, other.radius)
+        return self.center == other.center and are_close_enough(
+            self.radius, other.radius
+        )
 
     def __str__(self):
-        return f'circle c = {self.center}, r = {self.radius}'
+        return f"circle c = {self.center}, r = {self.radius}"

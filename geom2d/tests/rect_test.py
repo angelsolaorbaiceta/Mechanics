@@ -38,10 +38,5 @@ class TestRect(unittest.TestCase):
     # --- POLYGON --- #
     def test_to_polygon(self):
         actual = self.rect.to_polygon()
-        expected = Polygon([
-            self.origin,
-            Point(10, 0),
-            Point(10, 5),
-            Point(0, 5)
-        ])
+        expected = Polygon([self.origin, Point(10, 0), Point(10, 5), Point(0, 5)])
         self.assertEqual(expected, actual)

@@ -5,9 +5,7 @@ from geom2d.size import Size
 
 
 class TestRects(unittest.TestCase):
-    points = [
-        Point(0, 5), Point(10, 0), Point(5, 7)
-    ]
+    points = [Point(0, 5), Point(10, 0), Point(5, 7)]
 
     def test_containing_points(self):
         actual = make_rect_containing(self.points)
@@ -23,4 +21,3 @@ class TestRects(unittest.TestCase):
         actual = make_rect_centered(Point(5, 10), 20, 40)
         expected = Rect(Point(-5, -10), Size(20, 40))
         self.assertEqual(expected, actual)
-

@@ -7,7 +7,6 @@ from geom2d.segment import Segment
 
 
 class TestSegment(unittest.TestCase):
-
     start = Point(400, 0)
     end = Point(0, 400)
     segment = Segment(start, end)
@@ -19,11 +18,7 @@ class TestSegment(unittest.TestCase):
 
     # --- POINT AT --- #
     def test_point_at_wrong_t(self):
-        self.assertRaises(
-            tparam.TParamError,
-            self.segment.point_at,
-            56.7
-        )
+        self.assertRaises(tparam.TParamError, self.segment.point_at, 56.7)
 
     def test_point_at(self):
         t = tparam.make(0.25)
@@ -66,4 +61,3 @@ class TestSegment(unittest.TestCase):
         expected = Point(200, 200)
         actual = self.segment.intersection_with(other)
         self.assertEqual(expected, actual)
-

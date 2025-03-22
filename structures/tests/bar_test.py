@@ -16,11 +16,8 @@ class BarTest(unittest.TestCase):
     bar = StrBar(1, node_a, node_b, section, young)
 
     def test_global_stiffness_matrix(self):
-        expected = Matrix(4, 4).set_data([
-            4, 2, -4, -2,
-            2, 1, -2, -1,
-            -4, -2, 4, 2,
-            -2, -1, 2, 1
-        ])
+        expected = Matrix(4, 4).set_data(
+            [4, 2, -4, -2, 2, 1, -2, -1, -4, -2, 4, 2, -2, -1, 2, 1]
+        )
         actual = self.bar.global_stiffness_matrix()
         self.assertEqual(expected, actual)

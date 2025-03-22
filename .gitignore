@@ -1,8 +1,7 @@
 dist/
 build/
 .idea
-.vscode
-venv
+.venv
 __pycache__/
 
 # truss structure solution

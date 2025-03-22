@@ -5,16 +5,11 @@ from eqs.matrix import Matrix
 
 
 class MatrixTest(unittest.TestCase):
-
     def test_is_square(self):
-        self.assertTrue(
-            Matrix(2, 2).is_square
-        )
+        self.assertTrue(Matrix(2, 2).is_square)
 
     def test_is_not_square(self):
-        self.assertFalse(
-            Matrix(2, 3).is_square
-        )
+        self.assertFalse(Matrix(2, 3).is_square)
 
     def test_unset_value_is_zero(self):
         matrix = Matrix(2, 2)
@@ -27,9 +22,7 @@ class MatrixTest(unittest.TestCase):
 
     def test_add_to_value(self):
         expected = [1, 12, 3, 4]
-        matrix = Matrix(2, 2) \
-            .set_data([1, 2, 3, 4]) \
-            .add_to_value(10, 0, 1)
+        matrix = Matrix(2, 2).set_data([1, 2, 3, 4]).add_to_value(10, 0, 1)
         self.assert_matrix_has_data(matrix, expected)
 
     def test_set_data(self):
@@ -39,23 +32,17 @@ class MatrixTest(unittest.TestCase):
 
     def test_set_identity_row(self):
         expected = [1, 0, 4, 5]
-        matrix = Matrix(2, 2) \
-            .set_data([2, 3, 4, 5]) \
-            .set_identity_row(0)
+        matrix = Matrix(2, 2).set_data([2, 3, 4, 5]).set_identity_row(0)
         self.assert_matrix_has_data(matrix, expected)
 
     def test_set_identity_col(self):
         expected = [2, 0, 4, 1]
-        matrix = Matrix(2, 2) \
-            .set_data([2, 3, 4, 5]) \
-            .set_identity_col(1)
+        matrix = Matrix(2, 2).set_data([2, 3, 4, 5]).set_identity_col(1)
         self.assert_matrix_has_data(matrix, expected)
 
     def test_scale(self):
         expected = [2, 4, 6, 8, 10, 12]
-        matrix = Matrix(2, 3) \
-            .set_data([1, 2, 3, 4, 5, 6]) \
-            .scale(2)
+        matrix = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6]).scale(2)
         self.assert_matrix_has_data(matrix, expected)
 
     def test_multiply_vector(self):
@@ -105,9 +92,7 @@ class MatrixTest(unittest.TestCase):
         self.assert_matrix_has_data(m1 * m2, expected_data)
 
     def test_transpose_matrix(self):
-        mat = Matrix(2, 3) \
-            .set_data([1, 2, 3, 4, 5, 6]) \
-            .transposed()
+        mat = Matrix(2, 3).set_data([1, 2, 3, 4, 5, 6]).transposed()
         expected = Matrix(3, 2).set_data([1, 4, 2, 5, 3, 6])
 
         self.assertEqual(expected, mat)
@@ -116,7 +101,4 @@ class MatrixTest(unittest.TestCase):
         for row in range(matrix.rows_count):
             offset = matrix.cols_count * row
             for col in range(matrix.cols_count):
-                self.assertEqual(
-                    data[offset + col],
-                    matrix.value_at(row, col)
-                )
+                self.assertEqual(data[offset + col], matrix.value_at(row, col))

@@ -79,8 +79,7 @@ class Rect:
         :param point: `Point`
         :return: `bool`
         """
-        return self.left < point.x < self.right \
-               and self.bottom < point.y < self.top
+        return self.left < point.x < self.right and self.bottom < point.y < self.top
 
     def intersection_with(self, other):
         """
@@ -102,7 +101,7 @@ class Rect:
 
         return Rect(
             Point(h_overlap.start, v_overlap.start),
-            Size(h_overlap.length, v_overlap.length)
+            Size(h_overlap.length, v_overlap.length),
         )
 
     def __horizontal_overlap_with(self, other):
@@ -129,12 +128,14 @@ class Rect:
 
         :return: `Polygon`
         """
-        return Polygon([
-            self.origin,
-            Point(self.right, self.bottom),
-            Point(self.right, self.top),
-            Point(self.left, self.top)
-        ])
+        return Polygon(
+            [
+                self.origin,
+                Point(self.right, self.bottom),
+                Point(self.right, self.top),
+                Point(self.left, self.top),
+            ]
+        )
 
     def __eq__(self, other):
         """
@@ -149,5 +150,4 @@ class Rect:
         if not isinstance(other, Rect):
             return False
 
-        return self.origin == other.origin \
-               and self.size == other.size
+        return self.origin == other.origin and self.size == other.size

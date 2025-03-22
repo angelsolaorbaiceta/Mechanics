@@ -13,12 +13,12 @@ class StrBar:
     """
 
     def __init__(
-            self,
-            _id: int,
-            start_node: StrNode,
-            end_node: StrNode,
-            cross_section: float,
-            young_mod: float
+        self,
+        _id: int,
+        start_node: StrNode,
+        end_node: StrNode,
+        cross_section: float,
+        young_mod: float,
     ):
         self.id = _id
         self.start_node = start_node
@@ -33,10 +33,7 @@ class StrBar:
 
         :return: `Segment`
         """
-        return Segment(
-            self.start_node.position,
-            self.end_node.position
-        )
+        return Segment(self.start_node.position, self.end_node.position)
 
     @property
     def length(self):
@@ -58,13 +55,27 @@ class StrBar:
         c = direction.cosine
         s = direction.sine
 
-        c2_eal = (c ** 2) * eal
-        s2_eal = (s ** 2) * eal
+        c2_eal = (c**2) * eal
+        s2_eal = (s**2) * eal
         sc_eal = (s * c) * eal
 
-        return Matrix(4, 4).set_data([
-            c2_eal, sc_eal, -c2_eal, -sc_eal,
-            sc_eal, s2_eal, -sc_eal, -s2_eal,
-            -c2_eal, -sc_eal, c2_eal, sc_eal,
-            -sc_eal, -s2_eal, sc_eal, s2_eal
-        ])
+        return Matrix(4, 4).set_data(
+            [
+                c2_eal,
+                sc_eal,
+                -c2_eal,
+                -sc_eal,
+                sc_eal,
+                s2_eal,
+                -sc_eal,
+                -s2_eal,
+                -c2_eal,
+                -sc_eal,
+                c2_eal,
+                sc_eal,
+                -sc_eal,
+                -s2_eal,
+                sc_eal,
+                s2_eal,
+            ]
+        )

@@ -1,6 +1,6 @@
 import re
 
-__TRANSF_VAL_RE = r'(?P<val>-?\d+(\.\d+)?)'
+__TRANSF_VAL_RE = r"(?P<val>-?\d+(\.\d+)?)"
 
 
 def parse_transform_term(term, line):
@@ -10,12 +10,12 @@ def parse_transform_term(term, line):
 
 def __ensure_term_name(name, line):
     if name not in line:
-        raise ValueError(f'Expected {name} term')
+        raise ValueError(f"Expected {name} term")
 
 
 def __parse_transform_term(line):
     matches = re.search(__TRANSF_VAL_RE, line)
     if not matches:
-        raise ValueError('Couldn\'t read transform term')
+        raise ValueError("Couldn't read transform term")
 
-    return float(matches.group('val'))
+    return float(matches.group("val"))

@@ -21,44 +21,37 @@ def bars_to_svg(bars: List[StrBarSolution], settings, config):
     :param config:
     :return: list of SVG elements
     """
+
     def original_bar_to_svg(_bar: StrBarSolution):
-        color = config['colors']['original']
-        return __bar_svg(
-            _bar.original_geometry,
-            color,
-            _bar.cross_section
-        )
+        color = config["colors"]["original"]
+        return __bar_svg(_bar.original_geometry, color, _bar.cross_section)
 
     def bar_to_svg(_bar: StrBarSolution):
         return __bar_svg(
-            _bar.final_geometry_scaling_displacement(
-                settings.disp_scale
-            ),
+            _bar.final_geometry_scaling_displacement(settings.disp_scale),
             bar_color(_bar),
-            _bar.cross_section
+            _bar.cross_section,
         )
 
     def bar_stress_to_svg(_bar: StrBarSolution):
-        geometry = _bar.final_geometry_scaling_displacement(
-            settings.disp_scale
-        )
+        geometry = _bar.final_geometry_scaling_displacement(settings.disp_scale)
         normal = geometry.normal_versor
         position = geometry.middle.displaced(normal, __STRESS_DISP)
         angle = geometry.direction_versor.angle_to(__I_VERSOR)
 
         return caption_to_svg(
-            f'σ = {round(_bar.stress, __DECIMAL_POS)}',
+            f"σ = {round(_bar.stress, __DECIMAL_POS)}",
             position,
             angle,
             bar_color(_bar),
-            config
+            config,
         )
 
     def bar_color(_bar: StrBarSolution):
         if _bar.stress >= 0:
-            return config['colors']['traction']
+            return config["colors"]["traction"]
         else:
-            return config['colors']['compression']
+            return config["colors"]["compression"]
 
     should_draw_original = not settings.no_draw_original
     original, final, stresses = [], [], []
@@ -77,8 +70,5 @@ def __bar_svg(geometry: Segment, color: str, cross_section: float):
     section_height = sqrt(cross_section)
     return svg.segment(
         geometry,
-        [
-            attributes.stroke_color(color),
-            attributes.stroke_width(section_height)
-        ]
+        [attributes.stroke_color(color), attributes.stroke_width(section_height)],
     )

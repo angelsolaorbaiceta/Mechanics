@@ -1,11 +1,10 @@
 import unittest
 
-from geom2d.circles import *
+from geom2d.circles import Circle, make_circle_from_points
 from geom2d.point import Point
 
 
 class TestCircles(unittest.TestCase):
-
     def test_circle_from_points(self):
         a = Point(-10, 0)
         b = Point(0, 10)

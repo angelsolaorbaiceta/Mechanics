@@ -15,12 +15,12 @@ class StrNode:
     """
 
     def __init__(
-            self,
-            _id: int,
-            position: Point,
-            loads=None,
-            dx_constrained=False,
-            dy_constrained=False
+        self,
+        _id: int,
+        position: Point,
+        loads=None,
+        dx_constrained=False,
+        dy_constrained=False,
     ):
         self.id = _id
         self.position = position
@@ -37,7 +37,7 @@ class StrNode:
         """
         if self.loads is None:
             return 0
-            
+
         return len(self.loads)
 
     @property
@@ -48,11 +48,7 @@ class StrNode:
 
         :return: `Vector` net load
         """
-        return reduce(
-            operator.add,
-            self.loads,
-            Vector(0, 0)
-        )
+        return reduce(operator.add, self.loads, Vector(0, 0))
 
     def add_load(self, load: Vector):
         """

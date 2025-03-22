@@ -7,7 +7,6 @@ from structures.solution.structure import StructureSolution
 
 
 class StructureSolutionTest(unittest.TestCase):
-
     p_one = Point(2, 3)
     p_two = Point(5, 1)
 
@@ -24,12 +23,9 @@ class StructureSolutionTest(unittest.TestCase):
         self.n_one.displaced_pos_scaled.assert_called_once_with(4)
         self.n_two.displaced_pos_scaled.assert_called_once_with(4)
 
-    @patch('structures.solution.structure.make_rect_containing_with_margin')
+    @patch("structures.solution.structure.make_rect_containing_with_margin")
     def test_make_rect_called(self, make_rect_mock):
         solution = StructureSolution([self.n_one, self.n_two], [])
         solution.bounds_rect(margin=10, scale=4)
 
-        make_rect_mock.assert_called_once_with(
-            [self.p_one, self.p_two],
-            10
-        )
+        make_rect_mock.assert_called_once_with([self.p_one, self.p_two], 10)

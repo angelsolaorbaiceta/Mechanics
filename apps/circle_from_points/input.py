@@ -7,7 +7,7 @@ from geom2d import Point
 
 
 def read_config():
-    config = res.resource_string(__name__, 'config.json')
+    config = res.resource_string(__name__, "config.json")
     return json.loads(config)
 
 
@@ -20,8 +20,5 @@ def parse_points():
 
 
 def __point_from_string(string: str):
-    matches = re.match(r'(?P<x>\d+)\s(?P<y>\d+)', string)
-    return Point(
-        int(matches.group('x')),
-        int(matches.group('y'))
-    )
+    matches = re.match(r"(?P<x>\d+)\s(?P<y>\d+)", string)
+    return Point(int(matches.group("x")), int(matches.group("y")))

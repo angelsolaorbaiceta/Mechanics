@@ -15,11 +15,7 @@ class StructureSolution:
     list of solution bars.
     """
 
-    def __init__(
-            self,
-            nodes: List[StrNodeSolution],
-            bars: List[StrBarSolution]
-    ):
+    def __init__(self, nodes: List[StrNodeSolution], bars: List[StrBarSolution]):
         self.nodes = nodes
         self.bars = bars
 
@@ -35,10 +31,7 @@ class StructureSolution:
         :param scale: scale used for the node displacements
         :return: rectangular bounds
         """
-        d_pos = [
-            node.displaced_pos_scaled(scale)
-            for node in self.nodes
-        ]
+        d_pos = [node.displaced_pos_scaled(scale) for node in self.nodes]
         return make_rect_containing_with_margin(d_pos, margin)
 
     def reaction_for_node(self, node: StrNodeSolution):
@@ -58,11 +51,7 @@ class StructureSolution:
         if not node.is_constrained:
             return Vector(0, 0)
 
-        forces = [
-            bar.force_in_node(node)
-            for bar in self.bars
-            if bar.has_node(node)
-        ]
+        forces = [bar.force_in_node(node) for bar in self.bars if bar.has_node(node)]
 
         if node.is_loaded:
             forces.append(node.net_load.opposite())

@@ -5,10 +5,7 @@ from eqs.validate_sys import validate_system
 
 
 def conjugate_gradient_solve(
-        sys_mat: Matrix,
-        sys_vec: Vector,
-        max_iter=100,
-        max_error=1e-8
+    sys_mat: Matrix, sys_vec: Vector, max_iter=100, max_error=1e-8
 ) -> Vector:
     """
     The conjugate gradient method is a iterative numeric method to
@@ -57,6 +54,5 @@ def conjugate_gradient_solve(
         p = error + p.scaled(beta)
 
     raise ArithmeticError(
-        f'Reached max number of iterations ({max_iter}) without ' +
-        'a good solution '
+        f"Reached max number of iterations ({max_iter}) without " + "a good solution "
     )

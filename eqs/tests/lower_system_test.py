@@ -6,12 +6,26 @@ from eqs.vector import Vector
 
 
 class LowerSystemResolutionTest(unittest.TestCase):
-    low_matrix = Matrix(4, 4).set_data([
-        2.0, 0.0, 0.0, 0.0,
-        -1.0, 3.0, 0.0, 0.0,
-        2.0, 0.0, 2.0, 0.0,
-        1.0, -2.0, 1.0, 1.0
-    ])
+    low_matrix = Matrix(4, 4).set_data(
+        [
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0,
+            3.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            2.0,
+            0.0,
+            1.0,
+            -2.0,
+            1.0,
+            1.0,
+        ]
+    )
     sys_vec = Vector(4).set_data([20, -16, 40, 28])
     expected_solution = Vector(4).set_data([10, -2, 10, 4])
 

@@ -19,7 +19,7 @@ class Polygon:
 
     def __init__(self, vertices: List[Point]):
         if len(vertices) < 3:
-            raise ValueError('Need 3 or more vertices')
+            raise ValueError("Need 3 or more vertices")
 
         self.vertices = vertices
 
@@ -31,10 +31,7 @@ class Polygon:
         :return: list of sides
         """
         vertex_pairs = make_round_pairs(self.vertices)
-        return [
-            Segment(pair[0], pair[1])
-            for pair in vertex_pairs
-        ]
+        return [Segment(pair[0], pair[1]) for pair in vertex_pairs]
 
     @property
     def centroid(self):
@@ -46,10 +43,7 @@ class Polygon:
         """
         vtx_count = len(self.vertices)
         vtx_sum = reduce(operator.add, self.vertices)
-        return Point(
-            vtx_sum.x / vtx_count,
-            vtx_sum.y / vtx_count
-        )
+        return Point(vtx_sum.x / vtx_count, vtx_sum.y / vtx_count)
 
     def contains_point(self, point: Point):
         """
@@ -61,13 +55,9 @@ class Polygon:
         if point in self.vertices:
             return True
 
-        vecs = [make_vector_between(point, vertex)
-                for vertex in self.vertices]
+        vecs = [make_vector_between(point, vertex) for vertex in self.vertices]
         paired_vecs = make_round_pairs(vecs)
-        angle_sum = reduce(
-            operator.add,
-            [v1.angle_to(v2) for v1, v2 in paired_vecs]
-        )
+        angle_sum = reduce(operator.add, [v1.angle_to(v2) for v1, v2 in paired_vecs])
 
         return are_close_enough(angle_sum, 2 * math.pi)
 

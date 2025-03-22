@@ -5,7 +5,7 @@ from structures.parse.node_parse import parse_node
 
 
 class NodeParseTest(unittest.TestCase):
-    node_str = '1 : (25.0, 45.0)   (xy)'
+    node_str = "1 : (25.0, 45.0)   (xy)"
     node = parse_node(node_str)
 
     def test_parse_id(self):

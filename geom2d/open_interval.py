@@ -11,7 +11,7 @@ class OpenInterval:
 
     def __init__(self, start: float, end: float):
         if start > end:
-            raise ValueError('start should be smaller than end')
+            raise ValueError("start should be smaller than end")
         self.start = start
         self.end = end
 
@@ -40,14 +40,17 @@ class OpenInterval:
         :param other: `OpenInterval`
         :return: `bool` do intervals overlap?
         """
-        if are_close_enough(self.start, other.start) and \
-                are_close_enough(self.end, other.end):
+        if are_close_enough(self.start, other.start) and are_close_enough(
+            self.end, other.end
+        ):
             return True
 
-        return self.contains(other.start) \
-            or self.contains(other.end) \
-            or other.contains(self.start) \
+        return (
+            self.contains(other.start)
+            or self.contains(other.end)
+            or other.contains(self.start)
             or other.contains(self.end)
+        )
 
     def compute_overlap_with(self, other):
         """
@@ -61,7 +64,4 @@ class OpenInterval:
         if not self.overlaps_interval(other):
             return None
 
-        return OpenInterval(
-            max(self.start, other.start),
-            min(self.end, other.end)
-        )
+        return OpenInterval(max(self.start, other.start), min(self.end, other.end))

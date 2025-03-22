@@ -4,7 +4,6 @@ from eqs.vector import Vector
 
 
 class VectorTest(unittest.TestCase):
-
     def test_length(self):
         self.assertEqual(5, Vector(5).length)
 

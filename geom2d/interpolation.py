@@ -31,7 +31,7 @@ def ease_in_out_t(t: float):
     :param t: t value
     :return: t value mapped according to an ease-in function
     """
-    return t ** 2 / (t ** 2 + (1 - t) ** 2)
+    return t**2 / (t**2 + (1 - t) ** 2)
 
 
 def interpolate(vs: float, ve: float, t: float):

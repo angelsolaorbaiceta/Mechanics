@@ -6,7 +6,6 @@ from geom2d.vector import Vector
 
 
 class TestLine(unittest.TestCase):
-
     def test_parallel_lines_no_intersection(self):
         l1 = Line(Point(0, 0), Vector(1, 1))
         l2 = Line(Point(10, 10), Vector(1, 1))

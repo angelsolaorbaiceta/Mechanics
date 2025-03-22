@@ -1,9 +1,7 @@
 import time
 
 
-def main_loop(
-        update_fn, redraw_fn, should_continue_fn, frame_rate_s=0.03
-):
+def main_loop(update_fn, redraw_fn, should_continue_fn, frame_rate_s=0.03):
     """
     Starts a main simulation/game loop that will only end when the
     `should_continue_fn` function returns `False`.
@@ -41,7 +39,7 @@ def main_loop(
             last_elapsed_s = frame_rate_s
         else:
             last_elapsed_s = elapsed_s
-            print('Frame took longer than expected!')
+            print("Frame took longer than expected!")
 
         frame += 1
         time_s += last_elapsed_s

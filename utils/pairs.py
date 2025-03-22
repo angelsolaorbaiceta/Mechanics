@@ -10,10 +10,7 @@ def make_round_pairs(sequence):
     :return: paired sequence
     """
     length = len(sequence)
-    return [
-        (sequence[i], sequence[(i + 1) % length])
-        for i in range(length)
-    ]
+    return [(sequence[i], sequence[(i + 1) % length]) for i in range(length)]
 
 
 def make_pairs(sequence):
@@ -27,7 +24,4 @@ def make_pairs(sequence):
     :return: paired sequence
     """
     length = len(sequence)
-    return [
-        (sequence[i], sequence[i + 1])
-        for i in range(length - 1)
-    ]
+    return [(sequence[i], sequence[i + 1]) for i in range(length - 1)]

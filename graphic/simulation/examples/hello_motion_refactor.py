@@ -12,9 +12,7 @@ canvas.grid(row=0, column=0)
 
 max_frames = 100
 
-transform = AffineTransform(
-    sx=1, sy=-1, tx=150, ty=600, shx=-0.5, shy=0
-)
+transform = AffineTransform(sx=1, sy=-1, tx=150, ty=600, shx=-0.5, shy=0)
 drawing = CanvasDrawing(canvas, transform)
 circle = Circle(Point(300, 300), 0)
 

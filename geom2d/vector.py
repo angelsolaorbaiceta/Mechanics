@@ -21,16 +21,10 @@ class Vector:
         :param other: `Vector`
         :return: `Vector` sum of `self` and `other`
         """
-        return Vector(
-            self.u + other.u,
-            self.v + other.v
-        )
+        return Vector(self.u + other.u, self.v + other.v)
 
     def __sub__(self, other):
-        return Vector(
-            self.u - other.u,
-            self.v - other.v
-        )
+        return Vector(self.u - other.u, self.v - other.v)
 
     def scaled_by(self, factor):
         """
@@ -69,7 +63,7 @@ class Vector:
 
         :return: `float`
         """
-        return math.sqrt(self.u ** 2 + self.v ** 2)
+        return math.sqrt(self.u**2 + self.v**2)
 
     @property
     def is_normal(self):
@@ -125,9 +119,7 @@ class Vector:
         :param other: `Vector`
         :return: `bool`
         """
-        return nums.is_close_to_zero(
-            self.cross(other)
-        )
+        return nums.is_close_to_zero(self.cross(other))
 
     def is_perpendicular_to(self, other):
         """
@@ -137,9 +129,7 @@ class Vector:
         :param other: `Vector`
         :return: `bool`
         """
-        return nums.is_close_to_zero(
-            self.dot(other)
-        )
+        return nums.is_close_to_zero(self.dot(other))
 
     def angle_value_to(self, other):
         """
@@ -175,10 +165,7 @@ class Vector:
         """
         cos = math.cos(radians)
         sin = math.sin(radians)
-        return Vector(
-            self.u * cos - self.v * sin,
-            self.u * sin + self.v * cos
-        )
+        return Vector(self.u * cos - self.v * sin, self.u * sin + self.v * cos)
 
     def perpendicular(self):
         """
@@ -222,11 +209,12 @@ class Vector:
         if not isinstance(other, Vector):
             return False
 
-        return nums.are_close_enough(self.u, other.u) and \
-               nums.are_close_enough(self.v, other.v)
+        return nums.are_close_enough(self.u, other.u) and nums.are_close_enough(
+            self.v, other.v
+        )
 
     def __str__(self):
-        return f'({self.u}, {self.v}) with norm {self.norm}'
+        return f"({self.u}, {self.v}) with norm {self.norm}"
 
     def to_formatted_str(self, decimals: int):
         """
@@ -244,4 +232,4 @@ class Vector:
         v = round(self.v, decimals)
         norm = round(self.norm, decimals)
 
-        return f'({u}, {v}) with norm {norm}'
+        return f"({u}, {v}) with norm {norm}"

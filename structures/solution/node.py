@@ -10,11 +10,7 @@ class StrNodeSolution:
     includes the global displacements vector.
     """
 
-    def __init__(
-            self,
-            original_node: StrNode,
-            global_disp: Vector
-    ):
+    def __init__(self, original_node: StrNode, global_disp: Vector):
         self.__original_node = original_node
         self.global_disp = global_disp
 
@@ -44,8 +40,9 @@ class StrNodeSolution:
 
         :return: `True` if the node has any external constraint
         """
-        return self.__original_node.dx_constrained \
-               or self.__original_node.dy_constrained
+        return (
+            self.__original_node.dx_constrained or self.__original_node.dy_constrained
+        )
 
     @property
     def loads(self):

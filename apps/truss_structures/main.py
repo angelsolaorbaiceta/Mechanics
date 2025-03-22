@@ -5,7 +5,7 @@ import apps.truss_structures.output as out
 from apps.truss_structures.arguments import parse_arguments
 from structures.parse.str_parse import parse_structure_from_lines
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arguments = parse_arguments()
     lines = sys.stdin.readlines()
 
@@ -19,5 +19,4 @@ if __name__ == '__main__':
 
     end_time = time.time()
     elapsed_secs = end_time - start_time
-    print(f'Took {round(elapsed_secs, 3)} seconds to solve')
-
+    print(f"Took {round(elapsed_secs, 3)} seconds to solve")

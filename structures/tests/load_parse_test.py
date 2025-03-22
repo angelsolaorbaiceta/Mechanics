@@ -5,8 +5,7 @@ from structures.parse.load_parse import parse_load
 
 
 class LoadParseTest(unittest.TestCase):
-
-    load_str = '1 -> (250.0, -3500.0)'
+    load_str = "1 -> (250.0, -3500.0)"
     (node_id, load) = parse_load(load_str)
 
     def test_parse_node_id(self):

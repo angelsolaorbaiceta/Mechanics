@@ -55,4 +55,4 @@ class TParamError(Exception):
         self.t = t
 
     def __str__(self):
-        return f'Expected t to be in [0, 1] but was {self.t}'
+        return f"Expected t to be in [0, 1] but was {self.t}"

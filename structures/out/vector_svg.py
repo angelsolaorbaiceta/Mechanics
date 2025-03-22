@@ -8,13 +8,7 @@ __CAPTION_DISP = 10
 __DECIMAL_POS = 2
 
 
-def vector_to_svg(
-        position: Point,
-        vector: Vector,
-        scale: float,
-        color: str,
-        config
-):
+def vector_to_svg(position: Point, vector: Vector, scale: float, color: str, config):
     """
     Creates an SVG representation of the given vector using an
     arrow and a label aligned with the arrow.
@@ -26,18 +20,12 @@ def vector_to_svg(
     :param config: configuration dictionary
     :return: SVG arrow and label
     """
-    segment = Segment(
-        position.displaced(vector, -scale),
-        position
-    )
-    caption_origin = segment.start.displaced(
-        segment.normal_versor,
-        __CAPTION_DISP
-    )
+    segment = Segment(position.displaced(vector, -scale), position)
+    caption_origin = segment.start.displaced(segment.normal_versor, __CAPTION_DISP)
 
     def svg_arrow():
-        width = config['sizes']['stroke']
-        arrow_size = config['sizes']['arrow']
+        width = config["sizes"]["stroke"]
+        arrow_size = config["sizes"]["arrow"]
 
         return svg.arrow(
             segment,
@@ -46,8 +34,8 @@ def vector_to_svg(
             [
                 attributes.stroke_color(color),
                 attributes.stroke_width(width),
-                attributes.fill_color('none')
-            ]
+                attributes.fill_color("none"),
+            ],
         )
 
     def svg_caption():
@@ -56,10 +44,7 @@ def vector_to_svg(
             caption_origin,
             vector.angle_to(__I_VERSOR),
             color,
-            config
+            config,
         )
 
-    return svg.group([
-        svg_arrow(),
-        svg_caption()
-    ])
+    return svg.group([svg_arrow(), svg_caption()])

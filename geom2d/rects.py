@@ -13,7 +13,7 @@ def make_rect_containing(points: List[Point]):
     :return: `Rect`
     """
     if not points:
-        raise ValueError('Expected at least one point')
+        raise ValueError("Expected at least one point")
 
     first_point = points[0]
     min_x, max_x = first_point.x, first_point.x
@@ -23,16 +23,10 @@ def make_rect_containing(points: List[Point]):
         min_x, max_x = min(min_x, point.x), max(max_x, point.x)
         min_y, max_y = min(min_y, point.y), max(max_y, point.y)
 
-    return Rect(
-        Point(min_x, min_y),
-        Size(max_x - min_x, max_y - min_x)
-    )
+    return Rect(Point(min_x, min_y), Size(max_x - min_x, max_y - min_x))
 
 
-def make_rect_containing_with_margin(
-        points: List[Point],
-        margin: float
-):
+def make_rect_containing_with_margin(points: List[Point], margin: float):
     """
     Computes the smallest rectangle containing all the passed
     points, and adds a margin to all four sides.
@@ -43,14 +37,8 @@ def make_rect_containing_with_margin(
     """
     rect = make_rect_containing(points)
     return Rect(
-        Point(
-            rect.origin.x - margin,
-            rect.origin.y - margin
-        ),
-        Size(
-            2 * margin + rect.size.width,
-            2 * margin + rect.size.height
-        )
+        Point(rect.origin.x - margin, rect.origin.y - margin),
+        Size(2 * margin + rect.size.width, 2 * margin + rect.size.height),
     )
 
 
@@ -64,8 +52,5 @@ def make_rect_centered(center: Point, width: float, height: float):
     :param height: `float`
     :return:
     """
-    origin = Point(
-        center.x - width / 2,
-        center.y - height / 2
-    )
+    origin = Point(center.x - width / 2, center.y - height / 2)
     return Rect(origin, Size(width, height))

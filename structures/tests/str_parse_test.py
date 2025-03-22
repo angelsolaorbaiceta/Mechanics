@@ -7,9 +7,8 @@ from structures.parse import parse_structure
 
 
 class StructureParseTest(unittest.TestCase):
-
     def setUp(self):
-        str_bytes = res.resource_string(__name__, 'test_str.txt')
+        str_bytes = res.resource_string(__name__, "test_str.txt")
         str_string = str_bytes.decode("utf-8")
         self.structure = parse_structure(str_string)
 
@@ -18,18 +17,9 @@ class StructureParseTest(unittest.TestCase):
 
     def test_parse_nodes(self):
         nodes = self.structure._Structure__nodes
-        self.assertEqual(
-            Point(0, 0),
-            nodes[0].position
-        )
-        self.assertEqual(
-            Point(200, 150),
-            nodes[1].position
-        )
-        self.assertEqual(
-            Point(400, 0),
-            nodes[2].position
-        )
+        self.assertEqual(Point(0, 0), nodes[0].position)
+        self.assertEqual(Point(200, 150), nodes[1].position)
+        self.assertEqual(Point(400, 0), nodes[2].position)
 
     def test_parse_node_constraints(self):
         nodes = self.structure._Structure__nodes
@@ -63,7 +53,4 @@ class StructureParseTest(unittest.TestCase):
 
     def test_apply_load_to_node(self):
         node = self.structure._Structure__nodes[1]
-        self.assertEqual(
-            Vector(2500, -3500),
-            node.net_load
-        )
+        self.assertEqual(Vector(2500, -3500), node.net_load)

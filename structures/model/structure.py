@@ -55,11 +55,7 @@ class Structure:
 
         :return: `int` number of external loads
         """
-        return reduce(
-            lambda count, node: count + node.loads_count,
-            self.__nodes,
-            0
-        )
+        return reduce(lambda count, node: count + node.loads_count, self.__nodes, 0)
 
     def solve_structure(self) -> StructureSolution:
         """
@@ -84,8 +80,7 @@ class Structure:
         self.__assemble_system_vector(size)
         self.__apply_external_constraints()
         self.__global_displacements = cholesky_solve(
-            self.__system_matrix,
-            self.__system_vector
+            self.__system_matrix, self.__system_vector
         )
 
     def __assemble_system_matrix(self, size: int):
@@ -97,11 +92,7 @@ class Structure:
 
             for row, row_dof in enumerate(dofs):
                 for col, col_dof in enumerate(dofs):
-                    matrix.add_to_value(
-                        bar_matrix.value_at(row, col),
-                        row_dof,
-                        col_dof
-                    )
+                    matrix.add_to_value(bar_matrix.value_at(row, col), row_dof, col_dof)
 
         self.__system_matrix = matrix
 
@@ -137,10 +128,7 @@ class Structure:
                 self.__system_vector.set_value(0, dof_y)
 
     def __make_structure_solution(self) -> StructureSolution:
-        nodes = [
-            self.__node_to_solution(node)
-            for node in self.__nodes
-        ]
+        nodes = [self.__node_to_solution(node) for node in self.__nodes]
 
         nodes_dict = {}
         for node in nodes:
@@ -148,9 +136,7 @@ class Structure:
 
         bars = [
             StrBarSolution(
-                bar,
-                nodes_dict[bar.start_node.id],
-                nodes_dict[bar.end_node.id]
+                bar, nodes_dict[bar.start_node.id], nodes_dict[bar.end_node.id]
             )
             for bar in self.__bars
         ]
@@ -161,6 +147,6 @@ class Structure:
         (dof_x, dof_y) = self.__dofs_dict[node.id]
         disp = Vector(
             self.__global_displacements.value_at(dof_x),
-            self.__global_displacements.value_at(dof_y)
+            self.__global_displacements.value_at(dof_y),
         )
         return StrNodeSolution(node, disp)
