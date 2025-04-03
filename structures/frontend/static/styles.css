@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+	--main-color: #02a98d;
+	--text-color: #e3e3e3;
+	/* Editor */
+	--editor-bg-color: #313131;
+	--editor-code-color: #d4d4d4;
+	--editor-linenum-bg-color: #252526;
+	--editor-linenum-color: #858585;
+	/* Canvas */
+	--canvas-bg-color: #252526;
+	--geometry-color: #e3e3e3;
+	--geometry-stroke-width: 2;
+	--loads-color: #dec62f;
+	--loads-stroke-width: 3px;
+}
+
+html,
+body {
+	font-family: 'DM Sans', sans-serif;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	color: var(--text-color);
+}
+
+body {
+	> div {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+}
