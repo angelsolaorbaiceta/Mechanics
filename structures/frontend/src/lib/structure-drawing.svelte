@@ -1,17 +1,22 @@
 <script>
 	import { structureSVGSizes } from '../services/sizes.js'
+	import SolutionDrawing from './solution-drawing.svelte'
 
-	let { structure } = $props()
-	$inspect(structure)
+	let { structure, solution } = $props()
+	$inspect(solution)
 
 	let appearance = $state({
 		structure: {
 			margin: 50,
 			scale: 1,
-			nodeRadius: 5
+			nodeRadius: 5,
+			opacity: 0.5
 		},
 		loads: {
 			scale: 0.025
+		},
+		solution: {
+			scale: 5
 		},
 		labels: {
 			show: true
@@ -24,7 +29,6 @@
 			loadsScale: appearance.loads.scale
 		})
 	)
-	$inspect(sizes)
 </script>
 
 <div class="viewport">
@@ -58,7 +62,7 @@
 			</marker>
 		</defs>
 
-		<g>
+		<g id="definition-drawing" style={`opacity: ${appearance.structure.opacity}`}>
 			<g class="geometry">
 				{#each structure.bars as bar}
 					<line
@@ -99,8 +103,15 @@
 				{/each}
 			</g>
 		</g>
+
+		{#if solution !== null}
+			<SolutionDrawing {solution} scale={appearance.solution.scale} />
+		{/if}
 	</svg>
 </div>
+<footer>
+	<p>Hello there</p>
+</footer>
 
 <style>
 	.viewport {

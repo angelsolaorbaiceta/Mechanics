@@ -11,9 +11,12 @@
 	/* Canvas */
 	--canvas-bg-color: #252526;
 	--geometry-color: #e3e3e3;
-	--geometry-stroke-width: 2;
+	--geometry-stroke-width: 2px;
 	--loads-color: #dec62f;
 	--loads-stroke-width: 3px;
+	--solution-stroke-width: 2px;
+	--compression-bar-color: #dc3232;
+	--tension-bar-color: #3aea60;
 }
 
 html,

@@ -1,4 +1,5 @@
 import logging
+import os
 
 from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler
@@ -15,9 +16,20 @@ MIME_TXT = "text/plain"
 MIME_JSON = "application/json"
 MIME_WHATEVER = "*/*"
 
+# Environment configuration
+DEV_MODE = os.environ.get("DEV_MODE", "false").lower() == "true"
 
-class SolveHandler(RequestHandler):
+
+class CORSMixin:
+    def set_cors_headers(self):
+        if DEV_MODE:
+            self.set_header("Access-Control-Allow-Origin", "*")
+
+
+class SolveHandler(CORSMixin, RequestHandler):
     async def post(self):
+        self.set_cors_headers()
+
         body = self.request.body.decode("utf-8")
         accept = self.request.headers["Accept"]
 
@@ -63,10 +75,14 @@ if __name__ == "__main__":
         format="%(asctime)s - %(threadName)s - %(name)s - %(levelname)s - %(message)s",
     )
 
+    if DEV_MODE:
+        logging.info("Running in development mode with CORS enabled for all origins")
+    else:
+        logging.info("Running in production mode - only same-origin requests allowed")
+
     app = Application([(r"/solve", SolveHandler)])
     port = 8080
     app.listen(port)
     logging.info(f"Server started on port {port}")
 
-    IOLoop.current().start()
     IOLoop.current().start()

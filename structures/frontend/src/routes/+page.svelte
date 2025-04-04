@@ -1,6 +1,7 @@
 <script>
 	import { Resizer, ResizableColumn, CodeEditor, StructureDrawing } from '../lib'
 	import { parseStructure } from '../services/parse.js'
+	import { solveStructure } from '../services/solve.js'
 
 	let lines = $state([
 		'# Warren truss with 20 spans',
@@ -176,15 +177,22 @@
 
 	let structure = $state({ nodes: [], bars: [] })
 	let errors = $state([])
+	let solution = $state(null)
 	$effect(() => {
 		const { structure: parsedStructure, errors: parseErrors } = parseStructure(lines)
 		structure = parsedStructure
 		errors = parseErrors
 	})
+
+	async function handleSolveStructure() {
+		// TODO: try-catch errors
+		solution = await solveStructure(structure, lines)
+	}
 </script>
 
 <header>
 	<h2>2D Truss Structures</h2>
+	<button onclick={handleSolveStructure}>Calculate</button>
 </header>
 <main>
 	<ResizableColumn>
@@ -192,7 +200,7 @@
 	</ResizableColumn>
 	<Resizer />
 	<ResizableColumn>
-		<StructureDrawing {structure} />
+		<StructureDrawing {structure} {solution} />
 	</ResizableColumn>
 </main>
 
@@ -200,6 +208,7 @@
 	header {
 		background-color: var(--main-color);
 		padding: 1em;
+		display: flex;
 
 		> h2 {
 			margin: 0;
