@@ -12,13 +12,13 @@
 	.resizer {
 		width: 6px;
 		height: 100%;
-		background-color: #ccc;
+		background-color: var(--separator-line-color);
 		cursor: col-resize;
 		position: relative;
 	}
 	.resizer:hover,
 	.resizer.active {
-		background-color: #999;
+		background-color: var(--text-color);
 	}
 	.resizer::after {
 		content: '';

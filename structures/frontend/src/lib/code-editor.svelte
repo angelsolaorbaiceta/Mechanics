@@ -6,7 +6,7 @@
 	let lineNumbers = $derived(Array.from({ length: lineCount }, (_, i) => i + 1))
 </script>
 
-<div class="editor-container">
+<div class="container">
 	<div class="line-numbers">
 		{#each lineNumbers as number (number)}
 			<span>{number}</span>
@@ -16,13 +16,11 @@
 </div>
 
 <style>
-	.editor-container {
+	.container {
 		display: flex;
 		font-family: monospace;
 		font-size: 14px;
 		line-height: 1.5;
-		height: 100%;
-		overflow: hidden;
 	}
 
 	.line-numbers {
@@ -36,7 +34,7 @@
 		min-width: 40px;
 	}
 
-	.line-numbers span {
+	.line-numbers > span {
 		display: block;
 		height: calc(14px * 1.5); /* Match font-size * line-height */
 		box-sizing: border-box;

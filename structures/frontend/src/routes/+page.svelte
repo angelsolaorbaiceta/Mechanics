@@ -51,7 +51,6 @@
 		'40: (3800.0, 300.0) ()',
 		'',
 		'loads',
-		'1 -> (1000.0, -3500.0)',
 		'2 -> (1000.0, -3500.0)',
 		'3 -> (1000.0, -3500.0)',
 		'4 -> (1000.0, -3500.0)',
@@ -71,7 +70,6 @@
 		'18 -> (1000.0, -3500.0)',
 		'19 -> (1000.0, -3500.0)',
 		'20 -> (1000.0, -3500.0)',
-		'21 -> (1000.0, -3500.0)',
 		'22 -> (1000.0, -3500.0)',
 		'23 -> (1000.0, -3500.0)',
 		'24 -> (1000.0, -3500.0)',
@@ -199,7 +197,7 @@
 		<CodeEditor {lines} />
 	</ResizableColumn>
 	<Resizer />
-	<ResizableColumn>
+	<ResizableColumn class="hey there">
 		<StructureDrawing {structure} {solution} />
 	</ResizableColumn>
 </main>
@@ -218,5 +216,6 @@
 	main {
 		display: flex;
 		flex-grow: 1;
+		overflow: hidden;
 	}
 </style>

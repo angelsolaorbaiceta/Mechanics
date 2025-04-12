@@ -6,7 +6,6 @@
 
 <style>
 	.column {
-		height: 100%;
 		overflow: auto;
 		box-sizing: border-box;
 		min-width: 25%;

@@ -3,6 +3,7 @@
 :root {
 	--main-color: #02a98d;
 	--text-color: #e3e3e3;
+	--separator-line-color: #999;
 	/* Editor */
 	--editor-bg-color: #313131;
 	--editor-code-color: #d4d4d4;
@@ -14,24 +15,33 @@
 	--geometry-stroke-width: 2px;
 	--loads-color: #dec62f;
 	--loads-stroke-width: 3px;
-	--solution-stroke-width: 2px;
+	--solution-stroke-width: 3px;
 	--compression-bar-color: #dc3232;
 	--tension-bar-color: #3aea60;
-}
+	--reaction-forces: #4da1e2;
+
 
 html,
 body {
 	font-family: 'DM Sans', sans-serif;
 	margin: 0;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
+	overflow: hidden;
 	color: var(--text-color);
 }
 
 body {
 	> div {
-		height: 100%;
 		display: flex;
 		flex-direction: column;
+		height: inherit;
 	}
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	font-size: small;
+	font-style: italic;
 }

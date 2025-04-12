@@ -48,6 +48,18 @@ class SolveHandler(CORSMixin, RequestHandler):
 
         try:
             structure = parse_structure(body)
+
+            if structure.nodes_count > 100:
+                self.set_status(400)
+                self.write(
+                    {
+                        "error": {
+                            "cause": "definition",
+                            "message": f"The structure had more than 100 nodes ({structure.nodes_count})",
+                        }
+                    }
+                )
+                return
         except ValueError as e:
             self.set_status(400)
             self.write({"error": {"cause": "definition", "message": str(e)}})

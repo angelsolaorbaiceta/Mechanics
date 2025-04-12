@@ -2,14 +2,13 @@
 
 The _structures_ package defines the modeling and resolution of truss structures.
 
-![](../img/truss_structure.svg "Truss structure")
+![](../img/truss_structure.svg 'Truss structure')
 
 Once resolved, the solution generation diagram looks like the following:
 
 ![](../img/plane_truss_result.svg)
 
 The _structures_ package is split into sub-packages:
-
 
 - [_model_](#model)
 - [_solution_](#solution)
@@ -27,7 +26,6 @@ This class represents a node in the structure.
 A node is the point where one or more bars meet.
 
 A `Node` can be instantiated using an id an a position:
-
 
 ```python
 from geom2d import Point
@@ -53,8 +51,8 @@ from geom2d import Point, Vector
 from structures.model.node import StrNode
 
 node = StrNode(
-    _id=1, 
-    position=Point(10, 35), 
+    _id=1,
+    position=Point(10, 35),
     loads=[Vector(0, -50), Vector(100, 0)],
     dx_constrained=True,
     dy_constrained=True
@@ -75,8 +73,8 @@ from structures.model.bar import StrBar
 node_one = StrNode(1, Point(10, 35))
 node_two = StrNode(2, Point(150, 400))
 bar = StrBar(
-    _id=1, 
-    start_node=node_one, 
+    _id=1,
+    start_node=node_one,
     end_node=node_two,
     cross_section=25,
     young_mod=20000000
@@ -178,10 +176,10 @@ from geom2d import Vector
 from structures.generation.gen_baltimore import generate_baltimore_structure
 
 generate_baltimore_structure(
-    spans=6, 
-    span=250, 
-    height=300, 
-    cross_sec=45, 
+    spans=6,
+    span=250,
+    height=300,
+    cross_sec=45,
     young=20000000,
     node_load=Vector(1000, -2000)
 )
@@ -250,3 +248,11 @@ with open('result.svg', 'w') as file:
 The result of this code would be an SVG like the following:
 
 ![](../img/plane_truss_result.svg)
+
+## Server
+
+Run locally in DEV mode:
+
+```bash
+$ DEV_MODE=true python -m structures.server.main
+```
