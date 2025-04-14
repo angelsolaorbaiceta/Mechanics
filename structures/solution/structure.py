@@ -35,7 +35,7 @@ class StructureSolution:
         d_pos = [node.displaced_pos_scaled(scale) for node in self.nodes]
         return make_rect_containing_with_margin(d_pos, margin)
 
-    def reaction_for_node(self, node: StrNodeSolution):
+    def reaction_for_node(self, node: StrNodeSolution) -> Vector:
         """
         Computes the external reaction force for a given node.
 
@@ -57,4 +57,10 @@ class StructureSolution:
         if node.is_loaded:
             forces.append(node.net_load.opposite())
 
-        return reduce(operator.add, forces)
+        net_force = reduce(operator.add, forces)
+
+        # The reaction can only have the components of the constrained directions
+        return Vector(
+            u=net_force.u if node.dx_constrained else 0.0,
+            v=net_force.v if node.dy_constrained else 0.0,
+        )
