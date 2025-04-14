@@ -1,10 +1,11 @@
 <script>
 	import { displacedNodePos, calculateLabelTransform } from '../services/drawing.js'
 
-	let { solution, scale, reactionsScale } = $props()
+	let { solution, scale, reactionsScale, units } = $props()
 	let displacedNodePosById = $derived(
 		new Map(solution.nodes.map((node) => [node.id, displacedNodePos(node, scale)]))
 	)
+	let stressUnits = $derived(`${units.force}/${units.length}2`)
 </script>
 
 <g id="solution-drawing">
@@ -22,7 +23,7 @@
 
 		{@const { cx, cy, transform } = calculateLabelTransform(startPos, endPos)}
 		<text
-			class={`label-${bar.axial}`}
+			class={`label label-${bar.axial}`}
 			x={cx}
 			y={cy}
 			text-anchor="middle"
@@ -30,7 +31,7 @@
 			transform-origin="center"
 			{transform}
 		>
-			{`σ=${bar.stress}`}
+			{`σ=${bar.stress} [${stressUnits}]`}
 		</text>
 	{/each}
 
@@ -50,7 +51,7 @@
 					marker-end="url(#arrow)"
 				/>
 				<text
-					class="label-reaction"
+					class="label label-reaction"
 					x={cx}
 					y={cy}
 					text-anchor="middle"
@@ -65,14 +66,18 @@
 </g>
 
 <style>
+	.label {
+		stroke: none;
+		transform-box: fill-box;
+		font-size: 12px;
+	}
+
 	.tension {
 		stroke: var(--tension-bar-color);
 		stroke-width: var(--solution-stroke-width);
 	}
 	.label-tension {
-		stroke: none;
 		fill: var(--tension-bar-color);
-		transform-box: fill-box;
 	}
 
 	.compression {
@@ -80,9 +85,7 @@
 		stroke-width: var(--solution-stroke-width);
 	}
 	.label-compression {
-		stroke: none;
 		fill: var(--compression-bar-color);
-		transform-box: fill-box;
 	}
 
 	.reactions {

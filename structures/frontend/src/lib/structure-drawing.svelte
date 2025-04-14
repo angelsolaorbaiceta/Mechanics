@@ -11,6 +11,10 @@
 	})
 
 	let appearance = $state({
+		units: {
+			force: 'N',
+			length: 'cm'
+		},
 		structure: {
 			margin: 50,
 			scale: 1,
@@ -118,6 +122,7 @@
 					{solution}
 					scale={appearance.solution.scale}
 					reactionsScale={appearance.solution.reactionsScale}
+					units={appearance.units}
 				/>
 			{/if}
 		</svg>
