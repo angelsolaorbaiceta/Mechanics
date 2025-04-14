@@ -5,12 +5,11 @@ from eqs import Matrix
 from eqs import Vector as EqVector
 from eqs import cholesky_solve
 from geom2d import Vector
+from structures.model.bar import StrBar
+from structures.model.node import StrNode
 from structures.solution.bar import StrBarSolution
 from structures.solution.node import StrNodeSolution
 from structures.solution.structure import StructureSolution
-
-from .bar import StrBar
-from .node import StrNode
 
 
 class Structure:

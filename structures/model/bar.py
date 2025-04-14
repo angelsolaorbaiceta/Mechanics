@@ -1,6 +1,6 @@
 from eqs import Matrix
 from geom2d import Segment
-from .node import StrNode
+from structures.model.node import StrNode
 
 
 class StrBar:

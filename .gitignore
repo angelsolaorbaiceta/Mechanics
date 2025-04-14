@@ -8,3 +8,6 @@ __pycache__/
 # truss structure solution
 result.svg
 result.txt
+
+node_modules/
+.svelte-kit

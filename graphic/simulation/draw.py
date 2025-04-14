@@ -1,7 +1,7 @@
 from functools import reduce
 from tkinter import Canvas
 
-from geom2d import Circle, Polygon, Segment, Rect, AffineTransform
+from geom2d import AffineTransform, Circle, Polygon, Rect, Segment
 
 
 class CanvasDrawing:

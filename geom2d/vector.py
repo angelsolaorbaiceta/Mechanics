@@ -216,6 +216,9 @@ class Vector:
     def __str__(self):
         return f"({self.u}, {self.v}) with norm {self.norm}"
 
+    def __repr__(self):
+        return str(self)
+
     def to_formatted_str(self, decimals: int):
         """
         Returns a string of the form: '(u, v) with norm N', where

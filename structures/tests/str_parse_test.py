@@ -1,6 +1,5 @@
 import unittest
-
-import pkg_resources as res
+from pathlib import Path
 
 from geom2d import Point, Vector
 from structures.parse import parse_structure
@@ -8,8 +7,9 @@ from structures.parse import parse_structure
 
 class StructureParseTest(unittest.TestCase):
     def setUp(self):
-        str_bytes = res.resource_string(__name__, "test_str.txt")
-        str_string = str_bytes.decode("utf-8")
+        file_path = Path(__file__).parent / "test_str.txt"
+        with open(file_path, "r", encoding="utf-8") as f:
+            str_string = f.read()
         self.structure = parse_structure(str_string)
 
     def test_parse_nodes_count(self):
