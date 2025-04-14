@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 from geom2d import Point
 from structures.solution.node import StrNodeSolution

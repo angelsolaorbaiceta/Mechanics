@@ -45,6 +45,14 @@ class StrNodeSolution:
         )
 
     @property
+    def dx_constrained(self) -> bool:
+        return self.__original_node.dx_constrained
+
+    @property
+    def dy_constrained(self) -> bool:
+        return self.__original_node.dy_constrained
+
+    @property
     def loads(self):
         """
         Sequence of external loads applied to the node.
