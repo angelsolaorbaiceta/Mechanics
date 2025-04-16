@@ -193,11 +193,11 @@
 	<button onclick={handleSolveStructure}>Calculate</button>
 </header>
 <main>
-	<ResizableColumn>
+	<ResizableColumn widthPercentage="25">
 		<CodeEditor {lines} />
 	</ResizableColumn>
 	<Resizer />
-	<ResizableColumn class="hey there">
+	<ResizableColumn widthPercentage="75">
 		<StructureDrawing {structure} {solution} />
 	</ResizableColumn>
 </main>

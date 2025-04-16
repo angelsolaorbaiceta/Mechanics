@@ -8,5 +8,86 @@ export async function solveStructure(structure, lines) {
 	console.log('solveStructure()', structure)
 	const { data: solution } = await solve(lines)
 
-	return solution
+	return {
+		...solution,
+		meta: {
+			stress: calculateStressMeta(solution.bars),
+			displacement: calculateDisplacementsMeta(solution.nodes),
+			reaction: calculateReactionsMeta(solution.nodes)
+		}
+	}
+}
+
+function calculateStressMeta(bars) {
+	const firstBar = bars[0]
+	const { min, max } = bars.reduce(
+		({ min, max }, bar) => ({
+			min: Math.min(min, Math.abs(bar.stress)),
+			max: Math.max(max, Math.abs(bar.stress))
+		}),
+		{ min: Math.abs(firstBar.stress), max: Math.abs(firstBar.stress) }
+	)
+
+	return { min, max }
+}
+
+function calculateDisplacementsMeta(nodes) {
+	const displacements = nodes.map(({ position }) => {
+		const { original, displaced } = position
+		return distanceBetween(original, displaced)
+	})
+
+	const { max, p50 } = calculateMetrics(displacements)
+
+	// Suggest a scale that makes the p50 displacement at least 50 units in the drawing
+	const suggestedScale = Math.ceil(50 / p50)
+
+	return {
+		max,
+		p50,
+		suggestedScale
+	}
+}
+
+function calculateReactionsMeta(nodes) {
+	const reactions = nodes
+		.filter((node) => !!node.reaction)
+		.map(({ reaction }) => Math.sqrt(reaction.x ** 2 + reaction.y ** 2))
+
+	const { max, p50 } = calculateMetrics(reactions)
+
+	// Suggest a scale that makes the max reaction be around 200 units in the drawing
+	const suggestedScale = Number((200 / max).toFixed(4))
+
+	return { max, p50, suggestedScale }
+}
+
+function calculateMetrics(nums) {
+	if (nums.length === 0) {
+		return {
+			max: 0,
+			p50: 0
+		}
+	}
+
+	if (nums.length === 1) {
+		return {
+			max: nums[0],
+			p50: nums[0]
+		}
+	}
+
+	nums.sort()
+
+	const midIndex = Math.floor(nums.length / 2)
+	const p50 = nums.length % 2 === 0 ? (nums[midIndex - 1] + nums[midIndex]) / 2 : nums[midIndex]
+
+	return {
+		max: nums[nums.length - 1],
+		p50
+	}
+}
+
+function distanceBetween(one, two) {
+	return Math.sqrt((two.x - one.x) ** 2 + (two.y - one.y) ** 2)
 }

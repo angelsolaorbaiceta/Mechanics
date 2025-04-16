@@ -1,14 +1,15 @@
-<script></script>
+<script>
+	let { children, widthPercentage } = $props()
+</script>
 
-<section class="column">
-	<slot>???</slot>
+<section style={`width: ${widthPercentage}%`}>
+	{@render children?.()}
 </section>
 
 <style>
-	.column {
+	section {
 		overflow: auto;
 		box-sizing: border-box;
 		min-width: 25%;
-		flex-grow: 1;
 	}
 </style>

@@ -1,12 +1,20 @@
 <script>
 	import { structureSVGSizes } from '../services/drawing.js'
 	import SolutionDrawing from './solution-drawing.svelte'
+	import Popover from './popover.svelte'
+	import BarResults from './bar-results.svelte'
 
 	let { structure, solution } = $props()
+	$inspect(solution)
 
 	$effect(() => {
 		if (solution !== null) {
 			appearance.structure.opacity = 0.25
+			appearance.loads.show = false
+
+			const { meta } = solution
+			appearance.solution.scale = meta.displacement.suggestedScale
+			appearance.solution.reactionsScale = meta.reaction.suggestedScale
 		}
 	})
 
@@ -22,7 +30,8 @@
 			opacity: 1.0
 		},
 		loads: {
-			scale: 0.025
+			scale: 0.025,
+			show: true
 		},
 		solution: {
 			scale: 5,
@@ -41,6 +50,29 @@
 			reactionsScale: appearance.solution.reactionsScale
 		})
 	)
+
+	const lenghtUnits = [
+		{ value: 'cm', label: 'cm' },
+		{ value: 'm', label: 'm' },
+		{ value: 'in', label: 'in' },
+		{ value: 'ft', label: 'ft' }
+	]
+	const forceUnits = [
+		{ value: 'N', label: 'N' },
+		{ value: 'kN', label: 'kN' },
+		{ value: 'lbf', label: 'lbf' },
+		{ value: 'kips', label: 'kips' }
+	]
+
+	let isSolutionPopoverOpen = $state(false)
+	let solutionPopoverAnchor = $state(null)
+	let solutionPopoverBar = $state(null)
+
+	function showSolutionBarPopover(barEl, bar) {
+		solutionPopoverAnchor = barEl
+		solutionPopoverBar = bar
+		isSolutionPopoverOpen = true
+	}
 </script>
 
 <div class="container">
@@ -101,20 +133,22 @@
 					{/each}
 				</g>
 
-				<g class="loads">
-					{#each structure.nodes as node}
-						{#each node.loads as load}
-							<line
-								x1={node.pos.x}
-								y1={node.pos.y}
-								x2={node.pos.x + appearance.loads.scale * load.fx}
-								y2={node.pos.y + appearance.loads.scale * load.fy}
-								stroke-linecap="round"
-								marker-end="url(#arrow)"
-							/>
+				{#if appearance.loads.show}
+					<g class="loads">
+						{#each structure.nodes as node}
+							{#each node.loads as load}
+								<line
+									x1={node.pos.x}
+									y1={node.pos.y}
+									x2={node.pos.x + appearance.loads.scale * load.fx}
+									y2={node.pos.y + appearance.loads.scale * load.fy}
+									stroke-linecap="round"
+									marker-end="url(#arrow)"
+								/>
+							{/each}
 						{/each}
-					{/each}
-				</g>
+					</g>
+				{/if}
 			</g>
 
 			{#if solution !== null}
@@ -123,10 +157,15 @@
 					scale={appearance.solution.scale}
 					reactionsScale={appearance.solution.reactionsScale}
 					units={appearance.units}
+					showBarPopover={showSolutionBarPopover}
 				/>
 			{/if}
 		</svg>
 	</div>
+
+	<Popover bind:isOpen={isSolutionPopoverOpen} anchorElement={solutionPopoverAnchor}>
+		<BarResults bar={solutionPopoverBar} units={appearance.units} />
+	</Popover>
 
 	<footer>
 		<section>
@@ -174,6 +213,32 @@
 					step="0.1"
 				/>
 			</label>
+			<label for="show-loads">
+				Show:
+				<input type="checkbox" id="show-loads" bind:checked={appearance.loads.show} />
+			</label>
+		</section>
+
+		<div class="vertical-separator"></div>
+
+		<section>
+			<h3>Units</h3>
+			<label for="length-units">
+				Length:
+				<select id="length-units" bind:value={appearance.units.length}>
+					{#each lenghtUnits as units}
+						<option value={units.value}>{units.label}</option>
+					{/each}
+				</select>
+			</label>
+			<label for="force-units">
+				Force:
+				<select id="force-units" bind:value={appearance.units.force}>
+					{#each forceUnits as units}
+						<option value={units.value}>{units.label}</option>
+					{/each}
+				</select>
+			</label>
 		</section>
 
 		<div class="vertical-separator"></div>
@@ -192,7 +257,7 @@
 				/>
 			</label>
 			<label for="reactions-scale">
-				Disp. scale:
+				Reactions scale:
 				<input
 					type="number"
 					id="reactions-scale"

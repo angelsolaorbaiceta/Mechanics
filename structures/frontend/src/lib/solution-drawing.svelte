@@ -1,11 +1,21 @@
 <script>
 	import { displacedNodePos, calculateLabelTransform } from '../services/drawing.js'
 
-	let { solution, scale, reactionsScale, units } = $props()
+	let { solution, scale, reactionsScale, units, showBarPopover } = $props()
 	let displacedNodePosById = $derived(
 		new Map(solution.nodes.map((node) => [node.id, displacedNodePos(node, scale)]))
 	)
 	let stressUnits = $derived(`${units.force}/${units.length}2`)
+
+	function strokeWidthForBar({ stress }) {
+		// Choose numbers from 2 to 8, in increments of 0.25 based on the stress
+		const { min, max } = solution.meta.stress
+		const percentage = (Math.abs(stress) - min) / (max - min)
+		const rawInterpolated = 2 + percentage * 6
+		const rounded = Math.round(rawInterpolated * 4) / 4
+
+		return rounded
+	}
 </script>
 
 <g id="solution-drawing">
@@ -19,6 +29,8 @@
 			x2={endPos.x}
 			y2={endPos.y}
 			stroke-linecap="round"
+			stroke-width={strokeWidthForBar(bar)}
+			onmouseover={(event) => showBarPopover(event.target, bar)}
 		/>
 
 		{@const { cx, cy, transform } = calculateLabelTransform(startPos, endPos)}
@@ -31,7 +43,7 @@
 			transform-origin="center"
 			{transform}
 		>
-			{`σ=${bar.stress} [${stressUnits}]`}
+			{`σ=${bar.stress} ${stressUnits}`}
 		</text>
 	{/each}
 
@@ -42,6 +54,7 @@
 				{@const reaction = node.reaction}
 				{@const endPos = { x: x + reactionsScale * reaction.x, y: y + reactionsScale * reaction.y }}
 				{@const { cx, cy, transform } = calculateLabelTransform({ x, y }, endPos)}
+				{@const value = Math.sqrt(reaction.x ** 2 + reaction.y ** 2)}
 				<line
 					x1={x}
 					y1={y}
@@ -58,7 +71,7 @@
 					dominant-baseline="central"
 					transform-origin="center"
 					{transform}
-					>{`R={${reaction.x.toFixed(1)}, ${reaction.y.toFixed(1)}}`}
+					>{`R=${value.toFixed(3)} ${units.force}`}
 				</text>
 			{/if}
 		{/each}
@@ -70,11 +83,11 @@
 		stroke: none;
 		transform-box: fill-box;
 		font-size: 12px;
+		user-select: none;
 	}
 
 	.tension {
 		stroke: var(--tension-bar-color);
-		stroke-width: var(--solution-stroke-width);
 	}
 	.label-tension {
 		fill: var(--tension-bar-color);
@@ -82,7 +95,6 @@
 
 	.compression {
 		stroke: var(--compression-bar-color);
-		stroke-width: var(--solution-stroke-width);
 	}
 	.label-compression {
 		fill: var(--compression-bar-color);
