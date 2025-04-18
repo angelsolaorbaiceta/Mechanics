@@ -5,7 +5,6 @@
 	import BarResults from './bar-results.svelte'
 
 	let { structure, solution } = $props()
-	$inspect(solution)
 
 	$effect(() => {
 		if (solution !== null) {
@@ -80,6 +79,7 @@
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			version="1.1"
+			role="graphics-document"
 			width={`${sizes.width}px`}
 			height={`${sizes.height}px`}
 			viewBox={`${sizes.left} ${sizes.top} ${sizes.width} ${sizes.height}`}
@@ -163,7 +163,11 @@
 		</svg>
 	</div>
 
-	<Popover bind:isOpen={isSolutionPopoverOpen} anchorElement={solutionPopoverAnchor}>
+	<Popover
+		bind:isOpen={isSolutionPopoverOpen}
+		anchorElement={solutionPopoverAnchor}
+		id="bar-result-popover"
+	>
 		<BarResults bar={solutionPopoverBar} units={appearance.units} />
 	</Popover>
 
@@ -186,7 +190,7 @@
 				</div>
 			</label>
 			<label for="structure-opacity">
-				Opacity:
+				Opacity ({appearance.structure.opacity * 100}%):
 				<input
 					type="range"
 					id="structure-opacity"

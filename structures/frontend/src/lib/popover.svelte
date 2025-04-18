@@ -1,5 +1,5 @@
 <script>
-	let { isOpen = $bindable(), anchorElement, children } = $props()
+	let { isOpen = $bindable(), anchorElement, children, id } = $props()
 
 	function handleClickOutside(event) {
 		if (isOpen && !event.target.closest('.popover-container')) {
@@ -21,7 +21,7 @@
 <svelte:window on:click={handleClickOutside} />
 
 {#if isOpen}
-	<div class="popover-container" style={getPositionStyles()} role="dialog" aria-modal="true">
+	<div class="popover-container" style={getPositionStyles()} role="dialog" aria-modal="true" {id}>
 		{@render children()}
 	</div>
 {/if}

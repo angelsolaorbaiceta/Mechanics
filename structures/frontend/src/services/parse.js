@@ -56,7 +56,7 @@ export function parseStructure(lines) {
 			case Sections.NONE:
 				errors.push({
 					line: lineNum,
-					message: `Can't parse "${line}" out of a section`
+					message: `Can't parse "${line}" outside of a section ('nodes', 'loads', or 'bars')`
 				})
 				break
 

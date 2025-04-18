@@ -9,6 +9,8 @@
 	--editor-code-color: #d4d4d4;
 	--editor-linenum-bg-color: #252526;
 	--editor-linenum-color: #858585;
+	--editor-error-color: #dc3232;
+	--editor-bg-error-color: color-mix(in srgb, var(--editor-error-color) 45%, black);
 	/* Canvas */
 	--canvas-bg-color: #252526;
 	--geometry-color: #e3e3e3;
@@ -19,7 +21,7 @@
 	--compression-bar-color: #dc3232;
 	--tension-bar-color: #3aea60;
 	--reaction-forces: #4da1e2;
-
+}
 
 html,
 body {

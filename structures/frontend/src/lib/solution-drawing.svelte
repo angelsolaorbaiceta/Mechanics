@@ -6,45 +6,41 @@
 		new Map(solution.nodes.map((node) => [node.id, displacedNodePos(node, scale)]))
 	)
 	let stressUnits = $derived(`${units.force}/${units.length}2`)
-
-	function strokeWidthForBar({ stress }) {
-		// Choose numbers from 2 to 8, in increments of 0.25 based on the stress
-		const { min, max } = solution.meta.stress
-		const percentage = (Math.abs(stress) - min) / (max - min)
-		const rawInterpolated = 2 + percentage * 6
-		const rounded = Math.round(rawInterpolated * 4) / 4
-
-		return rounded
-	}
 </script>
 
 <g id="solution-drawing">
 	{#each solution.bars as bar}
 		{@const startPos = displacedNodePosById.get(bar.nodes.start)}
 		{@const endPos = displacedNodePosById.get(bar.nodes.end)}
-		<line
-			class={bar.axial}
-			x1={startPos.x}
-			y1={startPos.y}
-			x2={endPos.x}
-			y2={endPos.y}
-			stroke-linecap="round"
-			stroke-width={strokeWidthForBar(bar)}
-			onmouseover={(event) => showBarPopover(event.target, bar)}
-		/>
-
 		{@const { cx, cy, transform } = calculateLabelTransform(startPos, endPos)}
-		<text
-			class={`label label-${bar.axial}`}
-			x={cx}
-			y={cy}
-			text-anchor="middle"
-			dominant-baseline="central"
-			transform-origin="center"
-			{transform}
+		<g
+			aria-describedby="bar-result-popover"
+			role="graphics-symbol"
+			onmouseover={(event) => showBarPopover(event.target, bar)}
+			onfocus={(event) => showBarPopover(event.target, bar)}
 		>
-			{`σ=${bar.stress} ${stressUnits}`}
-		</text>
+			<line
+				class={bar.axial}
+				x1={startPos.x}
+				y1={startPos.y}
+				x2={endPos.x}
+				y2={endPos.y}
+				stroke-linecap="round"
+				stroke-width={solution.meta.barStrokes.get(bar.id)}
+			/>
+
+			<text
+				class={`label label-${bar.axial}`}
+				x={cx}
+				y={cy}
+				text-anchor="middle"
+				dominant-baseline="central"
+				transform-origin="center"
+				{transform}
+			>
+				{`σ=${bar.stress} ${stressUnits}`}
+			</text>
+		</g>
 	{/each}
 
 	<g class="reactions">

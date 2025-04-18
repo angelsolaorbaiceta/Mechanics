@@ -175,6 +175,7 @@
 
 	let structure = $state({ nodes: [], bars: [] })
 	let errors = $state([])
+	$inspect(errors)
 	let solution = $state(null)
 	$effect(() => {
 		const { structure: parsedStructure, errors: parseErrors } = parseStructure(lines)
@@ -194,7 +195,7 @@
 </header>
 <main>
 	<ResizableColumn widthPercentage="25">
-		<CodeEditor {lines} />
+		<CodeEditor bind:lines {errors} />
 	</ResizableColumn>
 	<Resizer />
 	<ResizableColumn widthPercentage="75">

@@ -8,12 +8,15 @@ export async function solveStructure(structure, lines) {
 	console.log('solveStructure()', structure)
 	const { data: solution } = await solve(lines)
 
+	const stress = calculateStressMeta(solution.bars)
+
 	return {
 		...solution,
 		meta: {
-			stress: calculateStressMeta(solution.bars),
+			stress,
 			displacement: calculateDisplacementsMeta(solution.nodes),
-			reaction: calculateReactionsMeta(solution.nodes)
+			reaction: calculateReactionsMeta(solution.nodes),
+			barStrokes: new Map(solution.bars.map((bar) => [bar.id, strokeWidthForBar(bar, stress)]))
 		}
 	}
 }
@@ -90,4 +93,13 @@ function calculateMetrics(nums) {
 
 function distanceBetween(one, two) {
 	return Math.sqrt((two.x - one.x) ** 2 + (two.y - one.y) ** 2)
+}
+
+function strokeWidthForBar({ stress }, { min, max }) {
+	// Choose numbers from 2 to 10, in increments of 0.25 based on the stress
+	const percentage = (Math.abs(stress) - min) / (max - min)
+	const rawInterpolated = 2 + percentage * 8
+	const rounded = Math.round(rawInterpolated * 4) / 4
+
+	return rounded
 }
