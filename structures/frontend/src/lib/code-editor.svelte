@@ -1,5 +1,4 @@
 <script>
-	import { debounce } from '../services/utils.js'
 	import { highlightCode } from '../services/code.js'
 
 	let { lines = $bindable(), errors } = $props()

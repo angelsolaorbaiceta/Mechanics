@@ -2,6 +2,7 @@
 	import { Resizer, ResizableColumn, CodeEditor, StructureDrawing } from '../lib'
 	import { parseStructure } from '../services/parse.js'
 	import { solveStructure } from '../services/solve.js'
+	import { debounce } from '../services/utils.js'
 
 	let lines = $state([
 		'# Warren truss with 20 spans',
@@ -175,13 +176,14 @@
 
 	let structure = $state({ nodes: [], bars: [] })
 	let errors = $state([])
-	$inspect(errors)
 	let solution = $state(null)
-	$effect(() => {
+
+	const debouceParse = debounce((lines) => {
 		const { structure: parsedStructure, errors: parseErrors } = parseStructure(lines)
 		structure = parsedStructure
 		errors = parseErrors
-	})
+	}, 500)
+	$effect(() => debouceParse(lines))
 
 	async function handleSolveStructure() {
 		// TODO: try-catch errors
