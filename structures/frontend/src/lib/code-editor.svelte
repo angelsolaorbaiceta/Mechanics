@@ -15,13 +15,9 @@
 	$effect(() => {
 		lines = content.split('\n')
 	})
-
-	let container = $state(null)
-	let editor = $state(null)
-	let highlightLayer = $state(null)
 </script>
 
-<div class="container" bind:this={container}>
+<div class="container">
 	<div class="line-numbers">
 		{#each lineNumbers as number (number)}
 			{@const hasError = errorsByLine.has(number)}
@@ -30,23 +26,22 @@
 	</div>
 
 	<div class="editor-container">
-		<textarea bind:value={content} bind:this={editor} class="editor" spellcheck="false" wrap="off"
-		></textarea>
+		<textarea bind:value={content} class="editor" spellcheck="false" wrap="off"></textarea>
 
-		<div bind:this={highlightLayer} class="highlight-layer" aria-hidden="true">
+		<div class="highlight-layer" aria-hidden="true">
 			{#each highlightedLines as line}
 				<div class="code-line">{@html line}</div>
 			{/each}
 		</div>
 	</div>
 
-	{#each errors as error}
+	<!-- {#each errors as error}
 		{@const { top } = document.querySelector(`[data-line="${error.line}"]`).getBoundingClientRect()}
 		{@const { right } = container.getBoundingClientRect()}
 		<div class="error-msg" style={`top: ${top}px; left: ${right + 10}px`}>
 			{error.message}
 		</div>
-	{/each}
+	{/each} -->
 </div>
 
 <style>
@@ -77,22 +72,6 @@
 		height: calc(14px * 1.5); /* Match font-size * line-height */
 		box-sizing: border-box;
 	}
-
-	/* .editor {
-		flex-grow: 1;
-		padding: 20px 10px;
-		border: none;
-		outline: none;
-		resize: none;
-		font-family: inherit;
-		font-size: inherit;
-		line-height: inherit;
-		box-sizing: border-box;
-		overflow-y: scroll;
-		white-space: pre;
-		background-color: var(--editor-bg-color);
-		color: var(--editor-code-color);
-	} */
 
 	.editor-container {
 		position: relative;
