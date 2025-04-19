@@ -1,8 +1,9 @@
 import logging
 import os
+import pathlib
 
 from tornado.ioloop import IOLoop
-from tornado.web import Application, RequestHandler
+from tornado.web import Application, RequestHandler, StaticFileHandler
 
 from structures.out.json import structure_solution_to_json
 from structures.out.text import structure_solution_to_string
@@ -19,6 +20,15 @@ MIME_WHATEVER = "*/*"
 # Environment configuration
 DEV_MODE = os.environ.get("DEV_MODE", "false").lower() == "true"
 
+# Path to static files (compiled Svelte app)
+STATIC_PATH = (
+    pathlib.Path(__file__).parent.parent / "frontend" / "build"
+    if DEV_MODE
+    else pathlib.Path(__file__).parent / "static"
+)
+
+print(STATIC_PATH)
+
 
 class CORSMixin:
     def set_cors_headers(self):
@@ -31,7 +41,7 @@ class SolveHandler(CORSMixin, RequestHandler):
         self.set_cors_headers()
 
         body = self.request.body.decode("utf-8")
-        accept = self.request.headers["Accept"]
+        accept = self.request.headers.get("Accept", MIME_WHATEVER)
 
         if accept == MIME_TXT:
             wants_text = True
@@ -45,6 +55,7 @@ class SolveHandler(CORSMixin, RequestHandler):
                     "availableFormats": [MIME_JSON, MIME_TXT],
                 }
             )
+            return
 
         try:
             structure = parse_structure(body)
@@ -81,6 +92,21 @@ class SolveHandler(CORSMixin, RequestHandler):
             self.write(solution_json)
 
 
+class IndexFallbackHandler(StaticFileHandler):
+    def initialize(self, path, default_filename=None):
+        super().initialize(path, default_filename)
+        self.root = path
+        self.default_filename = default_filename
+
+    def get(self, path, include_body=True):
+        # First try to serve the exact file requested
+        try:
+            return super().get(path, include_body)
+        except Exception:
+            # If that fails, serve the index.html file
+            return super().get("index.html", include_body)
+
+
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO,
@@ -92,7 +118,22 @@ if __name__ == "__main__":
     else:
         logging.info("Running in production mode - only same-origin requests allowed")
 
-    app = Application([(r"/solve", SolveHandler)])
+    # Create the static directory if it doesn't exist
+    os.makedirs(STATIC_PATH, exist_ok=True)
+
+    # Setup the application routes
+    app = Application(
+        [
+            (r"/solve", SolveHandler),
+            # Serve the Svelte app static files
+            (
+                r"/(.*)",
+                IndexFallbackHandler,
+                {"path": str(STATIC_PATH), "default_filename": "index.html"},
+            ),
+        ]
+    )
+
     port = 8080
     app.listen(port)
     logging.info(f"Server started on port {port}")

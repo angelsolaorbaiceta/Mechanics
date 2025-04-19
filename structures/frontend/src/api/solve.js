@@ -1,4 +1,5 @@
-const API_HOST = 'http://localhost:8080'
+// Use relative URL in production, localhost in development
+const API_HOST = import.meta.env.PROD ? '' : 'http://localhost:8080'
 
 export async function solveStructure(lines) {
 	const response = await fetch(`${API_HOST}/solve`, {
