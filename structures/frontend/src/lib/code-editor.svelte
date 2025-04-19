@@ -8,7 +8,6 @@
 	let lineCount = $derived(lines.length)
 	let lineNumbers = $derived(Array.from({ length: lineCount }, (_, i) => i + 1))
 	let errorsByLine = $derived(new Map(errors.map((error) => [error.line, error])))
-	$inspect(errorsByLine)
 
 	let highlightedLines = $derived(highlightCode(lines))
 
@@ -19,9 +18,9 @@
 
 <div class="container">
 	<div class="line-numbers">
-		{#each lineNumbers as number (number)}
+		{#each lineNumbers as number}
 			{@const hasError = errorsByLine.has(number)}
-			<span data-line={number} class={hasError ? 'has-error' : ''}>{number}</span>
+			<span data-line={number} class={hasError ? 'linenum-has-error' : ''}>{number}</span>
 		{/each}
 	</div>
 
@@ -29,19 +28,17 @@
 		<textarea bind:value={content} class="editor" spellcheck="false" wrap="off"></textarea>
 
 		<div class="highlight-layer" aria-hidden="true">
-			{#each highlightedLines as line}
-				<div class="code-line">{@html line}</div>
+			{#each highlightedLines as line, i}
+				{@const error = errorsByLine.get(i + 1)}
+				<div class={`code-line ${error ? 'has-error' : ''}`}>
+					{@html line}
+					{#if error}
+						<span class="error-msg">{error.message}</span>
+					{/if}
+				</div>
 			{/each}
 		</div>
 	</div>
-
-	<!-- {#each errors as error}
-		{@const { top } = document.querySelector(`[data-line="${error.line}"]`).getBoundingClientRect()}
-		{@const { right } = container.getBoundingClientRect()}
-		<div class="error-msg" style={`top: ${top}px; left: ${right + 10}px`}>
-			{error.message}
-		</div>
-	{/each} -->
 </div>
 
 <style>
@@ -61,10 +58,9 @@
 		box-sizing: border-box;
 		overflow-y: hidden;
 		min-width: 40px;
-
-		> .has-error {
-			color: var(--editor-error-color);
-		}
+	}
+	.linenum-has-error {
+		color: var(--editor-error-color);
 	}
 
 	.line-numbers > span {
@@ -118,13 +114,16 @@
 		white-space: pre;
 	}
 
-	.error-msg {
-		position: absolute;
-		font-family: 'DM Sans', sans-serif;
-		padding: 0.5em 1em;
+	.has-error {
 		color: var(--editor-error-color);
 		background-color: var(--editor-bg-error-color);
-		height: calc(14px * 1.5); /* Match font-size * line-height */
-		z-index: 1000;
+	}
+	.error-msg {
+		font-family: 'DM Sans', sans-serif;
+		font-style: italic;
+		margin: 0 1em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>
