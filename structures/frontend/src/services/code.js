@@ -1,5 +1,5 @@
 const commentLineRe = /^\s*#.*$/g
-const headerLineRe = /^\s*nodes|loads|bars\s*$/g
+const headerLineRe = /^\s*(nodes|loads|bars)\s*$/i
 
 export function highlightCode(lines) {
 	const result = []

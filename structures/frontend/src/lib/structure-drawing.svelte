@@ -14,6 +14,9 @@
 			const { meta } = solution
 			appearance.solution.scale = meta.displacement.suggestedScale
 			appearance.solution.reactionsScale = meta.reaction.suggestedScale
+		} else {
+			appearance.structure.opacity = 1.0
+			appearance.loads.show = true
 		}
 	})
 
@@ -110,12 +113,9 @@
 			<g id="definition-drawing" style={`opacity: ${appearance.structure.opacity}`}>
 				<g class="geometry">
 					{#each structure.bars as bar}
-						<line
-							x1={structure.nodesById.get(bar.startNodeId).pos.x}
-							y1={structure.nodesById.get(bar.startNodeId).pos.y}
-							x2={structure.nodesById.get(bar.endNodeId).pos.x}
-							y2={structure.nodesById.get(bar.endNodeId).pos.y}
-						/>
+						{@const start = structure.nodesById.get(bar.startNodeId)}
+						{@const end = structure.nodesById.get(bar.endNodeId)}
+						<line x1={start.pos.x} y1={start.pos.y} x2={end.pos.x} y2={end.pos.y} />
 					{/each}
 					{#each structure.nodes as node}
 						<circle cx={node.pos.x} cy={node.pos.y} r={appearance.structure.nodeRadius} />

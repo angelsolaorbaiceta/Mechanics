@@ -1,7 +1,7 @@
-const nodesHeaderRe = /^nodes|NODES$/
-const loadsHeaderRe = /^loads|LOADS$/
-const barsHeaderRe = /^bars|BARS$/
-const commentRe = /^#.*$/
+const nodesHeaderRe = /^\s*nodes\s*$/i
+const loadsHeaderRe = /^\s*loads\s*$/i
+const barsHeaderRe = /^\s*bars\s*$/i
+const commentRe = /^\s*#.*$/
 const nodeRe = /(?<id>\d+)\s*:\s*\((?<pos>[\d\s\\.,\\-]+)\)\s*\((?<ec>[xy]{0,2})\)/
 const barRe =
 	/(?<id>\d+)\s*:\s*\((?<startId>\d+)\s*->\s*(?<endId>\d+)\)\s*(?<sec>[\d\\.]+)\s+(?<young>[\d\\.]+)/
