@@ -11,6 +11,11 @@
 	--editor-linenum-color: #858585;
 	--editor-error-color: #dc3232;
 	--editor-bg-error-color: color-mix(in srgb, var(--editor-error-color) 45%, black);
+	--code-comment-color: #808080;
+	--code-header-color: #4da1e2;
+	--code-id-color: #b97fe8;
+	--code-xdir-color: #e65f5f;
+	--code-ydir-color: #79e196;
 	/* Canvas */
 	--canvas-bg-color: #252526;
 	--geometry-color: #e3e3e3;
@@ -46,4 +51,25 @@ label {
 	flex-direction: column;
 	font-size: small;
 	font-style: italic;
+}
+
+.codeh {
+	font-family: monospace;
+}
+.codeh.comment {
+	font-style: italic;
+	color: var(--code-comment-color);
+}
+.codeh.header {
+	font-weight: bold;
+	color: var(--code-header-color);
+}
+.codeh.id {
+	color: var(--code-id-color);
+}
+.codeh.xdir {
+	color: var(--code-xdir-color);
+}
+.codeh.ydir {
+	color: var(--code-ydir-color);
 }

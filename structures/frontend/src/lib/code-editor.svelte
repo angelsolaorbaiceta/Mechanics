@@ -1,5 +1,6 @@
 <script>
 	import { debounce } from '../services/utils.js'
+	import { highlightCode } from '../services/code.js'
 
 	let { lines = $bindable(), errors } = $props()
 
@@ -9,11 +10,15 @@
 	let errorsByLine = $derived(new Map(errors.map((error) => [error.line, error])))
 	$inspect(errorsByLine)
 
+	let highlightedLines = $derived(highlightCode(lines))
+
 	$effect(() => {
 		lines = content.split('\n')
 	})
 
 	let container = $state(null)
+	let editor = $state(null)
+	let highlightLayer = $state(null)
 </script>
 
 <div class="container" bind:this={container}>
@@ -23,7 +28,17 @@
 			<span data-line={number} class={hasError ? 'has-error' : ''}>{number}</span>
 		{/each}
 	</div>
-	<textarea bind:value={content} class="text-area" spellcheck="false" wrap="off"></textarea>
+
+	<div class="editor-container">
+		<textarea bind:value={content} bind:this={editor} class="editor" spellcheck="false" wrap="off"
+		></textarea>
+
+		<div bind:this={highlightLayer} class="highlight-layer" aria-hidden="true">
+			{#each highlightedLines as line}
+				<div class="code-line">{@html line}</div>
+			{/each}
+		</div>
+	</div>
 
 	{#each errors as error}
 		{@const { top } = document.querySelector(`[data-line="${error.line}"]`).getBoundingClientRect()}
@@ -63,7 +78,7 @@
 		box-sizing: border-box;
 	}
 
-	.text-area {
+	/* .editor {
 		flex-grow: 1;
 		padding: 20px 10px;
 		border: none;
@@ -77,6 +92,51 @@
 		white-space: pre;
 		background-color: var(--editor-bg-color);
 		color: var(--editor-code-color);
+	} */
+
+	.editor-container {
+		position: relative;
+		flex: 1;
+		overflow: hidden;
+	}
+
+	.editor,
+	.highlight-layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 20px 0 0 10px;
+		font-family: monospace;
+		font-size: 14px;
+		line-height: 1.5;
+		overflow: auto;
+	}
+
+	.editor {
+		border: none;
+		outline: none;
+		resize: none;
+		color: transparent;
+		background: transparent;
+		caret-color: var(--editor-code-color);
+		resize: none;
+		z-index: 2;
+	}
+
+	.highlight-layer {
+		pointer-events: none;
+		z-index: 1;
+		background-color: var(--editor-bg-color);
+		color: var(--editor-code-color);
+		white-space: pre;
+	}
+
+	.code-line {
+		min-height: 1.5em; /* Match line-height */
+		white-space: pre;
 	}
 
 	.error-msg {
