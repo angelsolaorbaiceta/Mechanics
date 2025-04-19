@@ -1,11 +1,63 @@
 <script>
+	import { onDestroy } from 'svelte'
+
 	let { isOpen = $bindable(), anchorElement, children, id } = $props()
+	let closeTimer
+	let popoverElement
 
 	function handleClickOutside(event) {
 		if (isOpen && !event.target.closest('.popover-container')) {
 			isOpen = false
 		}
 	}
+
+	function startCloseTimer() {
+		clearTimeout(closeTimer)
+		closeTimer = setTimeout(() => {
+			isOpen = false
+		}, 1000)
+	}
+
+	function cancelCloseTimer() {
+		clearTimeout(closeTimer)
+	}
+
+	function handleMouseLeave() {
+		startCloseTimer()
+	}
+
+	function handleMouseEnter() {
+		cancelCloseTimer()
+	}
+
+	$effect(() => {
+		if (isOpen && anchorElement) {
+			anchorElement.addEventListener('mouseleave', handleMouseLeave)
+			anchorElement.addEventListener('mouseenter', handleMouseEnter)
+		}
+
+		return () => {
+			if (anchorElement) {
+				anchorElement.removeEventListener('mouseleave', handleMouseLeave)
+				anchorElement.removeEventListener('mouseenter', handleMouseEnter)
+			}
+		}
+	})
+
+	$effect(() => {
+		if (!isOpen) {
+			cancelCloseTimer()
+		}
+	})
+
+	// Clean up any timers when component is destroyed
+	onDestroy(() => {
+		cancelCloseTimer()
+		if (anchorElement) {
+			anchorElement.removeEventListener('mouseleave', handleMouseLeave)
+			anchorElement.removeEventListener('mouseenter', handleMouseEnter)
+		}
+	})
 
 	// Position the popover based on anchor element
 	function getPositionStyles() {
@@ -21,7 +73,16 @@
 <svelte:window on:click={handleClickOutside} />
 
 {#if isOpen}
-	<div class="popover-container" style={getPositionStyles()} role="dialog" aria-modal="true" {id}>
+	<div
+		class="popover-container"
+		style={getPositionStyles()}
+		role="dialog"
+		aria-modal="true"
+		{id}
+		bind:this={popoverElement}
+		on:mouseenter={handleMouseEnter}
+		on:mouseleave={handleMouseLeave}
+	>
 		{@render children()}
 	</div>
 {/if}

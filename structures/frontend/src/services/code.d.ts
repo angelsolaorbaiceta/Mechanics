@@ -1,1 +1,1 @@
-export function highlightCode(lines: any): string[];
+export function highlightCode(lines: any): string[]

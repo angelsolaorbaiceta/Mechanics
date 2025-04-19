@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-static'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,6 +11,6 @@ const config = {
 			fallback: 'index.html'
 		})
 	}
-};
+}
 
-export default config;
+export default config
