@@ -3,6 +3,7 @@
 	import SolutionDrawing from './solution-drawing.svelte'
 	import Popover from './popover.svelte'
 	import BarResults from './bar-results.svelte'
+	import DrawingControls from './drawing-controls.svelte'
 
 	let { structure, solution } = $props()
 
@@ -52,19 +53,6 @@
 			reactionsScale: appearance.solution.reactionsScale
 		})
 	)
-
-	const lenghtUnits = [
-		{ value: 'cm', label: 'cm' },
-		{ value: 'm', label: 'm' },
-		{ value: 'in', label: 'in' },
-		{ value: 'ft', label: 'ft' }
-	]
-	const forceUnits = [
-		{ value: 'N', label: 'N' },
-		{ value: 'kN', label: 'kN' },
-		{ value: 'lbf', label: 'lbf' },
-		{ value: 'kips', label: 'kips' }
-	]
 
 	let isSolutionPopoverOpen = $state(false)
 	let solutionPopoverAnchor = $state(null)
@@ -171,108 +159,7 @@
 		<BarResults bar={solutionPopoverBar} units={appearance.units} />
 	</Popover>
 
-	<footer>
-		<section>
-			<h3>Structure</h3>
-			<label for="structure-scale">
-				Scale:
-				<div>
-					<button>-</button>
-					<input
-						type="number"
-						id="structure-scale"
-						bind:value={appearance.structure.scale}
-						min="0.000001"
-						max="100000"
-						step="0.1"
-					/>
-					<button>+</button>
-				</div>
-			</label>
-			<label for="structure-opacity">
-				Opacity ({appearance.structure.opacity * 100}%):
-				<input
-					type="range"
-					id="structure-opacity"
-					min="0.0"
-					max="1.0"
-					step="0.1"
-					bind:value={appearance.structure.opacity}
-				/>
-			</label>
-		</section>
-
-		<div class="vertical-separator"></div>
-
-		<section>
-			<h3>Loads</h3>
-			<label for="loads-scale">
-				Scale:
-				<input
-					type="number"
-					id="loads-scale"
-					bind:value={appearance.loads.scale}
-					min="0.00001"
-					max="1000"
-					step="0.1"
-				/>
-			</label>
-			<label for="show-loads">
-				Show:
-				<input type="checkbox" id="show-loads" bind:checked={appearance.loads.show} />
-			</label>
-		</section>
-
-		<div class="vertical-separator"></div>
-
-		<section>
-			<h3>Units</h3>
-			<label for="length-units">
-				Length:
-				<select id="length-units" bind:value={appearance.units.length}>
-					{#each lenghtUnits as units}
-						<option value={units.value}>{units.label}</option>
-					{/each}
-				</select>
-			</label>
-			<label for="force-units">
-				Force:
-				<select id="force-units" bind:value={appearance.units.force}>
-					{#each forceUnits as units}
-						<option value={units.value}>{units.label}</option>
-					{/each}
-				</select>
-			</label>
-		</section>
-
-		<div class="vertical-separator"></div>
-
-		<section>
-			<h3>Solution</h3>
-			<label for="solution-scale">
-				Disp. scale:
-				<input
-					type="number"
-					id="solution-scale"
-					bind:value={appearance.solution.scale}
-					min="1"
-					max="10000"
-					step="5"
-				/>
-			</label>
-			<label for="reactions-scale">
-				Reactions scale:
-				<input
-					type="number"
-					id="reactions-scale"
-					bind:value={appearance.solution.reactionsScale}
-					min="0.000001"
-					max="1000"
-					step="0.001"
-				/>
-			</label>
-		</section>
-	</footer>
+	<DrawingControls bind:appearance />
 </div>
 
 <style>
@@ -302,26 +189,6 @@
 		font: 13px sans-serif;
 	}
 
-	footer {
-		background-color: var(--editor-bg-color);
-		border-top: 1px solid var(--separator-line-color);
-		padding: 1.5em 2em;
-		display: flex;
-		justify-content: space-around;
-
-		> section {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-			> h3 {
-				margin: 0;
-			}
-		}
-	}
-	.vertical-separator {
-		width: 0;
-		border-right: 1px dashed white;
-	}
 	#definition-drawing {
 		transition: opacity 150ms ease-in-out;
 	}
