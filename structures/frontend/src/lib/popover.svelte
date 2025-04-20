@@ -3,7 +3,6 @@
 
 	let { isOpen = $bindable(), anchorElement, children, id } = $props()
 	let closeTimer
-	let popoverElement
 
 	function handleClickOutside(event) {
 		if (isOpen && !event.target.closest('.popover-container')) {

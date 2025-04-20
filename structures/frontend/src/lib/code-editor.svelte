@@ -1,7 +1,7 @@
 <script>
 	import { highlightCode } from '../services/code.js'
 
-	let { lines = $bindable(), errors } = $props()
+	let { lines = $bindable(), errors, onShowHelp } = $props()
 
 	let content = $derived(lines.join('\n'))
 	let lineCount = $derived(lines.length)
@@ -16,6 +16,24 @@
 </script>
 
 <div class="container">
+	<button id="help-button" title="Show help" aria-label="show help" onclick={onShowHelp}>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			width="24px"
+			height="24px"
+			stroke-width="1.5"
+			stroke="white"
+			class="size-6"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+			/>
+		</svg>
+	</button>
 	<div class="line-numbers">
 		{#each lineNumbers as number}
 			{@const hasError = errorsByLine.has(number)}
@@ -42,10 +60,22 @@
 
 <style>
 	.container {
+		position: relative;
 		display: flex;
 		font-family: monospace;
 		font-size: 14px;
 		line-height: 1.5;
+	}
+
+	#help-button {
+		position: absolute;
+		right: 16px;
+		top: 16px;
+		z-index: 999;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
 	}
 
 	.line-numbers {

@@ -1,8 +1,9 @@
 <script>
-	import { Resizer, ResizableColumn, CodeEditor, StructureDrawing } from '../lib'
+	import { fade } from 'svelte/transition'
+	import { Resizer, ResizableColumn, CodeEditor, StructureDrawing, HelpModal } from '../lib'
 	import { parseStructure } from '../services/parse.js'
 	import { solveStructure } from '../services/solve.js'
-	import { debounce, hash } from '../services/utils.js'
+	import { debounce } from '../services/utils.js'
 
 	let lines = $state([
 		'# Warren truss with 20 spans',
@@ -188,25 +189,37 @@
 	}, 500)
 	$effect(() => debouceParse(lines))
 
+	let showHelp = $state(false)
+
+	let isLoading = $state(false)
 	async function handleSolveStructure() {
 		// TODO: try-catch errors
+		isLoading = true
 		solution = await solveStructure(structure, lines)
+
+		setTimeout(() => {
+			isLoading = false
+		}, 500)
 	}
 </script>
 
 <header>
 	<h2>2D Truss Structures</h2>
-	<button onclick={handleSolveStructure}>Calculate</button>
+	<button onclick={handleSolveStructure} disabled={isLoading}>Calculate</button>
 </header>
 <main>
 	<ResizableColumn widthPercentage="25">
-		<CodeEditor bind:lines {errors} />
+		<CodeEditor bind:lines {errors} onShowHelp={() => (showHelp = true)} />
 	</ResizableColumn>
 	<Resizer />
 	<ResizableColumn widthPercentage="75">
 		<StructureDrawing {structure} {solution} />
 	</ResizableColumn>
 </main>
+
+{#if showHelp}
+	<HelpModal onClose={() => (showHelp = false)} />
+{/if}
 
 <style>
 	header {

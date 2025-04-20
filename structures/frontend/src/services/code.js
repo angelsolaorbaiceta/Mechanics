@@ -2,29 +2,24 @@ const commentLineRe = /^\s*#.*$/g
 const headerLineRe = /^\s*(nodes|loads|bars)\s*$/i
 
 export function highlightCode(lines) {
-	const result = []
+	return lines.map((line) => highlightLine(line))
+}
 
-	for (const line of lines) {
-		if (line.match(commentLineRe)) {
-			result.push(span(line, ['comment']))
-			continue
-		}
-
-		if (line.match(headerLineRe)) {
-			result.push(span(line, ['header']))
-			continue
-		}
-
-		const tokens = tokenizeNode(line) || tokenizeLoad(line) || tokenizeBar(line)
-		if (tokens !== null) {
-			result.push(tokens.map(({ type, text }) => span(text, [type])).join(''))
-			continue
-		}
-
-		result.push(span(line))
+export function highlightLine(line) {
+	if (line.match(commentLineRe)) {
+		return span(line, ['comment'])
 	}
 
-	return result
+	if (line.match(headerLineRe)) {
+		return span(line, ['header'])
+	}
+
+	const tokens = tokenizeNode(line) || tokenizeLoad(line) || tokenizeBar(line)
+	if (tokens !== null) {
+		return tokens.map(({ type, text }) => span(text, [type])).join('')
+	}
+
+	return span(line)
 }
 
 function span(content, classes = []) {
