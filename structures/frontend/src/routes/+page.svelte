@@ -1,6 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition'
-	import { Resizer, ResizableColumn, CodeEditor, StructureDrawing, HelpModal } from '../lib'
+	import { ResizableColumns, CodeEditor, StructureDrawing, HelpModal } from '../lib'
 	import { parseStructure } from '../services/parse.js'
 	import { solveStructure } from '../services/solve.js'
 	import { debounce } from '../services/utils.js'
@@ -208,13 +207,14 @@
 	<button onclick={handleSolveStructure} disabled={isLoading}>Calculate</button>
 </header>
 <main>
-	<ResizableColumn widthPercentage="25">
-		<CodeEditor bind:lines {errors} onShowHelp={() => (showHelp = true)} />
-	</ResizableColumn>
-	<Resizer />
-	<ResizableColumn widthPercentage="75">
-		<StructureDrawing {structure} {solution} />
-	</ResizableColumn>
+	<ResizableColumns>
+		{#snippet left()}
+			<CodeEditor bind:lines {errors} onShowHelp={() => (showHelp = true)} />
+		{/snippet}
+		{#snippet right()}
+			<StructureDrawing {structure} {solution} />
+		{/snippet}
+	</ResizableColumns>
 </main>
 
 {#if showHelp}

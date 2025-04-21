@@ -78,7 +78,6 @@
 		role="dialog"
 		aria-modal="true"
 		{id}
-		bind:this={popoverElement}
 		on:mouseenter={handleMouseEnter}
 		on:mouseleave={handleMouseLeave}
 	>
