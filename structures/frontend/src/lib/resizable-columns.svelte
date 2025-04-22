@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte'
+
 	let { left, right } = $props()
 
 	const minWidth = 300
@@ -11,6 +13,15 @@
 	let isResizing = $state(false)
 	let startMouseX = $state(0)
 	let startPosition = $state(0)
+
+	function setSafePosition(pos) {
+		const maxPosition = containerEl.clientWidth - minWidth
+		position = Math.min(maxPosition, Math.max(minWidth, pos))
+	}
+
+	onMount(() => {
+		setSafePosition(Math.round(containerEl.clientWidth * 0.25))
+	})
 
 	$effect(() => {
 		if (leftEl) {
@@ -29,9 +40,8 @@
 	function resize(event) {
 		if (!isResizing) return
 
-		const maxPosition = containerEl.clientWidth - minWidth
 		const dx = event.clientX - startMouseX
-		position = Math.min(maxPosition, Math.max(minWidth, startPosition + dx))
+		setSafePosition(startPosition + dx)
 	}
 
 	function endResize() {
