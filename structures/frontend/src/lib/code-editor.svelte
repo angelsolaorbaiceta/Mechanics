@@ -101,7 +101,8 @@
 	.editor-container {
 		position: relative;
 		flex: 1;
-		overflow: hidden;
+		overflow-y: hidden;
+		overflow-x: auto;
 	}
 
 	.editor,

@@ -5,6 +5,7 @@
 	import BarResults from './bar-results.svelte'
 	import DrawingControls from './drawing-controls.svelte'
 	import NodeDrawing from './node-drawing.svelte'
+	import BarDrawing from './bar-drawing.svelte'
 
 	let { structure, solution } = $props()
 	$inspect(structure)
@@ -103,9 +104,7 @@
 			<g id="definition-drawing" style={`opacity: ${appearance.structure.opacity}`}>
 				<g class="geometry">
 					{#each structure.bars as bar}
-						{@const start = structure.nodesById.get(bar.startNodeId)}
-						{@const end = structure.nodesById.get(bar.endNodeId)}
-						<line x1={start.pos.x} y1={start.pos.y} x2={end.pos.x} y2={end.pos.y} />
+						<BarDrawing {bar} nodesById={structure.nodesById} showLabels={appearance.labels.show} />
 					{/each}
 
 					{#each structure.nodes as node}

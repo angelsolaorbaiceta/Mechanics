@@ -1,6 +1,5 @@
 # TODO
 
-- Labels to the bars
 - Labels to the loads
 - General CSS improvements
 - Scaling problem
