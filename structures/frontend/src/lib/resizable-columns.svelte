@@ -92,7 +92,7 @@
 		top: 0;
 		left: 50%;
 		height: 100%;
-		border-left: 2px dashed #666;
+		border-left: 2px dashed var(--editor-bg-color);
 		transform: translateX(-50%);
 		opacity: 0;
 		transition: opacity 0.2s;

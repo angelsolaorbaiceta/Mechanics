@@ -4,8 +4,10 @@
 	import Popover from './popover.svelte'
 	import BarResults from './bar-results.svelte'
 	import DrawingControls from './drawing-controls.svelte'
+	import NodeDrawing from './node-drawing.svelte'
 
 	let { structure, solution } = $props()
+	$inspect(structure)
 
 	$effect(() => {
 		if (solution !== null) {
@@ -105,19 +107,13 @@
 						{@const end = structure.nodesById.get(bar.endNodeId)}
 						<line x1={start.pos.x} y1={start.pos.y} x2={end.pos.x} y2={end.pos.y} />
 					{/each}
+
 					{#each structure.nodes as node}
-						<circle cx={node.pos.x} cy={node.pos.y} r={appearance.structure.nodeRadius} />
-						{#if appearance.labels.show}
-							<text
-								transform="scale(1 -1)"
-								x={node.pos.x}
-								y={-node.pos.y + 4 * appearance.structure.nodeRadius}
-								class="small"
-							>
-								N{node.id}
-							</text>
-						{/if}
-						{#if node.isXYConstraint()}{/if}
+						<NodeDrawing
+							{node}
+							radius={appearance.structure.nodeRadius}
+							showLabels={appearance.labels.show}
+						/>
 					{/each}
 				</g>
 
@@ -182,11 +178,6 @@
 		stroke: var(--loads-color);
 		fill: none;
 		stroke-width: var(--loads-stroke-width);
-	}
-	.small {
-		stroke: none;
-		fill: var(--text-color);
-		font: 13px sans-serif;
 	}
 
 	#definition-drawing {

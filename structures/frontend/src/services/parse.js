@@ -120,10 +120,10 @@ function parseNode(line) {
 			y: ec.includes('y')
 		},
 		isXConstraint() {
-			return this.const.x && !this.const.y
+			return this.const.x
 		},
 		isYConstraint() {
-			return !this.const.x && this.const.y
+			return this.const.y
 		},
 		isXYConstraint() {
 			return this.const.x && this.const.y

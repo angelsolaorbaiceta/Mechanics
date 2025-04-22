@@ -20,6 +20,8 @@
 	--canvas-bg-color: #252526;
 	--geometry-color: #e3e3e3;
 	--geometry-stroke-width: 2px;
+	--constraint-stroke-width: 3px;
+	--drawing-text-color: #b97fe8;
 	--loads-color: #dec62f;
 	--loads-stroke-width: 3px;
 	--solution-stroke-width: 3px;
