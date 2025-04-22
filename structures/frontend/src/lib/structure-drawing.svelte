@@ -6,9 +6,10 @@
 	import DrawingControls from './drawing-controls.svelte'
 	import NodeDrawing from './node-drawing.svelte'
 	import BarDrawing from './bar-drawing.svelte'
+	import { appState } from '../lib/state.svelte.js'
 
-	let { structure, solution } = $props()
-	$inspect(structure)
+	let structure = $derived(appState.structure)
+	let solution = $derived(appState.solution)
 
 	$effect(() => {
 		if (solution !== null) {

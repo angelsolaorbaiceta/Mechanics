@@ -1,17 +1,20 @@
 <script>
 	import { highlightCode } from '../services/code.js'
+	import { appState, debouceParse } from '../lib/state.svelte.js'
 
-	let { lines = $bindable(), errors, onShowHelp } = $props()
+	let { onShowHelp } = $props()
 
-	let content = $derived(lines.join('\n'))
-	let lineCount = $derived(lines.length)
+	$effect(() => debouceParse(appState.lines))
+
+	let content = $derived(appState.lines.join('\n'))
+	let lineCount = $derived(appState.lines.length)
 	let lineNumbers = $derived(Array.from({ length: lineCount }, (_, i) => i + 1))
-	let errorsByLine = $derived(new Map(errors.map((error) => [error.line, error])))
+	let errorsByLine = $derived(new Map(appState.errors.map((error) => [error.line, error])))
 
-	let highlightedLines = $derived(highlightCode(lines))
+	let highlightedLines = $derived(highlightCode(appState.lines))
 
 	$effect(() => {
-		lines = content.split('\n')
+		appState.lines = content.split('\n')
 	})
 </script>
 
