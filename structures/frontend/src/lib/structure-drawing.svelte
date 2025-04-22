@@ -120,14 +120,31 @@
 					<g class="loads">
 						{#each structure.nodes as node}
 							{#each node.loads as load}
+								{@const tipX = node.pos.x + appearance.loads.scale * load.fx}
+								{@const tipY = node.pos.y + appearance.loads.scale * load.fy}
+
 								<line
 									x1={node.pos.x}
 									y1={node.pos.y}
-									x2={node.pos.x + appearance.loads.scale * load.fx}
-									y2={node.pos.y + appearance.loads.scale * load.fy}
+									x2={tipX}
+									y2={tipY}
 									stroke-linecap="round"
 									marker-end="url(#arrow)"
 								/>
+								{#if appearance.labels.show}
+									<text
+										x={tipX}
+										y={tipY}
+										class="load-label"
+										text-anchor="middle"
+										dominant-baseline="central"
+										transform-origin="center"
+										transform="scale(1 -1) translate(0 15)"
+									>
+										{Math.sqrt(load.fx ** 2 + load.fy ** 2).toFixed(2)}
+										{appearance.units.force}
+									</text>
+								{/if}
 							{/each}
 						{/each}
 					</g>
@@ -177,6 +194,12 @@
 		stroke: var(--loads-color);
 		fill: none;
 		stroke-width: var(--loads-stroke-width);
+	}
+	.load-label {
+		stroke: none;
+		transform-box: fill-box;
+		fill: var(--loads-color);
+		font: 13px sans-serif;
 	}
 
 	#definition-drawing {
