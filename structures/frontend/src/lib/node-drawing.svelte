@@ -27,10 +27,10 @@
 
 {#if showLabels}
 	<text
-		transform="scale(1 -1)"
-		x={node.pos.x + 2 * radius}
-		y={-node.pos.y + 4 * radius}
-		class="label"
+		x={node.pos.x}
+		y={node.pos.y}
+		transform={`scale(1 -1) translate(20 15)`}
+		class="svg-label label"
 	>
 		N{node.id}
 	</text>
@@ -38,9 +38,7 @@
 
 <style>
 	.label {
-		stroke: none;
 		fill: var(--drawing-text-color);
-		font: 13px sans-serif;
 	}
 	.constraint {
 		stroke-width: var(--constraint-stroke-width);

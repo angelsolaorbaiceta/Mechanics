@@ -200,3 +200,11 @@ export async function solveStructure() {
 		}, 500)
 	}
 }
+
+export function clearStructure() {
+	appState.lines = []
+	appState.structure = { nodes: [], bars: [] }
+	appState.errors = []
+	appState.solution = null
+	appState.isLoading = false
+}

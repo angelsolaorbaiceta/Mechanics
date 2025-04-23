@@ -9,24 +9,13 @@
 
 <line x1={start.pos.x} y1={start.pos.y} x2={end.pos.x} y2={end.pos.y} />
 {#if showLabels}
-	<text
-		class="label"
-		x={labelPos.cx}
-		y={labelPos.cy}
-		text-anchor="middle"
-		dominant-baseline="central"
-		transform-origin="center"
-		transform={labelPos.transform}
-	>
+	<text class="svg-label label" x={labelPos.cx} y={labelPos.cy} transform={labelPos.transform}>
 		B{bar.id}
 	</text>
 {/if}
 
 <style>
 	.label {
-		stroke: none;
-		transform-box: fill-box;
 		fill: var(--drawing-text-color);
-		font: 13px sans-serif;
 	}
 </style>

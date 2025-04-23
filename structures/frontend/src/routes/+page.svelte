@@ -1,13 +1,18 @@
 <script>
 	import { ResizableColumns, CodeEditor, StructureDrawing, HelpModal } from '../lib'
-	import { appState, solveStructure } from '../lib/state.svelte.js'
+	import { appState, solveStructure, clearStructure } from '../lib/state.svelte.js'
 
 	let showHelp = $state(false)
 </script>
 
 <header>
 	<h2>2D Truss Structures</h2>
-	<button onclick={solveStructure} disabled={appState.isLoading}>Calculate</button>
+	<div>
+		<button onclick={clearStructure} class="secondary">New</button>
+		<button onclick={solveStructure} disabled={appState.isLoading} class="primary">
+			Calculate
+		</button>
+	</div>
 </header>
 <main>
 	<ResizableColumns>
@@ -29,6 +34,7 @@
 		background-color: var(--main-color);
 		padding: 1em;
 		display: flex;
+		justify-content: space-between;
 
 		> h2 {
 			margin: 0;

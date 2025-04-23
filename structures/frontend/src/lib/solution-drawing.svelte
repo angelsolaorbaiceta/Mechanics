@@ -30,7 +30,7 @@
 			/>
 
 			<text
-				class={`label label-${bar.axial}`}
+				class={`svg-label label-${bar.axial}`}
 				x={cx}
 				y={cy}
 				text-anchor="middle"
@@ -59,14 +59,7 @@
 					stroke-linecap="round"
 					marker-end="url(#arrow)"
 				/>
-				<text
-					class="label label-reaction"
-					x={cx}
-					y={cy}
-					text-anchor="middle"
-					dominant-baseline="central"
-					transform-origin="center"
-					{transform}
+				<text class="label-reaction svg-label" x={cx} y={cy} {transform}
 					>{`R=${value.toFixed(3)} ${units.force}`}
 				</text>
 			{/if}
@@ -75,13 +68,6 @@
 </g>
 
 <style>
-	.label {
-		stroke: none;
-		transform-box: fill-box;
-		font-size: 12px;
-		user-select: none;
-	}
-
 	.tension {
 		stroke: var(--tension-bar-color);
 	}

@@ -136,10 +136,7 @@
 									<text
 										x={tipX}
 										y={tipY}
-										class="load-label"
-										text-anchor="middle"
-										dominant-baseline="central"
-										transform-origin="center"
+										class="svg-label load-label"
 										transform="scale(1 -1) translate(0 15)"
 									>
 										{Math.sqrt(load.fx ** 2 + load.fy ** 2).toFixed(2)}
@@ -197,10 +194,7 @@
 		stroke-width: var(--loads-stroke-width);
 	}
 	.load-label {
-		stroke: none;
-		transform-box: fill-box;
 		fill: var(--loads-color);
-		font: 13px sans-serif;
 	}
 
 	#definition-drawing {
