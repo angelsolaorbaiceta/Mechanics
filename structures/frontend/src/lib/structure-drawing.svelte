@@ -56,7 +56,8 @@
 			width={`${sizes.width}px`}
 			height={`${sizes.height}px`}
 			viewBox={`${sizes.left} ${sizes.top} ${sizes.width} ${sizes.height}`}
-			transform={`scale(${appearance.structure.scale} -${appearance.structure.scale})`}
+			transform={`scale(${appearance.structure.scale ?? 1} -${appearance.structure.scale ?? 1})`}
+			transform-origin="left"
 		>
 			<defs>
 				<marker
@@ -83,7 +84,7 @@
 			<g id="definition-drawing" style={`opacity: ${appearance.structure.opacity}`}>
 				<g class="geometry">
 					{#each structure.bars as bar}
-						<BarDrawing {bar} nodesById={structure.nodesById} showLabels={appearance.labels.show} />
+						<BarDrawing {bar} nodesById={structure.nodesById} />
 					{/each}
 
 					{#each structure.nodes as node}
@@ -161,6 +162,7 @@
 		width: 100%;
 		flex: 1;
 		overflow: auto;
+		padding-top: 5em;
 	}
 	.geometry {
 		stroke: var(--geometry-color);

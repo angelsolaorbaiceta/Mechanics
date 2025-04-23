@@ -12,6 +12,10 @@ export function debounce(fn, milliseconds) {
 	}
 }
 
+export function lengthBetween(a, b) {
+	return Math.sqrt((b.x - a.x) ** 2 + (b.y - a.y) ** 2)
+}
+
 export async function hash(obj) {
 	const str = JSON.stringify(obj, Object.keys(obj).sort())
 	console.log(str)
