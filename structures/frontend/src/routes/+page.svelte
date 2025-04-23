@@ -8,8 +8,8 @@
 <header>
 	<h2>2D Truss Structures</h2>
 	<div>
-		<button onclick={clearStructure} class="secondary">New</button>
-		<button onclick={solveStructure} disabled={appState.isLoading} class="primary">
+		<button onclick={clearStructure} class="button secondary">New</button>
+		<button onclick={solveStructure} disabled={appState.isLoading} class="button primary">
 			Calculate
 		</button>
 	</div>

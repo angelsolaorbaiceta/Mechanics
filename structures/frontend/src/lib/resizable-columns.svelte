@@ -70,6 +70,7 @@
 	.columns {
 		display: flex;
 		overflow: hidden;
+		width: 100%;
 	}
 	section {
 		overflow: auto;

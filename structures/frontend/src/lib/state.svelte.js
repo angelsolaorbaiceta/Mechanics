@@ -175,7 +175,30 @@ export const appState = $state({
 	structure: { nodes: [], bars: [] },
 	errors: [],
 	solution: null,
-	isLoading: false
+	isLoading: false,
+	appearance: {
+		units: {
+			force: 'N',
+			length: 'cm'
+		},
+		structure: {
+			margin: 50,
+			scale: 1,
+			nodeRadius: 5,
+			opacity: 1.0
+		},
+		loads: {
+			scale: 0.025,
+			show: true
+		},
+		solution: {
+			scale: 5,
+			reactionsScale: 0.0025
+		},
+		labels: {
+			show: true
+		}
+	}
 })
 
 export const debouceParse = debounce((lines) => {
@@ -202,7 +225,20 @@ export async function solveStructure() {
 }
 
 export function clearStructure() {
-	appState.lines = []
+	if (appState.lines.length > 0) {
+		// Check if at least there is one non-empty line that's not a comment
+		if (appState.lines.some((line) => line.trim() !== '' && !line.trim().startsWith('#'))) {
+			if (!confirm('Do you want to clear the current structure?')) {
+				return
+			}
+		}
+	}
+
+	appState.lines = [
+		'# Write your structure definition here ',
+		'# Use the (?) button to learn about the syntax',
+		''
+	]
 	appState.structure = { nodes: [], bars: [] }
 	appState.errors = []
 	appState.solution = null

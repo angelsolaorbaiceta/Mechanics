@@ -68,6 +68,7 @@
 		font-family: monospace;
 		font-size: 14px;
 		line-height: 1.5;
+		height: 100%;
 	}
 
 	#help-button {

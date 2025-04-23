@@ -224,15 +224,6 @@
 		This defines a triangular truss with a fixed support at the left bottom, a roller support at the
 		right bottom, and a vertical load applied at the top.
 	</p>
-
-	<h2>Best Practices</h2>
-	<ol>
-		<li>Use consistent units throughout your definition</li>
-		<li>Number nodes and bars sequentially for readability</li>
-		<li>Group related components with comments</li>
-		<li>For large structures, organize nodes by layers or functional groups</li>
-		<li>Include material constants in separate comments for clarity</li>
-	</ol>
 </article>
 
 <style>

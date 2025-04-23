@@ -2,6 +2,7 @@
 
 :root {
 	--main-color: #02a98d;
+	--accent-color: #0a684e;
 	--text-color: #e3e3e3;
 	--separator-line-color: #999;
 	/* Editor */
@@ -103,7 +104,8 @@ label {
 	color: var(--code-ydir-color);
 }
 
-button {
+button.button {
+	transition: background-color 200ms ease;
 	border-radius: 6px;
 	border: none;
 	box-sizing: border-box;
@@ -122,7 +124,6 @@ button {
 	white-space: nowrap;
 }
 button.primary {
-	transition: background-color 200ms ease;
 	background-color: var(--text-color);
 	color: color-mix(in srgb, var(--main-color) 60%, black);
 	font-weight: bold;
@@ -134,6 +135,15 @@ button.primary:hover {
 button.primary:disabled {
 	cursor: progress;
 	background-color: color-mix(in srgb, var(--main-color) 85%, black);
+}
+
+button.secondary {
+	background-color: var(--accent-color);
+	color: var(--text-color);
+}
+button.secondary:hover {
+	transition: background-color 200ms ease;
+	background-color: color-mix(in srgb, var(--accent-color) 85%, white);
 }
 
 input[type='text'],

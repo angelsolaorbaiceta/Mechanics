@@ -10,6 +10,7 @@
 
 	let structure = $derived(appState.structure)
 	let solution = $derived(appState.solution)
+	let appearance = $derived(appState.appearance)
 
 	$effect(() => {
 		if (solution !== null) {
@@ -25,29 +26,6 @@
 		}
 	})
 
-	let appearance = $state({
-		units: {
-			force: 'N',
-			length: 'cm'
-		},
-		structure: {
-			margin: 50,
-			scale: 1,
-			nodeRadius: 5,
-			opacity: 1.0
-		},
-		loads: {
-			scale: 0.025,
-			show: true
-		},
-		solution: {
-			scale: 5,
-			reactionsScale: 0.0025
-		},
-		labels: {
-			show: true
-		}
-	})
 	let sizes = $derived(
 		structureSVGSizes(structure, solution, {
 			margin: appearance.structure.margin,
