@@ -49,8 +49,9 @@ export function structureSVGSizes(
 		}
 	}
 
-	const width = scale * (maxX - minX) + 2 * margin
-	const height = scale * (maxY - minY) + 2 * margin
+	const width = maxX - minX + 2 * margin
+	const height = maxY - minY + 2 * margin
+	const h4 = height / 4
 
 	return {
 		width: width,
@@ -59,7 +60,9 @@ export function structureSVGSizes(
 		top: minY - margin,
 		margin,
 		x: [minX, maxX],
-		y: [minY, maxY]
+		y: [minY, maxY],
+		tx: 0,
+		ty: -h4 * (scale - 1)
 	}
 }
 

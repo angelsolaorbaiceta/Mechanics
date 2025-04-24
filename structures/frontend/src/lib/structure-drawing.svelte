@@ -56,7 +56,7 @@
 			width={`${sizes.width}px`}
 			height={`${sizes.height}px`}
 			viewBox={`${sizes.left} ${sizes.top} ${sizes.width} ${sizes.height}`}
-			transform={`scale(${appearance.structure.scale ?? 1} -${appearance.structure.scale ?? 1})`}
+			transform={`scale(${appearance.structure.scale ?? 1} -${appearance.structure.scale ?? 1}) translate(${sizes.tx} ${sizes.ty})`}
 			transform-origin="left"
 		>
 			<defs>
@@ -163,6 +163,10 @@
 		flex: 1;
 		overflow: auto;
 		padding-top: 5em;
+
+		> svg {
+			transition: transform 100ms ease;
+		}
 	}
 	.geometry {
 		stroke: var(--geometry-color);
