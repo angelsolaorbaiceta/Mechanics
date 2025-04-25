@@ -27,8 +27,6 @@ STATIC_PATH = (
     else pathlib.Path(__file__).parent / "static"
 )
 
-print(STATIC_PATH)
-
 
 class CORSMixin:
     def set_cors_headers(self):

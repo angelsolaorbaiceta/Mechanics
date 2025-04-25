@@ -9,7 +9,11 @@ export function structureSVGSizes(
 			height: 0,
 			top: 0,
 			left: 0,
-			margin
+			margin,
+			x: 0,
+			y: 0,
+			tx: 0,
+			ty: 0
 		}
 	}
 

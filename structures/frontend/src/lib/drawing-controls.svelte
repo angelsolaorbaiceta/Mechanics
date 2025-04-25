@@ -81,10 +81,10 @@
 			max="1000"
 			step="0.1"
 		/>
-		<label for="show-loads">
-			Show:
+		<div class="fields-row">
+			<label for="show-loads"> Show: </label>
 			<input type="checkbox" id="show-loads" bind:checked={appearance.loads.show} />
-		</label>
+		</div>
 	</section>
 
 	<div class="vertical-separator"></div>
@@ -128,5 +128,10 @@
 	.vertical-separator {
 		width: 0;
 		border-right: 1px dashed white;
+	}
+
+	.fields-row {
+		display: flex;
+		gap: 0.5em;
 	}
 </style>

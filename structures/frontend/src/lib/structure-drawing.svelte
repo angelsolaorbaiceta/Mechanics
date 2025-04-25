@@ -138,6 +138,13 @@
 				/>
 			{/if}
 		</svg>
+
+		<p class="banner">
+			What to build your own structure analysis app in Python? <a
+				href="https://www.hardcoreprogramming.dev/"
+				target="_blank">Check my book!</a
+			>
+		</p>
 	</div>
 
 	<Popover
@@ -158,6 +165,7 @@
 		height: 100%;
 	}
 	.viewport {
+		position: relative;
 		background-color: var(--canvas-bg-color);
 		width: 100%;
 		flex: 1;
@@ -183,5 +191,18 @@
 
 	#definition-drawing {
 		transition: opacity 150ms ease-in-out;
+	}
+
+	.banner {
+		position: absolute;
+		margin: 0;
+		bottom: 12px;
+		right: 12px;
+		font-size: 14px;
+		font-style: italic;
+
+		> a {
+			color: inherit;
+		}
 	}
 </style>
