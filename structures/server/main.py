@@ -100,8 +100,9 @@ class IndexFallbackHandler(StaticFileHandler):
         # First try to serve the exact file requested
         try:
             return super().get(path, include_body)
-        except Exception:
+        except Exception as e:
             # If that fails, serve the index.html file
+            logging.error(f"Error serving {path}: {str(e)}")
             return super().get("index.html", include_body)
 
 
@@ -116,8 +117,7 @@ if __name__ == "__main__":
     else:
         logging.info("Running in production mode - only same-origin requests allowed")
 
-    # Create the static directory if it doesn't exist
-    os.makedirs(STATIC_PATH, exist_ok=True)
+    logging.info(f"Serving static assets from: {STATIC_PATH}")
 
     # Setup the application routes
     app = Application(

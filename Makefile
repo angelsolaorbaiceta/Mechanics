@@ -2,7 +2,10 @@ struct.serve:
 	DEV_MODE=true poetry run python -m structures.server.main
 
 fe.serve:
-	npm run dev
+	cd structures/frontend && npm run dev
+
+fe.build:
+	cd structures/frontend && npm run build
 
 docker.build:
-	docker build -t hardcore-2dstructures:latest .
+	docker build -t asolaor/hardcore-2dstructures:0.2 .
