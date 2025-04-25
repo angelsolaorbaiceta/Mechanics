@@ -1,5 +1,5 @@
 <script>
-	let { value = $bindable(), id, min, max, step } = $props()
+	let { value = $bindable(), id, min, max, step, values } = $props()
 
 	function oom(num) {
 		if (num === 0) return 0
@@ -10,12 +10,24 @@
 		return Math.pow(10, exponent)
 	}
 
+	function useValues(value) {
+		return values && value > values[0] && value < values[values.length - 1]
+	}
+
 	function zoomIn() {
-		value += oom(value)
+		if (useValues(value)) {
+			value = values.find((val) => val > value)
+		} else {
+			value += oom(value)
+		}
 	}
 
 	function zoomOut() {
-		value -= oom(value)
+		if (useValues(value)) {
+			value = values.findLast((val) => val < value)
+		} else {
+			value -= oom(value)
+		}
 	}
 </script>
 

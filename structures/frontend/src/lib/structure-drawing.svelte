@@ -148,7 +148,7 @@
 		<BarResults bar={solutionPopoverBar} units={appearance.units} />
 	</Popover>
 
-	<DrawingControls bind:appearance />
+	<DrawingControls />
 </div>
 
 <style>

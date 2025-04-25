@@ -1,7 +1,13 @@
 <script>
 	import ScaleField from './scale-field.svelte'
+	import { appState } from './state.svelte.js'
 
-	let { appearance = $bindable() } = $props()
+	let appearance = $derived(appState.appearance)
+
+	const drawingScaleValues = [
+		0.01, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.25,
+		3.5, 3.75, 4.0
+	]
 
 	const lenghtUnits = [
 		{ value: 'cm', label: 'cm' },
@@ -48,6 +54,7 @@
 			min="0.000001"
 			max="100000"
 			step="0.1"
+			values={drawingScaleValues}
 		/>
 
 		<label for="structure-opacity">
