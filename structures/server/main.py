@@ -34,6 +34,20 @@ class CORSMixin:
             self.set_header("Access-Control-Allow-Origin", "*")
 
 
+class HealthCheckHandler(RequestHandler):
+    def get(self):
+        self.set_header("Content-Type", "application/json")
+
+        response = {
+            "status": "healthy",
+            "message": "Service is operational",
+            "timestamp": IOLoop.current().time(),
+        }
+
+        # Write the response with 200 status code
+        self.write(response)
+
+
 class SolveHandler(CORSMixin, RequestHandler):
     async def post(self):
         self.set_cors_headers()
@@ -122,6 +136,7 @@ if __name__ == "__main__":
     # Setup the application routes
     app = Application(
         [
+            (r"/health", HealthCheckHandler),
             (r"/solve", SolveHandler),
             # Serve the Svelte app static files
             (

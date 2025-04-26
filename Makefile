@@ -8,4 +8,4 @@ fe.build:
 	cd structures/frontend && npm run build
 
 docker.build:
-	docker build -t asolaor/hardcore-2dstructures:0.2 .
+	docker build -t asolaor/hardcore-2dstructures:0.3 .
