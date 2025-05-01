@@ -1,5 +1,8 @@
+setup:
+	uv pip install -r requirements-dev.txt
+
 struct.serve:
-	DEV_MODE=true poetry run python -m structures.server.main
+	DEV_MODE=true uv python -m structures.server.main
 
 fe.serve:
 	cd structures/frontend && npm run dev
