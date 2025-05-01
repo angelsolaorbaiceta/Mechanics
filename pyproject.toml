@@ -1,28 +1,27 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[project]
 name = "mechanics"
 version = "0.1.0"
 description = "Mechanics and structural analysis tools"
-authors = ["Angel Sola Orbaiceta <angelsolaorbaiceta@gmail.com>"]
+authors = [
+    {name = "Angel Sola Orbaiceta", email = "angelsolaorbaiceta@gmail.com"}
+]
 readme = "README.md"
-packages = [
-  { include = "structures" },
-  { include = "geom2d" },
-  { include = "eqs" },
-  { include = "graphic" },
-  { include = "utils" },
-  { include = "apps" },
+requires-python = ">=3.12"
+dependencies = [
+    "tornado>=6.4.2",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-tornado = "^6.4.2"
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.11.4",
+]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.4"
+[tool.hatch.build.targets.wheel]
+packages = ["structures", "geom2d", "eqs", "graphic", "utils", "apps"]
 
 [tool.ruff]
 line-length = 88

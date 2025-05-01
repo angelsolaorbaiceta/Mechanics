@@ -12,10 +12,9 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN pip install poetry==1.7.1
-COPY pyproject.toml poetry.lock* ./
-RUN poetry config virtualenvs.create false
-RUN poetry install --no-interaction --no-ansi --no-dev
+RUN pip install uv
+COPY pyproject.toml requirements.txt ./
+RUN uv pip install -r requirements.txt
 
 COPY structures/ ./structures/
 RUN find ./structures -type d \( -name tests -o -name __pycache__ \) -exec rm -rf {} +
